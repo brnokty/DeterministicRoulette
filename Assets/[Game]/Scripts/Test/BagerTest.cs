@@ -26,7 +26,7 @@ public class BagerTest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             Calculate();
         }
@@ -42,6 +42,8 @@ public class BagerTest : MonoBehaviour
         var targetAngle = index * (360f / wheelOrder.Length);
         var angleToSpin = targetAngle + wheelAngle;
 
+        print("target angle: " + targetAngle);
+        
         if (angleToSpin < 0)
         {
             angleToSpin += 360f;
