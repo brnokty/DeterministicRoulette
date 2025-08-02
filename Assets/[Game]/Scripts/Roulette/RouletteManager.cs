@@ -8,15 +8,13 @@ namespace Game.Roulette
 {
     public class RouletteManager : MonoBehaviour
     {
-        [Header("References")]
-        public RouletteController wheelController;
+        [Header("References")] public RuletGameManager rouletteController;
         public BetManager betManager;
         public UIManager uiManager;
         public int PlayerChips = 1000;
         public int LastWinningNumber = 0;
 
-        [Header("Settings")]
-        public int minBet = 10;
+        [Header("Settings")] public int minBet = 10;
         public int maxBet = 500;
 
         public void PlaceBet(BetType betType, int[] numbers, int amount)
@@ -35,11 +33,10 @@ namespace Game.Roulette
         public void Spin(int deterministicNumber = -1)
         {
             int result = (deterministicNumber >= 0 && deterministicNumber <= 36)
-                ? deterministicNumber
-                : Random.Range(0, 37);
+            ? deterministicNumber
+            : Random.Range(0, 37);
             LastWinningNumber = result;
-
-            StartCoroutine(wheelController.SpinRoulette(result, () => OnSpinComplete(result)));
+            rouletteController.StartSpin(deterministicNumber, () => OnSpinComplete(result));
         }
 
         private void OnSpinComplete(int winningNumber)
@@ -58,6 +55,7 @@ namespace Game.Roulette
                     win = true;
                 }
             }
+
             GameManager.Instance.statisticsManager.RecordSpin(win, profit);
 
             // Bahisleri sıfırla
@@ -79,8 +77,10 @@ namespace Game.Roulette
                     case BetType.SixLine: payout = bet.amount * 5; break;
                     // Diğer bet türleri için oranları ekle
                 }
+
                 return true;
             }
+
             // Outside bet logic ekle
             return false;
         }

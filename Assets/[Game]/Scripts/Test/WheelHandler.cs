@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class RuletController : MonoBehaviour
+public class WheelHandler : MonoBehaviour
 {
     public AnimationCurve easeCurve;
     private Coroutine spinCoroutine;
