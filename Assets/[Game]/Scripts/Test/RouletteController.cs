@@ -8,19 +8,18 @@ public class RouletteController : MonoBehaviour
     public Transform wheel;
     public Transform ball;
 
-    [Header("Wheel Spin")]
-    public float wheelSpinMin = 2.7f;
-    public float wheelSpinMax = 4.1f;
-    public int minWheelRounds = 5;
-    public int maxWheelRounds = 7;
+    [Header("Spin Settings")]
+    public float spinDuration = 3f;
+    public int minWheelTurns = 5;
+    public int maxWheelTurns = 8;
 
-    [Header("Ball Orbit")]
-    public float ballStartRadius = 0.325f;
+    [Header("Ball Movement")]
+    public float ballStartRadius = 0.35f;
     public float ballEndRadius = 0.29f;
-    public float ballBaseHeight = 0.05f;
-    public float ballBounceHeight = 0.02f;
+    public float ballHeight = 0.05f;
+    public int ballTurns = 12; // Ball kaç tur atacak
 
-    [Header("Wheel Segment Order")]
+    [Header("Wheel Order - BagerTest ile AYNI")]
     public int[] wheelOrder = new int[] {
         0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27,
         13, 36, 11, 30, 8, 23, 10, 5, 24,
@@ -28,92 +27,184 @@ public class RouletteController : MonoBehaviour
         29, 7, 28, 12, 35, 3, 26
     };
 
-    [Tooltip("Wheel'ın Z+ yönü (mavi ok) SAHNENDE tam hangi segmenti gösteriyorsa ona göre ayarla. 0:0, 1:32, 2:15, ...")]
-    public int upIndex = 0; 
-    [Tooltip("Segment ortasına/kenarına tam hizalamak için inspector'dan ayar yap. (Testte eksik geliyorsa segmentSize/2 ekle/çıkar!)")]
-    public float angleOffset = 0f;
+    [Header("Animation Curves")]
+    public AnimationCurve wheelSpinCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    public AnimationCurve ballSpinCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
-    public int SegmentCount => wheelOrder.Length;
+    [Header("Test & Debug")]
+    public int testWinningNumber = 15;
+    public int debugCount = 0;
+
+    // BagerTest mantığı için gerekli değişkenler
+    private Vector3 ballStartPosition;
+    private Vector3 wheelCenter;
+    private float segmentSize;
+
+    private void Start()
+    {
+        // BagerTest'teki Start mantığını kopyala
+        ballStartPosition = ball.position;
+        wheelCenter = wheel.position;
+        segmentSize = 360f / wheelOrder.Length;
+
+        Debug.Log($"[ROULETTE] Initialized - Ball Start: {ballStartPosition}, Wheel Center: {wheelCenter}");
+        Debug.Log($"[ROULETTE] Segment Size: {segmentSize} degrees, Total Segments: {wheelOrder.Length}");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log($"[ROULETTE] Starting spin for number: {testWinningNumber}");
+            StartCoroutine(SpinRoulette(testWinningNumber));
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Reset pozisyonu
+            ball.position = ballStartPosition;
+            wheel.localEulerAngles = Vector3.zero;
+            Debug.Log("[ROULETTE] Reset to initial positions");
+        }
+    }
 
     public IEnumerator SpinRoulette(int winningNumber, System.Action onComplete = null)
     {
-        StringBuilder dbg = new StringBuilder();
+        debugCount++;
+        
+        Debug.Log($"[ROULETTE-{debugCount}] ========== SPIN START ==========");
+        Debug.Log($"[ROULETTE-{debugCount}] Winning Number: {winningNumber}");
 
-        // BAŞLANGIÇ
-        wheel.localEulerAngles = Vector3.zero;
-        float wheelStartAngle = 0f;
+        // BagerTest'teki FindIndex mantığını kullan
+        int winIndex = FindIndex(wheelOrder, winningNumber);
+        if (winIndex == -1)
+        {
+            Debug.LogError($"[ROULETTE-{debugCount}] Number {winningNumber} not found!");
+            yield break;
+        }
 
-        // Hedef segmentin indexi (wheelOrder'da)
-        int realWinIndex = System.Array.IndexOf(wheelOrder, winningNumber);
-        int winIndex = (realWinIndex + upIndex + SegmentCount) % SegmentCount;
+        // BagerTest'teki segment hesaplama mantığını kullan
+        float targetSegmentAngle = segmentSize * winIndex;
+        
+        Debug.Log($"[ROULETTE-{debugCount}] Win Index: {winIndex}, Target Angle: {targetSegmentAngle}");
 
-        float wheelSpinDuration = Random.Range(wheelSpinMin, wheelSpinMax);
-        int wheelSpins = Random.Range(minWheelRounds, maxWheelRounds + 1);
+        // Animasyon parametreleri
+        int wheelTurns = Random.Range(minWheelTurns, maxWheelTurns + 1);
+        float totalWheelRotation = wheelTurns * 360f;
+        
+        // Wheel son açısı: toplam dönüş + hedef segment açısı
+        float wheelFinalAngle = totalWheelRotation + targetSegmentAngle;
 
-        float segmentSize = 360f / SegmentCount;
-        float targetAngle = winIndex * segmentSize;
-        float wheelEndAngle = wheelStartAngle + 360f * wheelSpins + targetAngle;
+        Debug.Log($"[ROULETTE-{debugCount}] Wheel turns: {wheelTurns}, Final angle: {wheelFinalAngle}");
+        Debug.Log($"[ROULETTE-{debugCount}] Ball turns: {ballTurns}");
 
         float elapsed = 0f;
-        Vector3 wheelCenter = wheel.position;
+        float wheelStartAngle = wheel.localEulerAngles.y;
+        float ballTotalRotation = ballTurns * 360f;
 
-        dbg.AppendLine($"[START] WinningNumber={winningNumber} | realWinIndex={realWinIndex} | winIndex={winIndex} | segmentSize={segmentSize} | targetAngle={targetAngle}");
-        PlaceBallOnSegment(winIndex, wheelStartAngle, wheelCenter);
-        dbg.AppendLine($"[START] Ball pos: {ball.position} (should be {winningNumber}'nın üstü), Wheel pos: {wheel.position}");
+        Vector3 initialBallPos = ball.position;
+        Debug.Log($"[ROULETTE-{debugCount}] Initial ball pos: {initialBallPos}");
 
-        while (elapsed < wheelSpinDuration)
+        // Animasyon döngüsü
+        while (elapsed < spinDuration)
         {
-            float t = elapsed / wheelSpinDuration;
-            float easeT = 1 - Mathf.Pow(1 - t, 3); // cubic-out easing
+            float t = elapsed / spinDuration;
+            
+            // Wheel dönüşü
+            float wheelT = wheelSpinCurve.Evaluate(t);
+            float currentWheelAngle = Mathf.Lerp(wheelStartAngle, wheelFinalAngle, wheelT);
+            wheel.localEulerAngles = new Vector3(0, currentWheelAngle, 0);
 
-            float wheelAngle = Mathf.Lerp(wheelStartAngle, wheelEndAngle, easeT);
-            wheel.localEulerAngles = new Vector3(0f, wheelAngle, 0f);
+            // Ball dönüşü ve radius
+            float ballT = ballSpinCurve.Evaluate(t);
+            float ballRadius = Mathf.Lerp(ballStartRadius, ballEndRadius, t);
+            
+            // Ball açısı - başta hızlı, sonda yavaş
+            float ballAngle = ballTotalRotation * (1 - ballT);
 
-            float ballRadius = Mathf.Lerp(ballStartRadius, ballEndRadius, easeT);
-
-            // *** DÜZGÜN SEGMENT HESABI ***
-            float angleToSpin = winIndex * segmentSize + wheelAngle + angleOffset;
-            // Eğer top segmentin ORTASINDA dursun istiyorsan: angleToSpin += segmentSize / 2f;
-
-            SetBallPosition(angleToSpin, ballRadius, wheelCenter);
-
-            // DEBUG: Son frame'lerde log bas
-            if (t > 0.98f)
-            {
-                dbg.AppendLine($"[SPIN LOOP] winIndex: {winIndex}, segmentSize: {segmentSize}, angleToSpin: {angleToSpin}, WheelAngle: {wheelAngle}, BallPos: {ball.position}");
-            }
+            // Ball pozisyonunu hesapla - trigonometrik
+            SetBallPositionTrigonometric(ballAngle, ballRadius);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Son pozisyonu garantiye al
-        float finalWheelAngle = wheelEndAngle % 360f;
-        float finalAngleToSpin = winIndex * segmentSize + finalWheelAngle + angleOffset;
-        SetBallPosition(finalAngleToSpin, ballEndRadius, wheelCenter);
+        // Animasyon bitti - şimdi BagerTest mantığını kullan
+        wheel.localEulerAngles = new Vector3(0, wheelFinalAngle, 0);
 
-        dbg.AppendLine($"[FINAL] Ball pos: {ball.position}, angleToSpin: {finalAngleToSpin}, Wheel Y={finalWheelAngle}");
-        Debug.Log(dbg.ToString());
+        Debug.Log($"[ROULETTE-{debugCount}] Animation finished. Using BagerTest logic...");
+        Debug.Log($"[ROULETTE-{debugCount}] Ball pos before BagerTest logic: {ball.position}");
+
+        // BagerTest'teki SetBallPosition mantığını BIREBIR kullan
+        SetBallPositionLikeBagerTest(targetSegmentAngle);
+
+        Debug.Log($"[ROULETTE-{debugCount}] Ball pos after BagerTest logic: {ball.position}");
+        Debug.Log($"[ROULETTE-{debugCount}] ========== SPIN END ==========");
 
         onComplete?.Invoke();
     }
 
-    private void PlaceBallOnSegment(int segIndex, float wheelAngle, Vector3 center)
+    // BagerTest'teki SetBallPosition mantığını TAMAMEN kopyala
+    private void SetBallPositionLikeBagerTest(float segmentAngle)
     {
-        float segmentSize = 360f / SegmentCount;
-        float angle = segIndex * segmentSize + wheelAngle + angleOffset;
-        // Eğer segment ORTASINDA dursun istiyorsan: angle += segmentSize / 2f;
-        SetBallPosition(angle, ballStartRadius, center);
+        // BagerTest'teki EXACT kod:
+        
+        // Reset ball to start position first
+        ball.position = ballStartPosition;
+        
+        // Calculate the direction from wheel center to ball start position
+        Vector3 directionToStart = (ballStartPosition - wheelCenter).normalized;
+        float startRadius = Vector3.Distance(ballStartPosition, wheelCenter);
+        
+        // Rotate this direction by the segment angle
+        Vector3 rotatedDirection = Quaternion.Euler(0, segmentAngle, 0) * directionToStart;
+        
+        // Place ball at the rotated position
+        Vector3 newBallPosition = wheelCenter + rotatedDirection * startRadius;
+        ball.position = newBallPosition;
+        
+        Debug.Log($"[ROULETTE-{debugCount}] BagerTest Logic Applied:");
+        Debug.Log($"[ROULETTE-{debugCount}] - Segment Angle: {segmentAngle}");
+        Debug.Log($"[ROULETTE-{debugCount}] - Direction: {directionToStart} -> {rotatedDirection}");
+        Debug.Log($"[ROULETTE-{debugCount}] - Radius: {startRadius}");
+        Debug.Log($"[ROULETTE-{debugCount}] - Final Position: {newBallPosition}");
     }
 
-    private void SetBallPosition(float angle, float radius, Vector3 center)
+    // Animasyon sırasında ball pozisyonu - trigonometrik
+    private void SetBallPositionTrigonometric(float angle, float radius)
     {
         float rad = angle * Mathf.Deg2Rad;
-        Vector3 offset = new Vector3(
+        Vector3 pos = wheelCenter + new Vector3(
             Mathf.Cos(rad) * radius,
-            ballBaseHeight,
+            ballHeight,
             Mathf.Sin(rad) * radius
         );
-        ball.position = center + offset;
+        ball.position = pos;
+    }
+
+    // BagerTest'teki FindIndex - BIREBIR
+    public int FindIndex(int[] array, int value)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == value)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Public metod - dışarıdan çağırılabilir
+    public void SpinForNumber(int number)
+    {
+        StartCoroutine(SpinRoulette(number));
+    }
+
+    // Editor'da test için
+    [ContextMenu("Test Spin")]
+    private void TestSpin()
+    {
+        StartCoroutine(SpinRoulette(testWinningNumber));
     }
 }
