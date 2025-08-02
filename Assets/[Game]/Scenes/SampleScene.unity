@@ -823,6 +823,7 @@ MonoBehaviour:
   wheel: {fileID: 349635376}
   ball: {fileID: 718699562}
   inputField: {fileID: 1514315458}
+  debugCount: 0
   wheelOrder: 00000000200000000f00000013000000040000001500000002000000190000001100000022000000060000001b0000000d000000240000000b0000001e00000008000000170000000a0000000500000018000000100000002100000001000000140000000e0000001f0000000900000016000000120000001d000000070000001c0000000c00000023000000030000001a000000
 --- !u!4 &388603396
 Transform:
@@ -3323,6 +3324,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 885280811976466693, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70712066
+      objectReference: {fileID: 0}
+    - target: {fileID: 885280811976466693, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70687383
+      objectReference: {fileID: 0}
+    - target: {fileID: 885280811976466693, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.012443426
+      objectReference: {fileID: 0}
+    - target: {fileID: 885280811976466693, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.01244777
+      objectReference: {fileID: 0}
+    - target: {fileID: 885280811976466693, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -2.017
+      objectReference: {fileID: 0}
     - target: {fileID: 5525059595815832416, guid: bb31a40cdf7a25c4783f61451918ec45,
         type: 3}
       propertyPath: m_IsActive
@@ -3333,6 +3359,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouletteTable
       objectReference: {fileID: 0}
+    - target: {fileID: 7895602932783592820, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: upIndex
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895602932783592820, guid: bb31a40cdf7a25c4783f61451918ec45,
+        type: 3}
+      propertyPath: bagerTest
+      value: 
+      objectReference: {fileID: 388603395}
     - target: {fileID: 7895602932783592820, guid: bb31a40cdf7a25c4783f61451918ec45,
         type: 3}
       propertyPath: ANGLE_OFFSET
