@@ -251,7 +251,7 @@ public class RouletteController : MonoBehaviour
             Gizmos.color = Color.yellow;
             DrawCircle(wheelCenter, ballStartRadius, 32);
             
-            Gizmos.color = Color.orange;
+            Gizmos.color = Color.cyan;
             DrawCircle(wheelCenter, ballEndRadius, 32);
             
             // Draw line from wheel center to ball
