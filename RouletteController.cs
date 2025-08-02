@@ -80,19 +80,22 @@ public class RouletteController : MonoBehaviour
             yield break;
         }
 
+        // BagerTest'teki segment açısı hesaplaması - bu açı asla değişmez!
+        float segmentSize = 360f / wheelOrder.Length;
+        float targetSegmentAngle = segmentSize * winIndex;
+
         float wheelSpinDuration = Random.Range(wheelSpinMin, wheelSpinMax);
         int wheelSpins = Random.Range(minWheelRounds, maxWheelRounds + 1);
         
-        // BagerTest'teki segment açısı hesaplaması
-        float segmentSize = 360f / wheelOrder.Length;
-        float targetSegmentAngle = segmentSize * winIndex;
-        float wheelEndAngle = wheelStartAngle + 360f * wheelSpins + targetSegmentAngle;
+        // Wheel'ın döneceği toplam açı - bu değer animasyon için
+        float totalWheelRotation = 360f * wheelSpins;
+        float wheelEndAngle = wheelStartAngle + totalWheelRotation;
 
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] ===========================================");
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] WinningNumber={winningNumber} | winIndex={winIndex}");
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] segmentSize={segmentSize} | targetSegmentAngle={targetSegmentAngle}");
-        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] wheelSpins={wheelSpins} | wheelEndAngle={wheelEndAngle}");
-        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] duration={wheelSpinDuration}");
+        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] wheelSpins={wheelSpins} | totalWheelRotation={totalWheelRotation}");
+        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] wheelEndAngle={wheelEndAngle} | duration={wheelSpinDuration}");
 
         // Ball animation parameters
         float ballStartAngle = Random.Range(1440f, 2880f); // Ball spins fast initially
@@ -110,7 +113,7 @@ public class RouletteController : MonoBehaviour
             float wheelT = wheelCurve != null ? wheelCurve.Evaluate(t) : t;
             float ballT = ballCurve != null ? ballCurve.Evaluate(t) : t;
 
-            // Update wheel rotation
+            // Update wheel rotation - sadece animasyon için döndür
             float currentWheelAngle = Mathf.Lerp(wheelStartAngle, wheelEndAngle, wheelT);
             wheel.localEulerAngles = new Vector3(0f, currentWheelAngle, 0f);
 
@@ -127,26 +130,24 @@ public class RouletteController : MonoBehaviour
                 bounce = Mathf.Abs(Mathf.Sin(ballSpin * freq * Mathf.Deg2Rad)) * ballBounceHeight * (1 - localT * 0.6f);
             }
 
-            // BagerTest mantığını kullan: targetSegmentAngle + current wheel angle + ball spin
-            float angleToSpin = targetSegmentAngle + currentWheelAngle + ballSpin;
+            // ÖNEMLİ FİX: Ball pozisyonu sadece TARGET SEGMENT açısına göre hesaplanmalı
+            // Wheel'ın ne kadar döndüğü ball'ın hedef pozisyonunu etkilemez!
+            // Ball sadece hedef segment + kendi spin hareketinde olmalı
+            float currentBallAngle = targetSegmentAngle + ballSpin;
             
             // BagerTest'teki SetBallPosition mantığını kullan
-            SetBallPositionLikeBagerTest(angleToSpin, ballRadius, bounce);
+            SetBallPositionLikeBagerTest(currentBallAngle, ballRadius, bounce);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Final positioning - BagerTest mantığı ile
-        float finalWheelAngle = wheelEndAngle;
-        wheel.localEulerAngles = new Vector3(0f, finalWheelAngle, 0f);
-        
-        // Son pozisyon: sadece segment açısı (ball spin = 0)
-        float finalAngleToSpin = targetSegmentAngle + finalWheelAngle;
-        SetBallPositionLikeBagerTest(finalAngleToSpin, ballEndRadius, 0f);
+        // Final positioning - sadece target segment açısı
+        wheel.localEulerAngles = new Vector3(0f, wheelEndAngle, 0f);
+        SetBallPositionLikeBagerTest(targetSegmentAngle, ballEndRadius, 0f);
 
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] [END] Ball pos: {ball.position:F3}, Wheel Y={wheel.localEulerAngles.y:F2}");
-        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Final targetSegmentAngle: {targetSegmentAngle:F2}, finalAngleToSpin: {finalAngleToSpin:F2}");
+        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Final targetSegmentAngle: {targetSegmentAngle:F2}");
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] ===========================================");
 
         Debug.Log(dbg.ToString());
