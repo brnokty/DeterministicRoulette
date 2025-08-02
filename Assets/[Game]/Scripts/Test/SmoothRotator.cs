@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class SmoothRotator : MonoBehaviour
 {
@@ -43,7 +44,8 @@ public class SmoothRotator : MonoBehaviour
 
         // Şimdi buradan devam edeceğiz:
         float extraDegree = Random.Range(minDegree, maxDegree);
-        float targetGlobalDegree = baseTotalDegree + extraDegree + Mathf.DeltaAngle(Mathf.Repeat(baseTotalDegree + extraDegree, 360f), targetAngle);
+        float targetGlobalDegree = baseTotalDegree + extraDegree +
+                                   Mathf.DeltaAngle(Mathf.Repeat(baseTotalDegree + extraDegree, 360f), targetAngle);
 
         float duration = Random.Range(minDuration, maxDuration);
 
@@ -104,7 +106,7 @@ public class SmoothRotator : MonoBehaviour
     {
         return 1 - Mathf.Pow(1 - t, 3);
     }
-    
+
     public void SmoothRotateByDegree(float degree, float duration)
     {
         StopRotating(); // Olası animasyonları durdur
@@ -127,27 +129,34 @@ public class SmoothRotator : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
         // Tam olarak hedef açıda bitir
         currentTotalDegree = to;
         transform.rotation = Quaternion.Euler(0, to, 0);
     }
-    
+
     public void BagerRotateByDegree(float degree, float speed)
     {
+        // if (degree > 360f)
+            // degree = degree % 360f;
+        
         StopRotating(); // Olası animasyonları durdur
-        rotateCoroutine = StartCoroutine(BagerRotateByDegreeRoutine(degree, speed));
+        // rotateCoroutine = StartCoroutine(BagerRotateByDegreeRoutine(degree, speed));
+        print("Degree: " + degree);
+        transform.DOLocalRotateQuaternion(Quaternion.Euler( new Vector3(0, degree, 0)), Random.Range(0.5f, 1f)).SetRelative(true)
+            .SetEase(Ease.OutCubic)
+            .OnComplete(() => print("Bager Rotate Complete!"));
     }
-    
+
     IEnumerator BagerRotateByDegreeRoutine(float degree, float duration)
     {
-        degree=degree<0?degree+360:degree;
-        while (degree-transform.localEulerAngles.y> 0.1f)
+        degree = degree < 0 ? degree + 360 : degree;
+        while (degree - transform.localEulerAngles.y > 0.1f)
         {
             print("calculated degree: " + degree + " current: " + transform.localEulerAngles.y);
-            transform.localEulerAngles= Vector3.Lerp(transform.localEulerAngles,new Vector3(0, degree, 0),Time.deltaTime*duration);
+            transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, degree, 0),
+                Time.deltaTime * duration);
             yield return null;
         }
     }
-    
-    
 }

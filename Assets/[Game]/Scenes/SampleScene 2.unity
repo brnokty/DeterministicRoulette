@@ -573,7 +573,7 @@ Transform:
   m_GameObject: {fileID: 319912790}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00060757995, y: 0, z: 0.15740722}
+  m_LocalPosition: {x: 0.0006, y: 0, z: 0.1473}
   m_LocalScale: {x: 0.014999999, y: 0.015, z: 0.014999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3568,7 +3568,7 @@ Transform:
   m_GameObject: {fileID: 1557177738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0698458, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4182,6 +4182,7 @@ MonoBehaviour:
   ballSettleExtraTime: 2.5
   inputField: {fileID: 1284654967}
   smoothRotator: {fileID: 157602149}
+  ballSpeed: 0.5
   wheelOrder: 00000000200000000f00000013000000040000001500000002000000190000001100000022000000060000001b0000000d000000240000000b0000001e00000008000000170000000a0000000500000018000000100000002100000001000000140000000e0000001f0000000900000016000000120000001d000000070000001c0000000c00000023000000030000001a000000
 --- !u!4 &2005618780
 Transform:
