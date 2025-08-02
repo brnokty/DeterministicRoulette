@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Reflection;
 
 [System.Serializable]
 public class RouletteSetupData
@@ -90,14 +91,44 @@ public class RouletteSetupHelper : MonoBehaviour
             rouletteController.wheel = setupData.wheelTransform;
             rouletteController.ball = setupData.ballTransform;
             
-            // Configure settings
-            rouletteController.spinDuration = setupData.spinDuration;
-            rouletteController.minWheelTurns = setupData.minWheelTurns;
-            rouletteController.maxWheelTurns = setupData.maxWheelTurns;
-            rouletteController.ballStartRadius = setupData.ballStartRadius;
-            rouletteController.ballEndRadius = setupData.ballEndRadius;
+            // Configure settings using reflection for safety
+            SetRouletteControllerProperty("spinDuration", setupData.spinDuration);
+            SetRouletteControllerProperty("minWheelTurns", setupData.minWheelTurns);
+            SetRouletteControllerProperty("maxWheelTurns", setupData.maxWheelTurns);
+            SetRouletteControllerProperty("ballStartRadius", setupData.ballStartRadius);
+            SetRouletteControllerProperty("ballEndRadius", setupData.ballEndRadius);
             
             LogDebug("RouletteController configured");
+        }
+    }
+
+    private void SetRouletteControllerProperty(string propertyName, object value)
+    {
+        try
+        {
+            // Try direct field access first
+            var field = rouletteController.GetType().GetField(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            if (field != null)
+            {
+                field.SetValue(rouletteController, value);
+                LogDebug($"Set {propertyName} = {value}");
+                return;
+            }
+
+            // Try property access
+            var property = rouletteController.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            if (property != null && property.CanWrite)
+            {
+                property.SetValue(rouletteController, value);
+                LogDebug($"Set {propertyName} = {value}");
+                return;
+            }
+
+            LogDebug($"Warning: Could not find field or property '{propertyName}' in RouletteController");
+        }
+        catch (System.Exception e)
+        {
+            LogDebug($"Error setting {propertyName}: {e.Message}");
         }
     }
 
@@ -238,7 +269,7 @@ public class RouletteSetupHelper : MonoBehaviour
         
         if (rouletteController != null)
         {
-            rouletteController.testWinningNumber = number;
+            SetRouletteControllerProperty("testWinningNumber", number);
         }
     }
 
@@ -271,5 +302,32 @@ public class RouletteSetupHelper : MonoBehaviour
         }
         
         LogDebug("Auto-find completed");
+    }
+
+    // Manual setup method if auto setup fails
+    [ContextMenu("Manual Component Setup")]
+    public void ManualComponentSetup()
+    {
+        // Just create components without setting properties
+        if (GetComponent<RouletteController>() == null)
+        {
+            gameObject.AddComponent<RouletteController>();
+            LogDebug("Added RouletteController manually");
+        }
+
+        if (GetComponent<RouletteTestManager>() == null)
+        {
+            gameObject.AddComponent<RouletteTestManager>();
+            LogDebug("Added RouletteTestManager manually");
+        }
+
+        if (FindObjectOfType<BagerTest>() == null)
+        {
+            GameObject bagerObj = new GameObject("BagerTest");
+            bagerObj.AddComponent<BagerTest>();
+            LogDebug("Added BagerTest manually");
+        }
+
+        LogDebug("Manual setup complete. Please assign references manually in Inspector.");
     }
 }

@@ -9,15 +9,15 @@ public class RouletteController : MonoBehaviour
     public Transform ball;
 
     [Header("Spin Settings")]
-    public float spinDuration = 3f;
-    public int minWheelTurns = 5;
-    public int maxWheelTurns = 8;
+    [SerializeField] public float spinDuration = 3f;
+    [SerializeField] public int minWheelTurns = 5;
+    [SerializeField] public int maxWheelTurns = 8;
 
     [Header("Ball Movement")]
-    public float ballStartRadius = 0.35f;
-    public float ballEndRadius = 0.29f;
-    public float ballHeight = 0.05f;
-    public int ballTurns = 12; // Ball kaç tur atacak
+    [SerializeField] public float ballStartRadius = 0.35f;
+    [SerializeField] public float ballEndRadius = 0.29f;
+    [SerializeField] public float ballHeight = 0.05f;
+    [SerializeField] public int ballTurns = 12; // Ball kaç tur atacak
 
     [Header("Wheel Order - BagerTest ile AYNI")]
     public int[] wheelOrder = new int[] {
@@ -32,8 +32,8 @@ public class RouletteController : MonoBehaviour
     public AnimationCurve ballSpinCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     [Header("Test & Debug")]
-    public int testWinningNumber = 15;
-    public int debugCount = 0;
+    [SerializeField] public int testWinningNumber = 15;
+    [SerializeField] public int debugCount = 0;
 
     // BagerTest mantığı için gerekli değişkenler
     private Vector3 ballStartPosition;
