@@ -201,6 +201,18 @@ public class RouletteController : MonoBehaviour
         StartCoroutine(SpinRoulette(number));
     }
 
+    // Alternative public method for external calls
+    public void StartSpin(int number)
+    {
+        StartCoroutine(SpinRoulette(number));
+    }
+
+    // Coroutine wrapper for external use
+    public void StartSpinWithCallback(int number, System.Action callback)
+    {
+        StartCoroutine(SpinRoulette(number, callback));
+    }
+
     // Editor'da test için
     [ContextMenu("Test Spin")]
     private void TestSpin()

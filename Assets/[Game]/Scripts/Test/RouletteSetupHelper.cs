@@ -241,6 +241,7 @@ public class RouletteSetupHelper : MonoBehaviour
         LogDebug("  1,2,3,4 - Quick test specific numbers");
         LogDebug("");
         LogDebug("Code Usage:");
+        LogDebug("  rouletteController.StartSpin(15);");
         LogDebug("  rouletteController.SpinForNumber(15);");
         LogDebug("  testManager.StartSpinFromCode(32);");
         LogDebug("");
@@ -278,7 +279,42 @@ public class RouletteSetupHelper : MonoBehaviour
         SetWinningNumber(number);
         if (rouletteController != null)
         {
-            rouletteController.SpinForNumber(number);
+            // Try multiple methods to ensure compatibility
+            try
+            {
+                // Try StartSpin first (most reliable)
+                var startSpinMethod = rouletteController.GetType().GetMethod("StartSpin", BindingFlags.Public | BindingFlags.Instance);
+                if (startSpinMethod != null)
+                {
+                    startSpinMethod.Invoke(rouletteController, new object[] { number });
+                    LogDebug($"Called StartSpin({number})");
+                    return;
+                }
+
+                // Try SpinForNumber
+                var spinForNumberMethod = rouletteController.GetType().GetMethod("SpinForNumber", BindingFlags.Public | BindingFlags.Instance);
+                if (spinForNumberMethod != null)
+                {
+                    spinForNumberMethod.Invoke(rouletteController, new object[] { number });
+                    LogDebug($"Called SpinForNumber({number})");
+                    return;
+                }
+
+                // Fallback: call SpinRoulette coroutine directly
+                var spinRouletteMethod = rouletteController.GetType().GetMethod("SpinRoulette", BindingFlags.Public | BindingFlags.Instance);
+                if (spinRouletteMethod != null)
+                {
+                    StartCoroutine((System.Collections.IEnumerator)spinRouletteMethod.Invoke(rouletteController, new object[] { number, null }));
+                    LogDebug($"Called SpinRoulette({number}) as fallback");
+                    return;
+                }
+
+                LogDebug("Error: Could not find any spin method in RouletteController");
+            }
+            catch (System.Exception e)
+            {
+                LogDebug($"Error calling spin method: {e.Message}");
+            }
         }
     }
 
