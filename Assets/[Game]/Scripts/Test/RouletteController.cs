@@ -42,13 +42,27 @@ public class RouletteController : MonoBehaviour
 
     private void Start()
     {
-        // BagerTest'teki Start mantığını kopyala
-        ballStartPosition = ball.position;
+        // Wheel center'ı al
         wheelCenter = wheel.position;
         segmentSize = 360f / wheelOrder.Length;
 
+        // Ball'ı wheel etrafında doğru pozisyona yerleştir
+        SetupBallStartPosition();
+
         Debug.Log($"[ROULETTE] Initialized - Ball Start: {ballStartPosition}, Wheel Center: {wheelCenter}");
+        Debug.Log($"[ROULETTE] Ball-Wheel distance: {Vector3.Distance(ballStartPosition, wheelCenter)}");
         Debug.Log($"[ROULETTE] Segment Size: {segmentSize} degrees, Total Segments: {wheelOrder.Length}");
+    }
+
+    private void SetupBallStartPosition()
+    {
+        // Ball'ı wheel'ın sağında, uygun mesafede konumlandır
+        Vector3 offset = new Vector3(ballStartRadius, ballHeight, 0f);
+        ballStartPosition = wheelCenter + offset;
+        ball.position = ballStartPosition;
+        
+        Debug.Log($"[ROULETTE] Ball positioned at distance {ballStartRadius} from wheel center");
+        Debug.Log($"[ROULETTE] Ball world position: {ballStartPosition}");
     }
 
     private void Update()
@@ -62,10 +76,38 @@ public class RouletteController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Reset pozisyonu
-            ball.position = ballStartPosition;
+            SetupBallStartPosition(); // Doğru pozisyona resetle
             wheel.localEulerAngles = Vector3.zero;
             Debug.Log("[ROULETTE] Reset to initial positions");
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // Test ball positioning
+            TestBallPositioning();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            // Toggle gizmo debug info
+            Debug.Log($"[ROULETTE] Ball-Wheel Distance: {Vector3.Distance(ball.position, wheelCenter):F3}");
+            Debug.Log($"[ROULETTE] Expected Distance: {ballStartRadius:F3}");
+        }
+    }
+
+    private void TestBallPositioning()
+    {
+        Debug.Log("[ROULETTE] Testing ball positioning around wheel...");
+        
+        for (int i = 0; i < 8; i++)
+        {
+            float testAngle = i * 45f; // Every 45 degrees
+            SetBallPositionTrigonometric(testAngle, ballStartRadius);
+            Debug.Log($"Angle {testAngle}° -> Ball pos: {ball.position:F2}");
+        }
+        
+        // Reset to start position
+        SetupBallStartPosition();
     }
 
     public IEnumerator SpinRoulette(int winningNumber, System.Action onComplete = null)
@@ -180,6 +222,60 @@ public class RouletteController : MonoBehaviour
             Mathf.Sin(rad) * radius
         );
         ball.position = pos;
+        
+        // Debug visualization (first few frames only)
+        if (debugCount <= 2 && Time.frameCount % 30 == 0) // Every 30 frames
+        {
+            Debug.Log($"[ROULETTE-{debugCount}] Ball Animation: angle={angle:F1}°, radius={radius:F3}, pos={pos:F2}");
+        }
+    }
+
+    // Visual debug gizmo
+    private void OnDrawGizmos()
+    {
+        if (wheel != null && ball != null)
+        {
+            // Draw wheel center
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(wheelCenter, 0.02f);
+            
+            // Draw ball start position
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(ballStartPosition, 0.015f);
+            
+            // Draw ball current position
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(ball.position, 0.01f);
+            
+            // Draw ball orbit circles
+            Gizmos.color = Color.yellow;
+            DrawCircle(wheelCenter, ballStartRadius, 32);
+            
+            Gizmos.color = Color.orange;
+            DrawCircle(wheelCenter, ballEndRadius, 32);
+            
+            // Draw line from wheel center to ball
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(wheelCenter, ball.position);
+        }
+    }
+
+    private void DrawCircle(Vector3 center, float radius, int segments)
+    {
+        float angleStep = 360f / segments;
+        Vector3 prevPoint = center + new Vector3(radius, 0, 0);
+        
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * angleStep * Mathf.Deg2Rad;
+            Vector3 newPoint = center + new Vector3(
+                Mathf.Cos(angle) * radius,
+                0,
+                Mathf.Sin(angle) * radius
+            );
+            Gizmos.DrawLine(prevPoint, newPoint);
+            prevPoint = newPoint;
+        }
     }
 
     // BagerTest'teki FindIndex - BIREBIR
