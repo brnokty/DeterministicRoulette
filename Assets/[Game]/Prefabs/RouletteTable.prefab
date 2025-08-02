@@ -307,7 +307,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7848301048874863949}
-  - {fileID: 563966679317087974}
   m_Father: {fileID: 8763464864508361839}
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 87.983}
 --- !u!33 &3260353007919872223
@@ -545,7 +544,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.0004966465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 563966679317087974}
   m_Father: {fileID: 885280811976466693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &599133078022969672
@@ -809,12 +809,12 @@ Transform:
   m_GameObject: {fileID: 5525059595815832416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00002, y: 0.000021885484, z: 0.00122}
-  m_LocalScale: {x: 0.57, y: 0.57, z: 0.57}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0.00050235353}
+  m_LocalScale: {x: 0.56999993, y: 0.57, z: 0.28999996}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7404033857488478791}
-  m_Father: {fileID: 885280811976466693}
+  m_Father: {fileID: 7848301048874863949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6556831130933524312
 MeshFilter:
@@ -975,9 +975,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5966382185693724532}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0011915581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.000000014901158, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.00126}
+  m_LocalScale: {x: 1, y: 1, z: 1.9655174}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 563966679317087974}
@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelHandler: {fileID: 1687973643753663189}
+  gameType: 0
   ruletMinDegree: 1080
   ruletMaxDegree: 2160
   ruletMinDuration: 2
@@ -1323,7 +1324,80 @@ MonoBehaviour:
   ballHandler: {fileID: 7772678408930704757}
   minBallSpeed: 2
   maxBallSpeed: 4
-  wheelOrder: 00000000200000000f00000013000000040000001500000002000000190000001100000022000000060000001b0000000d000000240000000b0000001e00000008000000170000000a0000000500000018000000100000002100000001000000140000000e0000001f0000000900000016000000120000001d000000070000001c0000000c00000023000000030000001a000000
+  europeanWheelOrder:
+  - 0
+  - 32
+  - 15
+  - 19
+  - 4
+  - 21
+  - 2
+  - 25
+  - 17
+  - 34
+  - 6
+  - 27
+  - 13
+  - 36
+  - 11
+  - 30
+  - 8
+  - 23
+  - 10
+  - 5
+  - 24
+  - 16
+  - 33
+  - 1
+  - 20
+  - 14
+  - 31
+  - 9
+  - 22
+  - 18
+  - 29
+  - 7
+  - 28
+  - 12
+  - 35
+  - 3
+  - 26
+  americanWheelOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &8221268632926554477
 GameObject:
   m_ObjectHideFlags: 0
