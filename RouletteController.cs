@@ -39,6 +39,10 @@ public class RouletteController : MonoBehaviour
     public AnimationCurve wheelCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     public AnimationCurve ballCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
+    [Header("Test")]
+    [Tooltip("Test için bir sayı gir ve T tuşuna bas")]
+    public int testNumber = 15;
+
     private Vector3 ballStartPosition;
     private Vector3 wheelCenter;
 
@@ -57,6 +61,27 @@ public class RouletteController : MonoBehaviour
         Debug.Log($"[ROULETTE-DEBUG] Ball Start Position: {ballStartPosition}");
         Debug.Log($"[ROULETTE-DEBUG] Wheel Center: {wheelCenter}");
         Debug.Log($"[ROULETTE-DEBUG] BagerTest reference: {(bagerTest != null ? "OK" : "MISSING")}");
+    }
+
+    private void Update()
+    {
+        // Test için T tuşu
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log($"[TEST] Starting RouletteController test with number: {testNumber}");
+            StartCoroutine(SpinRoulette(testNumber));
+        }
+        
+        // BagerTest direkt testi için B tuşu
+        if (Input.GetKeyDown(KeyCode.B) && bagerTest != null)
+        {
+            Debug.Log($"[TEST] Testing BagerTest directly with number: {testNumber}");
+            if (bagerTest.inputField != null)
+            {
+                bagerTest.inputField.text = testNumber.ToString();
+                bagerTest.Calculate();
+            }
+        }
     }
 
     public IEnumerator SpinRoulette(int winningNumber, System.Action onComplete = null)
@@ -81,16 +106,18 @@ public class RouletteController : MonoBehaviour
         float wheelStartAngle = 0f;
         float wheelEndAngle = wheelStartAngle + totalWheelRotation;
 
-        // Ball animasyon parametreleri - sadece görsel efekt için
-        float ballStartAngle = Random.Range(1440f, 2880f); 
-        float ballEndAngle = 0f; 
+        // Ball animasyon parametreleri - gerçekçi hareket için
+        float ballStartSpeed = Random.Range(720f, 1440f); // Başlangıç hızı
+        float ballEndSpeed = 0f; // Bitiş hızı
+        float ballCurrentAngle = 0f; // Ball'ın mevcut açısı
 
         float elapsed = 0f;
 
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Animation: {wheelSpins} wheel spins, {wheelSpinDuration:F2}s duration");
+        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Ball start speed: {ballStartSpeed:F0} deg/s");
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] [START] Ball pos: {ball.position:F3}");
 
-        // Ana animasyon döngüsü - sadece görsel efekt
+        // Ana animasyon döngüsü
         while (elapsed < wheelSpinDuration)
         {
             float t = elapsed / wheelSpinDuration;
@@ -101,9 +128,11 @@ public class RouletteController : MonoBehaviour
             float currentWheelAngle = Mathf.Lerp(wheelStartAngle, wheelEndAngle, wheelT);
             wheel.localEulerAngles = new Vector3(0f, currentWheelAngle, 0f);
 
-            // Ball animasyonu - sadece görsel efekt
+            // Ball gerçekçi hareket - hız yavaş yavaş azalır
+            float currentBallSpeed = Mathf.Lerp(ballStartSpeed, ballEndSpeed, ballT);
+            ballCurrentAngle += currentBallSpeed * Time.deltaTime;
+            
             float ballRadius = Mathf.Lerp(ballStartRadius, ballEndRadius, ballT);
-            float ballSpin = Mathf.Lerp(ballStartAngle, ballEndAngle, ballT);
 
             // Bounce effect
             float bounce = 0f;
@@ -111,11 +140,11 @@ public class RouletteController : MonoBehaviour
             {
                 float freq = SegmentCount * 1.8f;
                 float localT = Mathf.InverseLerp(0.7f, 1f, t);
-                bounce = Mathf.Abs(Mathf.Sin(ballSpin * freq * Mathf.Deg2Rad)) * ballBounceHeight * (1 - localT * 0.6f);
+                bounce = Mathf.Abs(Mathf.Sin(ballCurrentAngle * freq * Mathf.Deg2Rad)) * ballBounceHeight * (1 - localT * 0.6f);
             }
 
-            // Basit ball hareketi - sadece çemberde dönme efekti
-            SimpleBallAnimation(ballSpin, ballRadius, bounce);
+            // Ball pozisyonu - çemberde gerçekçi hareket
+            RealisticBallMovement(ballCurrentAngle, ballRadius, bounce);
 
             elapsed += Time.deltaTime;
             yield return null;
@@ -125,23 +154,32 @@ public class RouletteController : MonoBehaviour
         wheel.localEulerAngles = new Vector3(0f, wheelEndAngle, 0f);
         
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Animation finished. Wheel final angle: {wheelEndAngle:F2}");
+        dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Ball final animation angle: {ballCurrentAngle:F2}");
         dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Ball position before BagerTest.Calculate(): {ball.position:F3}");
 
-        // ÖNEMLİ: ŞİMDİ BAGERTEST'İN ÇALIŞAN METODİNİ ÇAĞIR
+        // ÖNCE BagerTest'in doğru çalışıp çalışmadığını test et
         if (bagerTest.inputField != null)
         {
             string oldText = bagerTest.inputField.text;
+            
+            dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Input field old text: '{oldText}'");
+            
             bagerTest.inputField.text = winningNumber.ToString();
             
-            dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Calling BagerTest.Calculate() with input: {winningNumber}");
+            dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Input field set to: '{bagerTest.inputField.text}'");
+            dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Calling BagerTest.Calculate()...");
             
-            bagerTest.Calculate(); // BagerTest'in %100 çalışan metodu!
+            // BagerTest'in debug count'unu da artır
+            bagerTest.debugCount++;
+            bagerTest.Calculate();
             
             dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] BagerTest.Calculate() completed.");
             dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Ball position after BagerTest.Calculate(): {ball.position:F3}");
             
             // Input field'ı eski haline döndür
             bagerTest.inputField.text = oldText;
+            
+            dbg.AppendLine($"[ROULETTE-DEBUG-{debugCount}] Input field restored to: '{bagerTest.inputField.text}'");
         }
         else
         {
@@ -156,10 +194,10 @@ public class RouletteController : MonoBehaviour
         onComplete?.Invoke();
     }
 
-    // Basit ball animasyonu - sadece görsel efekt
-    private void SimpleBallAnimation(float ballSpin, float radius, float bounceY = 0f)
+    // Gerçekçi ball hareketi - çemberde sürekli döner
+    private void RealisticBallMovement(float ballAngle, float radius, float bounceY = 0f)
     {
-        float rad = ballSpin * Mathf.Deg2Rad;
+        float rad = ballAngle * Mathf.Deg2Rad;
         Vector3 offset = new Vector3(
             Mathf.Cos(rad) * radius,
             ballBaseHeight + bounceY,
