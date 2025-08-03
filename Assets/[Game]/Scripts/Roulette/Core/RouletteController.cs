@@ -10,10 +10,8 @@ public enum GameType
 
 public class RouletteController : MonoBehaviour
 {
-    
     public WheelHandler wheelHandler;
-    [Header("Settings")]
-    public GameType gameType = GameType.EuropeanRoulette;
+    [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
     public float ruletMinDegree = 1080f;
     public float ruletMaxDegree = 2160f;
     public float ruletMinDuration = 2f;
@@ -22,6 +20,7 @@ public class RouletteController : MonoBehaviour
     private float ballSpeed = 0.5f;
     public float minBallSpeed = 2f;
     public float maxBallSpeed = 4f;
+    public float angleOffset = 0f;
 
     [Header("European Wheel Segment Order")]
     public string[] europeanWheelOrder = new string[]
@@ -42,8 +41,7 @@ public class RouletteController : MonoBehaviour
     };
 
 
-
-    public void StartSpin(int number, System.Action onComplete)
+    public void StartSpin(string number, System.Action onComplete)
     {
         ballHandler.StartRotating();
         float ruletDelta = Random.Range(ruletMinDegree, ruletMaxDegree);
@@ -54,11 +52,11 @@ public class RouletteController : MonoBehaviour
             ballSpeed = Random.Range(minBallSpeed, maxBallSpeed);
             var calculatedAngle = CalculateAngle(number);
             print("Calculated Angle: " + calculatedAngle);
-            ballHandler.BagerRotateByDegree(calculatedAngle, ballSpeed,onComplete);
+            ballHandler.RotateByDegree(calculatedAngle, ballSpeed, onComplete);
         });
     }
 
-    public float CalculateAngle(int number = 0)
+    public float CalculateAngle(string number)
     {
         var index = -1;
         var targetAngle = 0f;
@@ -76,30 +74,37 @@ public class RouletteController : MonoBehaviour
                 Debug.LogError("Unknown game type: " + gameType);
                 return 0f;
         }
-        
+
         var wheelAngle = wheelHandler.transform.localEulerAngles.y;
+        if (wheelAngle < 0)
+        {
+            wheelAngle += 360f;
+        }
+
         var angleToSpin = targetAngle + wheelAngle;
 
-        print("target angle: " + targetAngle);
+        print("target angle: " + targetAngle + " wheel angle: " + wheelAngle + " angle to spin: " + angleToSpin);
 
         if (angleToSpin < 0)
         {
             angleToSpin += 360f;
         }
 
-        return angleToSpin;
+        return angleToSpin + angleOffset;
     }
 
-    public int FindIndex(string[] array, int value)
+    public int FindIndex(string[] array, string value)
     {
         for (int i = 0; i < array.Length; i++)
         {
-            if (array[i] == value.ToString())
+            if (array[i] == value)
             {
+                print("index found: " + i + " for value: " + value);
                 return i;
             }
         }
 
+        print("Abi yok içerde for value: " + value);
         // Eleman bulunamazsa -1 döndürür
         return -1;
     }

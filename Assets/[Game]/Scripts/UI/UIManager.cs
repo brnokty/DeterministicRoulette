@@ -19,10 +19,10 @@ namespace Game.UI
 
         public void OnSpinButtonClicked()
         {
-            int selectedNumber = deterministicSelector.GetSelectedNumber();
-            if (selectedNumber < 0)
+            string selectedNumber = deterministicSelector.GetSelectedNumber();
+            if (selectedNumber == "")
             {
-                Core.GameManager.Instance.rouletteManager.Spin();
+                Core.GameManager.Instance.rouletteManager.Spin("");
                 return;
             }
 
@@ -31,7 +31,7 @@ namespace Game.UI
 
         public Text resultText;
 
-        public void ShowResult(int number)
+        public void ShowResult(string number)
         {
             // Kırmızı/Siyah/Yeşil kontrolü için dizinle renk bul
             string color = GetColorForNumber(number); // Kendi fonksiyonunu yaz!
@@ -39,13 +39,16 @@ namespace Game.UI
         }
 
 
-        public string GetColorForNumber(int number)
+        public string GetColorForNumber(string number)
         {
-            if (number == 0)
+            if (number == "0")
                 return "green";
 
             // Avrupa ruletinde kırmızı olan sayılar
-            int[] redNumbers = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
+            string[] redNumbers =
+            {
+                "1", "3", "5", "7", "9", "12", "14", "16", "18", "19", "21", "23", "25", "27", "30", "32", "34", "36"
+            };
             if (System.Array.IndexOf(redNumbers, number) >= 0)
                 return "red";
             else

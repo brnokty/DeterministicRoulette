@@ -6,7 +6,7 @@ namespace Game.UI
     public class BetButton : MonoBehaviour
     {
         public Game.Roulette.BetType betType;
-        public int[] numbers;
+        public string[] numbers;
         public int amount;
         public Button button;
 

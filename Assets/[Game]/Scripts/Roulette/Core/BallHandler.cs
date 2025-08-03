@@ -81,7 +81,7 @@ public class BallHandler : MonoBehaviour
     }
     
     
-    public void BagerRotateByDegree(float degree, float duration,System.Action onComplete)
+    public void RotateByDegree(float degree, float duration,System.Action onComplete)
     {
         StopRotating();
         degree=degree<0 ? 360 + degree : degree; // Negatif ise pozitif yap

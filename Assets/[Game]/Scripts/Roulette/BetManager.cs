@@ -8,13 +8,13 @@ namespace Game.Roulette
         public class Bet
         {
             public BetType betType;
-            public int[] numbers; // Bahis hangi sayıları kapsıyor
+            public string[] numbers; // Bahis hangi sayıları kapsıyor
             public int amount;
         }
 
         public List<Bet> CurrentBets { get; private set; } = new List<Bet>();
 
-        public void PlaceBet(BetType betType, int[] numbers, int amount)
+        public void PlaceBet(BetType betType, string[] numbers, int amount)
         {
             CurrentBets.Add(new Bet
             {

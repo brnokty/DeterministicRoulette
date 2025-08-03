@@ -11,7 +11,7 @@ namespace Game.Core
         {
             public int totalSpins, totalWins, totalLosses, totalProfit;
             public int chips; // Oyuncu bakiyesi
-            public int lastWinningNumber;
+            public string lastWinningNumber;
             // Gerekirse aktif bahisler, tercih vs. eklenebilir
         }
 

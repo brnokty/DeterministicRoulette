@@ -12,12 +12,12 @@ namespace Game.Roulette
         public BetManager betManager;
         public UIManager uiManager;
         public int PlayerChips = 1000;
-        public int LastWinningNumber = 0;
+        public string LastWinningNumber;
 
         [Header("Settings")] public int minBet = 10;
         public int maxBet = 500;
 
-        public void PlaceBet(BetType betType, int[] numbers, int amount)
+        public void PlaceBet(BetType betType, string[] numbers, int amount)
         {
             if (amount < minBet || amount > maxBet || amount > PlayerChips)
                 return;
@@ -30,16 +30,16 @@ namespace Game.Roulette
             betManager.ClearBets();
         }
 
-        public void Spin(int deterministicNumber = -1)
+        public void Spin(string deterministicNumber)
         {
-            int result = (deterministicNumber >= 0 && deterministicNumber <= 36)
+            string result = (deterministicNumber == "")
             ? deterministicNumber
-            : Random.Range(0, 37);
+            : Random.Range(0, 37).ToString();
             LastWinningNumber = result;
             rouletteController.StartSpin(deterministicNumber, () => OnSpinComplete(result));
         }
 
-        private void OnSpinComplete(int winningNumber)
+        private void OnSpinComplete(string winningNumber)
         {
             uiManager.ShowResult(winningNumber);
 
@@ -62,7 +62,7 @@ namespace Game.Roulette
             betManager.ClearBets();
         }
 
-        private bool IsBetWin(BetManager.Bet bet, int winningNumber, out int payout)
+        private bool IsBetWin(BetManager.Bet bet, string winningNumber, out int payout)
         {
             payout = 0;
             // Basit bir örnek payout hesabı (gerçek oranları ekle!)

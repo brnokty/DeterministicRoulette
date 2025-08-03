@@ -2453,6 +2453,7 @@ MonoBehaviour:
   ballHandler: {fileID: 6047431754524240598}
   minBallSpeed: 2
   maxBallSpeed: 4
+  angleOffset: -1.9
   europeanWheelOrder:
   - 0
   - 32
