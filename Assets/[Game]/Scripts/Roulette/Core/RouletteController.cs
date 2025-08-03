@@ -17,7 +17,6 @@ public class RouletteController : MonoBehaviour
     public float ruletMinDuration = 2f;
     public float ruletMaxDuration = 4f;
     public BallHandler ballHandler;
-    private float ballSpeed = 0.5f;
     public float minBallSpeed = 2f;
     public float maxBallSpeed = 4f;
     public float angleOffset = 0f;
@@ -49,10 +48,10 @@ public class RouletteController : MonoBehaviour
 
         wheelHandler.SpinTo(ruletDelta, ruletDuration, (ruletFinalY) =>
         {
-            ballSpeed = Random.Range(minBallSpeed, maxBallSpeed);
+            var ballduration = Random.Range(minBallSpeed, maxBallSpeed);
             var calculatedAngle = CalculateAngle(number);
             print("Calculated Angle: " + calculatedAngle);
-            ballHandler.RotateByDegree(calculatedAngle, ballSpeed, onComplete);
+            ballHandler.RotateByDegree(calculatedAngle, ballduration, onComplete);
         });
     }
 
@@ -76,10 +75,10 @@ public class RouletteController : MonoBehaviour
         }
 
         var wheelAngle = wheelHandler.transform.localEulerAngles.y;
-        if (wheelAngle < 0)
-        {
-            wheelAngle += 360f;
-        }
+        // if (wheelAngle < 0)
+        // {
+        //     wheelAngle += 360f;
+        // }
 
         var angleToSpin = targetAngle + wheelAngle;
 
