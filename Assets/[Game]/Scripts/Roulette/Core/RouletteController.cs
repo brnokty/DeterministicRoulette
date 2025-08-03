@@ -8,7 +8,7 @@ public enum GameType
     AmericanRoulette,
 }
 
-public class RuletGameManager : MonoBehaviour
+public class RouletteController : MonoBehaviour
 {
     
     public WheelHandler wheelHandler;

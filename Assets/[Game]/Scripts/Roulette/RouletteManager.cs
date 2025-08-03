@@ -8,7 +8,7 @@ namespace Game.Roulette
 {
     public class RouletteManager : MonoBehaviour
     {
-        [Header("References")] public RuletGameManager rouletteController;
+        [Header("References")] public RouletteController rouletteController;
         public BetManager betManager;
         public UIManager uiManager;
         public int PlayerChips = 1000;

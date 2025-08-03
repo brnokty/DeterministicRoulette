@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Text;
 
-public class RouletteController : MonoBehaviour
+public class RouletteControllerTest : MonoBehaviour
 {
     [Header("Wheel & Ball")]
     public Transform wheel;
