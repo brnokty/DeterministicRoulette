@@ -175,7 +175,8 @@ public enum BetAreaType
     Low,
     High,
 
-    Zero
+    Zero,
+    DoubleZero // Amerikan rulet için, Avrupa ruletinde yok
     // Amerikan için DoubleZero da ekleyebilirim!
 }
 

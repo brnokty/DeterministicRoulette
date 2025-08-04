@@ -150,6 +150,9 @@ namespace Game.Roulette
 
             // Zero
             if (areaType == BetAreaType.Zero && landedNumber == 0) return 36;
+            
+            // DoubleZero
+            if (areaType == BetAreaType.DoubleZero && landedNumber == 0) return 36;
 
             return 0;
         }
