@@ -55,7 +55,7 @@ public class Chip : MonoBehaviour
             BetArea closest = null;
             float minDist = float.MaxValue;
 
-            foreach (var ba in FindObjectsOfType<BetArea>())
+            foreach (var ba in FindObjectsOfType<BetArea>(true))
             {
                 float dist = Vector3.Distance(mousePos, ba.transform.position);
                 if (dist < 0.03f && dist < minDist)

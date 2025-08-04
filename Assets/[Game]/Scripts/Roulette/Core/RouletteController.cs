@@ -10,13 +10,15 @@ public enum GameType
 
 public class RouletteController : MonoBehaviour
 {
-    public WheelHandler wheelHandler;
+    [Header("References")] public WheelHandler wheelHandler;
+    public BallHandler ballHandler;
+    [SerializeField] private GameObject europeanBetArea;
+    [SerializeField] private GameObject americanBetArea;
     [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
     public float ruletMinDegree = 1080f;
     public float ruletMaxDegree = 2160f;
     public float ruletMinDuration = 2f;
     public float ruletMaxDuration = 4f;
-    public BallHandler ballHandler;
     public float minBallSpeed = 2f;
     public float maxBallSpeed = 4f;
     public float angleOffset = 0f;
@@ -112,8 +114,20 @@ public class RouletteController : MonoBehaviour
     }
 
 
-    public void SetGameType(GameType gameType)
+    public void SetGameType(GameType type)
     {
+        gameType = type;
         wheelHandler.SetWheelOrder(gameType);
+
+        if (gameType == GameType.EuropeanRoulette)
+        {
+            europeanBetArea.SetActive(true);
+            americanBetArea.SetActive(false);
+        }
+        else
+        {
+            americanBetArea.SetActive(true);
+            europeanBetArea.SetActive(false);
+        }
     }
 }
