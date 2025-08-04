@@ -7,13 +7,13 @@ namespace Game.UI
 {
     public class UIManager : MonoBehaviour
     {
-        
         public static UIManager Instance { get; private set; }
         public DeterministicOutcomeSelector deterministicSelector;
         public StatPanel statPanel;
         public TMP_Text balanceText;
         [SerializeField] private Button spinButton;
         [SerializeField] private Button resetButton;
+        public TMP_Text resultText;
 
         private void Awake()
         {
@@ -49,13 +49,12 @@ namespace Game.UI
             Core.GameManager.Instance.rouletteManager.Spin(selectedNumber);
         }
 
-        public Text resultText;
 
         public void ShowResult(string number)
         {
             // Kırmızı/Siyah/Yeşil kontrolü için dizinle renk bul
             string color = GetColorForNumber(number); // Kendi fonksiyonunu yaz!
-            resultText.text = $"Kazanan: <color={color}>{number}</color>";
+            resultText.text = $"<color={color}>{number}</color>";
         }
 
 
@@ -74,7 +73,7 @@ namespace Game.UI
             else
                 return "black";
         }
-        
+
         public void UpdateBalance(float newBalance)
         {
             balanceText.text = $"Balance: {newBalance.ToString("F2")}$";
@@ -82,7 +81,6 @@ namespace Game.UI
 
         public void OnresetButtonClicked()
         {
-            
         }
     }
 }
