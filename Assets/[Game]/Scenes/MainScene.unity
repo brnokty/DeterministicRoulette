@@ -3522,6 +3522,34 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
+  - soundType: 3
+    soundName: Ambiance
+    clip: {fileID: 8300000, guid: f38c0ed93ab468949959fa0834f275ae, type: 3}
+    loop: 1
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundType: 5
+    soundName: Win
+    clip: {fileID: 8300000, guid: 4e07bb058da737b4290b7aea951452c8, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundType: 6
+    soundName: Lose
+    clip: {fileID: 8300000, guid: e1efe3739ad7e7e4e8698674874ac37d, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundType: 7
+    soundName: Chip Movement
+    clip: {fileID: 8300000, guid: c5858fa8dd214c34c8cc8bd389c556b8, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
 --- !u!4 &1595563947
 Transform:
   m_ObjectHideFlags: 0

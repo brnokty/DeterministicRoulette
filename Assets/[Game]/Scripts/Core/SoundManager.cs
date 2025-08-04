@@ -31,9 +31,11 @@ namespace Game.Core
             Music,
             WheelSpin,
             BallStop,
+            Ambiance,
             Confetti,
-            Bip,
-            Biiip,
+            Win,
+            Lose,
+            ChipMovement,
             ButtonClick,
             ButtonClick2,
             PlayClick,
@@ -67,6 +69,7 @@ namespace Game.Core
             }
 
             PlaySound(SoundType.Music, true);
+            PlaySound(SoundType.Ambiance, true);
         }
 
         public void PlaySound(SoundType soundType, bool loop = false)
