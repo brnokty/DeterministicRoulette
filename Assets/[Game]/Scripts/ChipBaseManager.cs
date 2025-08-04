@@ -1,41 +1,22 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Game.Core;
 
 public class ChipBaseManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class ChipEntry
+    public List<BaseChip> baseChips;
+
+    private void Start()
     {
-        public int value;
-        public GameObject prefab;
-        public Transform baseSpot; // Masadaki konumu (BaseArea üstündeki pozisyonlar)
+        UpdateAllChips(GameManager.Instance.Balance);
     }
 
-    public List<ChipEntry> chipEntries;
-    public int playerMoney = 900;
-
-    void Start()
+    public void UpdateAllChips(int playerBalance)
     {
-        UpdateBaseChips();
-    }
-
-    public void UpdateBaseChips()
-    {
-        foreach(var entry in chipEntries)
+        foreach (var chip in baseChips)
         {
-            bool canShow = playerMoney >= entry.value;
-            entry.prefab.SetActive(canShow);
-            // İstersen baseSpot konumuna prefabı yerleştir:
-            if (canShow && entry.baseSpot != null)
-            {
-                entry.prefab.transform.position = entry.baseSpot.position;
-            }
+            chip.UpdateChipActive(playerBalance);
         }
-    }
-
-    public void SetMoney(int money)
-    {
-        playerMoney = money;
-        UpdateBaseChips();
     }
 }

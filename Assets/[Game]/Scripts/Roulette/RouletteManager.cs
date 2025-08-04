@@ -21,7 +21,7 @@ namespace Game.Roulette
         {
             if (amount < minBet || amount > maxBet || amount > PlayerChips)
                 return;
-            betManager.PlaceBet(betType, numbers, amount);
+            // betManager.PlaceBet(betType, numbers, amount);
             PlayerChips -= amount;
         }
 
@@ -48,12 +48,12 @@ namespace Game.Roulette
             bool win = false;
             foreach (var bet in betManager.CurrentBets)
             {
-                if (IsBetWin(bet, winningNumber, out int payout))
-                {
-                    PlayerChips += payout;
-                    profit += payout;
-                    win = true;
-                }
+                // if (IsBetWin(bet, winningNumber, out int payout))
+                // {
+                //     PlayerChips += payout;
+                //     profit += payout;
+                //     win = true;
+                // }
             }
 
             GameManager.Instance.statisticsManager.RecordSpin(win, profit);
@@ -62,27 +62,27 @@ namespace Game.Roulette
             betManager.ClearBets();
         }
 
-        private bool IsBetWin(BetManager.Bet bet, string winningNumber, out int payout)
-        {
-            payout = 0;
-            // Basit bir örnek payout hesabı (gerçek oranları ekle!)
-            if (System.Array.Exists(bet.numbers, n => n == winningNumber))
-            {
-                switch (bet.betType)
-                {
-                    case BetType.Straight: payout = bet.amount * 36; break;
-                    case BetType.Split: payout = bet.amount * 17; break;
-                    case BetType.Street: payout = bet.amount * 11; break;
-                    case BetType.Corner: payout = bet.amount * 8; break;
-                    case BetType.SixLine: payout = bet.amount * 5; break;
-                    // Diğer bet türleri için oranları ekle
-                }
-
-                return true;
-            }
-
-            // Outside bet logic ekle
-            return false;
-        }
+        // private bool IsBetWin(BetManager.Bet bet, string winningNumber, out int payout)
+        // {
+        //     payout = 0;
+        //     // Basit bir örnek payout hesabı (gerçek oranları ekle!)
+        //     if (System.Array.Exists(bet.numbers, n => n == winningNumber))
+        //     {
+        //         switch (bet.betType)
+        //         {
+        //             case BetType.Straight: payout = bet.amount * 36; break;
+        //             case BetType.Split: payout = bet.amount * 17; break;
+        //             case BetType.Street: payout = bet.amount * 11; break;
+        //             case BetType.Corner: payout = bet.amount * 8; break;
+        //             case BetType.SixLine: payout = bet.amount * 5; break;
+        //             // Diğer bet türleri için oranları ekle
+        //         }
+        //
+        //         return true;
+        //     }
+        //
+        //     // Outside bet logic ekle
+        //     return false;
+        // }
     }
 }
