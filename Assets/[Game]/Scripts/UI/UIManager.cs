@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,9 @@ namespace Game.UI
     {
         public DeterministicOutcomeSelector deterministicSelector;
         public StatPanel statPanel;
+        public TMP_Text balanceText;
         [SerializeField] private Button spinButton;
+        [SerializeField] private Button resetButton;
 
 
         private void Start()
@@ -53,6 +56,16 @@ namespace Game.UI
                 return "red";
             else
                 return "black";
+        }
+        
+        public void UpdateBalance(float newBalance)
+        {
+            balanceText.text = $"Balance: {newBalance.ToString("F2")}";
+        }
+
+        public void OnresetButtonClicked()
+        {
+            
         }
     }
 }
