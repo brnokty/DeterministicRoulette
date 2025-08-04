@@ -89,23 +89,40 @@ public class BallHandler : MonoBehaviour
     {
         float currentY = transform.localEulerAngles.y;
         float targetY = degree;
-
-        // Hedef: 1 tam tur + hedef açı kadar döndürmek
         float finalY = currentY + 360f + Mathf.DeltaAngle(currentY % 360f, targetY % 360f);
 
         float timer = 0f;
+
+        Vector3 startPos = transform.localPosition;
+        float bounceHeight = 0.015f; // Zıplama yüksekliği (daha düşük!)
+        float bounceFrequency = 8f; // Kaç defa zıplasın (isteğe göre değiştir)
+        float minBounce = 0.002f;   // Sondaki min sekme yüksekliği
+
         while (timer < duration)
         {
             timer += Time.deltaTime;
             float t = Mathf.Clamp01(timer / duration);
-            float easedT = 1 - Mathf.Pow(2, -10 * t); // Basit EaseOutExpo
+
+            // Ease-out expo ile yavaşlama
+            float easedT = 1 - Mathf.Pow(2, -10 * t);
             float lerpedY = Mathf.Lerp(currentY, finalY, easedT);
             transform.localEulerAngles = new Vector3(0, lerpedY, 0);
+
+            // Sadece yukarı zıplama: abs(sin)
+            float bounceDamping = Mathf.Lerp(bounceHeight, minBounce, t); // Sekme azalır
+            float bounce = Mathf.Abs(Mathf.Sin(t * Mathf.PI * bounceFrequency)) * bounceDamping;
+            transform.localPosition = startPos + new Vector3(0, bounce, 0);
+
             yield return null;
         }
+        // Son pozisyona düzelt
         transform.localEulerAngles = new Vector3(0, finalY, 0);
+        transform.localPosition = startPos;
         onComplete?.Invoke();
     }
+
+
+
 
 
 
