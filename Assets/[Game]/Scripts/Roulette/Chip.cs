@@ -55,15 +55,18 @@ public class Chip : MonoBehaviour
             BetArea closest = null;
             float minDist = float.MaxValue;
 
-            foreach (var ba in FindObjectsOfType<BetArea>(true))
+            foreach (var ba in FindObjectsOfType<BetArea>())
             {
-                float dist = Vector3.Distance(mousePos, ba.transform.position);
-                if (dist < 0.03f && dist < minDist)
+                if (ba.gameObject.activeInHierarchy) // %100 sadece aktif olanlar
                 {
-                    closest = ba;
-                    minDist = dist;
-                    if (closest != currentSnapArea)
-                        SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
+                    float dist = Vector3.Distance(mousePos, ba.transform.position);
+                    if (dist < 0.03f && dist < minDist)
+                    {
+                        closest = ba;
+                        minDist = dist;
+                        if (closest != currentSnapArea)
+                            SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
+                    }
                 }
             }
 

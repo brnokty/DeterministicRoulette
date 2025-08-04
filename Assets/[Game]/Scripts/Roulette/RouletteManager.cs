@@ -48,7 +48,7 @@ namespace Game.Roulette
             }
 
             LastWinningNumber = result;
-            rouletteController.StartSpin(deterministicNumber, () => OnSpinComplete(result));
+            rouletteController.StartSpin(result, () => OnSpinComplete(result));
         }
 
         private void OnSpinComplete(string winningNumber)
