@@ -33,8 +33,10 @@ public class Chip : MonoBehaviour
                     prevArea.RemoveChip(this);
                     GameManager.Instance.SetBalance(GameManager.Instance.Balance + value); // Para iade!
                 }
+
                 transform.parent = null;
             }
+
             StartDragging();
         }
     }
@@ -56,10 +58,12 @@ public class Chip : MonoBehaviour
             foreach (var ba in FindObjectsOfType<BetArea>())
             {
                 float dist = Vector3.Distance(mousePos, ba.transform.position);
-                if (dist < 0.05f && dist < minDist)
+                if (dist < 0.03f && dist < minDist)
                 {
                     closest = ba;
                     minDist = dist;
+                    if (closest != currentSnapArea)
+                        SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
                 }
             }
 
@@ -103,6 +107,7 @@ public class Chip : MonoBehaviour
     }
 
     public LayerMask hitLayers = Physics.DefaultRaycastLayers;
+
     private Vector3 GetMouseHitPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

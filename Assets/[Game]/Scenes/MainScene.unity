@@ -3505,7 +3505,7 @@ MonoBehaviour:
     soundName: Music
     clip: {fileID: 8300000, guid: 941a548f13ff6c54fa3d849a69bcac72, type: 3}
     loop: 1
-    volume: 1
+    volume: 0.7
     pitch: 1
     audioSource: {fileID: 0}
   - soundType: 1
@@ -3526,7 +3526,7 @@ MonoBehaviour:
     soundName: Ambiance
     clip: {fileID: 8300000, guid: f38c0ed93ab468949959fa0834f275ae, type: 3}
     loop: 1
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
   - soundType: 5
