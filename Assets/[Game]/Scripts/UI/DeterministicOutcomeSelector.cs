@@ -10,13 +10,6 @@ namespace Game.UI
 
         public string GetSelectedNumber()
         {
-            // if (int.TryParse(, out int num))
-            // {
-            //     if (num >= 0 && num <= 36)
-            //         return num;
-            // }
-            // return -1; // random üret
-
             return inputField.text;
         }
     }

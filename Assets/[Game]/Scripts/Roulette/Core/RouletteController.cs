@@ -110,4 +110,10 @@ public class RouletteController : MonoBehaviour
         // Eleman bulunamazsa -1 döndürür
         return -1;
     }
+
+
+    public void SetGameType(GameType gameType)
+    {
+        wheelHandler.SetWheelOrder(gameType);
+    }
 }

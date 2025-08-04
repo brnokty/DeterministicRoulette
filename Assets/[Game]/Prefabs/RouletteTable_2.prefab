@@ -3419,6 +3419,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wheelRenderer: {fileID: 1018209487405415720}
+  europeanWheelMaterial: {fileID: 2100000, guid: 6b84a3a202b682441a49dd1d66e372db,
+    type: 2}
+  americanWheelMaterial: {fileID: 2100000, guid: 28fc35de015448a498c70201c668fc1c,
+    type: 2}
 --- !u!1 &2642293503706309794
 GameObject:
   m_ObjectHideFlags: 0

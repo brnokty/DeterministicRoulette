@@ -42,12 +42,6 @@ namespace Game.UI
         public void OnSpinButtonClicked()
         {
             string selectedNumber = deterministicSelector.GetSelectedNumber();
-            if (selectedNumber == "")
-            {
-                Core.GameManager.Instance.rouletteManager.Spin("");
-                return;
-            }
-
             Core.GameManager.Instance.rouletteManager.Spin(selectedNumber);
         }
 

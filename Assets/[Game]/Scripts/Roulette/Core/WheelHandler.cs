@@ -7,6 +7,9 @@ public class WheelHandler : MonoBehaviour
 {
     public AnimationCurve easeCurve;
     private Coroutine spinCoroutine;
+    [SerializeField] private Renderer wheelRenderer;
+    [SerializeField] private Material europeanWheelMaterial;
+    [SerializeField] private Material americanWheelMaterial;
 
     public void SpinTo(float deltaDegrees, float duration, Action<float> onEnd)
     {
@@ -36,5 +39,22 @@ public class WheelHandler : MonoBehaviour
 
         spinCoroutine = null;
         onEnd?.Invoke(normalizedY);
+    }
+
+    public void SetWheelOrder(GameType gameType)
+    {
+        if (wheelRenderer == null) return;
+
+        Material[] materials = wheelRenderer.materials;
+        if (gameType == GameType.EuropeanRoulette)
+        {
+            materials[0] = europeanWheelMaterial;
+        }
+        else if (gameType == GameType.AmericanRoulette)
+        {
+            materials[0] = americanWheelMaterial;
+        }
+
+        wheelRenderer.materials = materials;
     }
 }

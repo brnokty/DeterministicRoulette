@@ -14,7 +14,8 @@ namespace Game.Roulette
         public int PlayerChips = 1000;
         public string LastWinningNumber;
 
-        [Header("Settings")] public int minBet = 10;
+        [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
+        public int minBet = 10;
         public int maxBet = 500;
 
         public void PlaceBet(BetType betType, string[] numbers, int amount)
@@ -32,9 +33,20 @@ namespace Game.Roulette
 
         public void Spin(string deterministicNumber)
         {
-            string result = (deterministicNumber != "")
-                ? deterministicNumber
-                : Random.Range(0, 37).ToString();
+            string result = "";
+            if (gameType == GameType.EuropeanRoulette)
+            {
+                 result = (deterministicNumber != "" && !string.IsNullOrEmpty(deterministicNumber))
+                    ? deterministicNumber
+                    : rouletteController.europeanWheelOrder[Random.Range(0, 37)];
+            }
+            else
+            {
+                result = (deterministicNumber != "" && !string.IsNullOrEmpty(deterministicNumber))
+                    ? deterministicNumber
+                    : rouletteController.americanWheelOrder[Random.Range(0, 38)];
+            }
+
             LastWinningNumber = result;
             rouletteController.StartSpin(deterministicNumber, () => OnSpinComplete(result));
         }
