@@ -26413,8 +26413,8 @@ MonoBehaviour:
   ruletMaxDegree: 2160
   ruletMinDuration: 2
   ruletMaxDuration: 4
-  minBallSpeed: 3
-  maxBallSpeed: 5
+  minBallSpeed: 7
+  maxBallSpeed: 12
   angleOffset: -1.9
   europeanWheelOrder:
   - 0

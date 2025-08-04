@@ -56,29 +56,6 @@ public class BallHandler : MonoBehaviour
         }
     }
 
-
-    // public void RotateByDegree(float degree, float duration, Action onComplete)
-    // {
-    //     StopRotating();
-    //     float currentY = transform.localEulerAngles.y;
-    //     float targetY = degree;
-    //     float delta = targetY - currentY;
-    //     if (delta <= 0)
-    //     {
-    //         delta += 360f;
-    //     }
-    //
-    //     // degree = degree < 0 ? 360 + degree : degree; // Negatif ise pozitif yap
-    //     float finalY = currentY + delta;
-    //     transform.DOLocalRotate(new Vector3(0, finalY, 0), duration, RotateMode.FastBeyond360)
-    //         .SetEase(Ease.OutExpo)
-    //         .OnComplete(() =>
-    //         {
-    //             currentTotalDegree = finalY; // Son dereceyi güncelle
-    //             onComplete?.Invoke();
-    //         });
-    // }
-    
     public void RotateByDegree(float degree, float duration, Action onComplete)
     {
         StopRotating();
@@ -94,9 +71,9 @@ public class BallHandler : MonoBehaviour
         float timer = 0f;
 
         Vector3 startPos = transform.localPosition;
-        float bounceHeight = 0.015f; // Zıplama yüksekliği (daha düşük!)
-        float bounceFrequency = 8f; // Kaç defa zıplasın (isteğe göre değiştir)
-        float minBounce = 0.002f;   // Sondaki min sekme yüksekliği
+        float bounceHeight = 0.02f; 
+        float bounceFrequency = Random.Range(4f, 6f); 
+        float minBounce = 0.005f; 
 
         while (timer < duration)
         {
@@ -115,19 +92,39 @@ public class BallHandler : MonoBehaviour
 
             yield return null;
         }
-        // Son pozisyona düzelt
-        transform.localEulerAngles = new Vector3(0, finalY, 0);
-        transform.localPosition = startPos;
+
+        // transform.localEulerAngles = new Vector3(0, finalY, 0);
+        // transform.localPosition = startPos;
         onComplete?.Invoke();
     }
 
 
-
-
-
-
     public void SetZposition(float zPosition)
     {
-        ball.DOLocalMoveZ(zPosition, Random.Range(1f, 2f));
+        // Eğer aynı anda birden fazla animasyon başlamasın diye eski coroutine'i durdur
+        if (moveZCoroutine != null)
+            StopCoroutine(moveZCoroutine);
+
+        float duration = Random.Range(1f, 2f);
+        moveZCoroutine = StartCoroutine(MoveZCoroutine(zPosition, duration));
+    }
+
+    private Coroutine moveZCoroutine;
+
+    private IEnumerator MoveZCoroutine(float zPosition, float duration)
+    {
+        float timer = 0f;
+        Vector3 startPos = ball.localPosition;
+        Vector3 endPos = new Vector3(startPos.x, startPos.y, zPosition);
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / duration;
+            float smoothT = 1 - Mathf.Pow(1 - t, 2.5f); 
+            ball.localPosition = Vector3.Lerp(startPos, endPos, smoothT);
+            yield return null;
+        }
+        ball.localPosition = endPos;
     }
 }

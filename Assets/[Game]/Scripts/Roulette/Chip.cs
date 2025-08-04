@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Game.Core;
 using UnityEngine;
 using System.Linq;
@@ -9,6 +10,7 @@ public class Chip : MonoBehaviour
     private Camera cam;
     private BetArea currentSnapArea = null;
     public static bool anyDragging = false;
+    private List<BetArea> activeBetAreas = new List<BetArea>();
 
     public void Init(int val)
     {
@@ -19,6 +21,7 @@ public class Chip : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        activeBetAreas = FindObjectsOfType<BetArea>().Where(x => x.gameObject.activeInHierarchy).ToList();
     }
 
     void OnMouseDown()
@@ -56,19 +59,19 @@ public class Chip : MonoBehaviour
             BetArea closest = null;
             float minDist = float.MaxValue;
 
-            var activeBetAreas = FindObjectsOfType<BetArea>().Where(x => x.gameObject.activeInHierarchy).ToList();
+
             foreach (var ba in activeBetAreas)
             {
                 // if (ba.gameObject.activeInHierarchy) // %100 sadece aktif olanlar
                 // {
-                    float dist = Vector3.Distance(mousePos, ba.transform.position);
-                    if (dist < 0.03f && dist < minDist)
-                    {
-                        closest = ba;
-                        minDist = dist;
-                        if (closest != currentSnapArea)
-                            SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
-                    }
+                float dist = Vector3.Distance(mousePos, ba.transform.position);
+                if (dist < 0.03f && dist < minDist)
+                {
+                    closest = ba;
+                    minDist = dist;
+                    if (closest != currentSnapArea)
+                        SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
+                }
                 // }
             }
 
