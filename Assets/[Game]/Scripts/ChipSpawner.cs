@@ -11,7 +11,6 @@ public class ChipSpawner : MonoBehaviour
         if (Chip.anyDragging) return;
 
         GameObject chip = Instantiate(chipPrefab, transform.position, Quaternion.identity);
-        chip.GetComponent<Chip>().Init(value);
         chip.GetComponent<Chip>().StartDragging();
     }
 }

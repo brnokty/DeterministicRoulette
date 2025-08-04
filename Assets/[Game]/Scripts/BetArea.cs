@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BetArea : MonoBehaviour
 {
-    [HideInInspector] public float snapRange = 0.0005f;
+    // [HideInInspector] public float snapRange = 0.000005f;
     private List<Chip> placedChips = new List<Chip>();
 
     public int GetChipCount()

@@ -4,16 +4,10 @@ public class Chip : MonoBehaviour
 {
     public int value;
     private bool isDragging = false;
-    private Vector3 offset;
+    private Vector3 offset = Vector3.zero;
     private Camera cam;
     private BetArea currentSnapArea = null;
     public static bool anyDragging = false;
-
-    public void Init(int val)
-    {
-        // value = val;
-        cam = Camera.main;
-    }
 
     void Start()
     {
@@ -32,33 +26,38 @@ public class Chip : MonoBehaviour
                 {
                     prevArea.RemoveChip(this);
                 }
+
                 transform.parent = null;
             }
+
             StartDragging();
         }
     }
-
 
     public void StartDragging()
     {
         isDragging = true;
         anyDragging = true;
-        offset = transform.position - GetMouseWorldPos();
+        // offset = transform.position - GetMouseWorldPos();
     }
 
     void Update()
     {
         if (isDragging)
         {
-            Vector3 mousePos = GetMouseWorldPos() + offset;
+            // Vector3 mousePos = GetMouseWorldPos() + offset;
+            Vector3 mousePos;
+            GetMouseHitPosition(out mousePos);
+
+
+            // EN KRİTİK KISIM: En yakın BetArea mouse'a göre bulunacak!
             BetArea closest = null;
             float minDist = float.MaxValue;
 
-            // En yakın BetArea'yı ve mesafesini bul
             foreach (var ba in FindObjectsOfType<BetArea>())
             {
                 float dist = Vector3.Distance(mousePos, ba.transform.position);
-                if (dist < ba.snapRange && dist < minDist)
+                if (dist < 0.05f && dist < minDist)
                 {
                     closest = ba;
                     minDist = dist;
@@ -67,16 +66,15 @@ public class Chip : MonoBehaviour
 
             if (closest != null)
             {
-                // Snaple ve stacklenmiş yüksekliğe yerleştir
-                int stackCount = closest.GetChipCount(); // Şu an kaç chip var?
+                int stackCount = closest.GetChipCount();
                 Vector3 snapPos = closest.transform.position + Vector3.up * (0.004f + 0.008f * stackCount);
                 transform.position = snapPos;
                 currentSnapArea = closest;
             }
             else
             {
-                // Snap yoksa mouse’un ucunda hareket ettir
-                transform.position = new Vector3(mousePos.x, 0.2f, mousePos.z);
+                // SNAP YOKSA: Chip mouse’un ucunda olur
+                transform.position = new Vector3(mousePos.x, mousePos.y, mousePos.z);
                 currentSnapArea = null;
             }
 
@@ -87,8 +85,6 @@ public class Chip : MonoBehaviour
         }
     }
 
-
-
     void StopDragging()
     {
         isDragging = false;
@@ -96,8 +92,8 @@ public class Chip : MonoBehaviour
         if (currentSnapArea != null)
         {
             currentSnapArea.AddChip(this);
-            // Pozisyonu tekrar stack’li olarak güncelle (diğer chiplerle üst üste)
-            int stackCount = currentSnapArea.GetChipCount() - 1; // Az önce eklendiği için -1
+            // Tekrar tam stack pozisyonuna yerleştir
+            int stackCount = currentSnapArea.GetChipCount() - 1;
             Vector3 snapPos = currentSnapArea.transform.position + Vector3.up * (0.004f + 0.008f * stackCount);
             transform.position = snapPos;
         }
@@ -106,7 +102,6 @@ public class Chip : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
     Vector3 GetMouseWorldPos()
     {
@@ -118,20 +113,19 @@ public class Chip : MonoBehaviour
         return Vector3.zero;
     }
 
-    BetArea FindClosestBetArea()
+    public LayerMask hitLayers = Physics.DefaultRaycastLayers;
+
+    public bool GetMouseHitPosition(out Vector3 hitPoint)
     {
-        BetArea[] all = FindObjectsOfType<BetArea>();
-        BetArea best = null;
-        float minDist = float.MaxValue;
-        foreach (var ba in all)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, hitLayers))
         {
-            float d = Vector3.Distance(transform.position, ba.GetSnapPosition());
-            if (d < ba.snapRange && d < minDist)
-            {
-                minDist = d;
-                best = ba;
-            }
+            hitPoint = hit.point;
+            return true;
         }
-        return best;
+
+        hitPoint = Vector3.zero;
+        return false;
     }
 }
