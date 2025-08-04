@@ -16,6 +16,7 @@ namespace Game.UI
         [SerializeField] private TMP_Text resultText;
         [SerializeField] private Image resultImage;
         [SerializeField] private LastWinningListController lastWinningListController;
+        public YouWonPopUp youWonPopUp;
 
         private void Awake()
         {
@@ -79,6 +80,15 @@ namespace Game.UI
 
         public void OnresetButtonClicked()
         {
+            // GameManager.Instance.ResetGame();
+            // deterministicSelector.ResetSelection();
+            statPanel.UpdateStats();
+            UpdateBalance(GameManager.Instance.Balance);
+            resultText.text = "...";
+            resultImage.color = Color.clear;
+            deterministicSelector.inputField.text = "...";
+            // lastWinningListController.ClearList();
+            youWonPopUp.Disappear();
         }
     }
 }
