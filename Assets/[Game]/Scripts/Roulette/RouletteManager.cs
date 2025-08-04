@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Core;
 using Game.UI;
+using Random = UnityEngine.Random;
 
 namespace Game.Roulette
 {
@@ -11,12 +13,18 @@ namespace Game.Roulette
         [Header("References")] public RouletteController rouletteController;
         public BetManager betManager;
         public UIManager uiManager;
-        public int PlayerChips = 1000;
-        public string LastWinningNumber;
+        [HideInInspector] public int PlayerChips = 950;
+        [HideInInspector] public string LastWinningNumber;
 
         [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
         public int minBet = 10;
         public int maxBet = 500;
+
+        private void Start()
+        {
+            PlayerChips = GameManager.Instance.Balance;
+            rouletteController.SetGameType(gameType);
+        }
 
         public void PlaceBet(BetType betType, string[] numbers, int amount)
         {
@@ -36,7 +44,7 @@ namespace Game.Roulette
             string result = "";
             if (gameType == GameType.EuropeanRoulette)
             {
-                 result = (deterministicNumber != "" && !string.IsNullOrEmpty(deterministicNumber))
+                result = (deterministicNumber != "" && !string.IsNullOrEmpty(deterministicNumber))
                     ? deterministicNumber
                     : rouletteController.europeanWheelOrder[Random.Range(0, 37)];
             }
@@ -64,17 +72,17 @@ namespace Game.Roulette
             {
                 SoundManager.Instance.PlaySound(SoundManager.SoundType.Win);
                 GameManager.Instance.AddMoney(winnings);
+                StatisticsManager.Instance.RecordSpin(true, winnings);
             }
             else
             {
                 SoundManager.Instance.PlaySound(SoundManager.SoundType.Lose);
+                StatisticsManager.Instance.RecordSpin(false, winnings);
             }
 
             print("winnings = " + winnings + " for number " + winningNumber + "Balance = " +
                   GameManager.Instance.Balance);
 
-
-            // Bahisleri sıfırla veya yeni turu başlat
             BetManager.Instance.ClearBets();
         }
 

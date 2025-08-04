@@ -26656,8 +26656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelHandler: {fileID: 8865022344733109756}
   ballHandler: {fileID: 6047431754524240598}
-  europeanBetArea: {fileID: 0}
-  americanBetArea: {fileID: 0}
+  europeanBetArea: {fileID: 7645139303500490015}
+  americanBetArea: {fileID: 1170173792431670120}
   gameType: 0
   ruletMinDegree: 1080
   ruletMaxDegree: 2160

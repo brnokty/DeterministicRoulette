@@ -48,11 +48,11 @@ public class WheelHandler : MonoBehaviour
         Material[] materials = wheelRenderer.materials;
         if (gameType == GameType.EuropeanRoulette)
         {
-            materials[0] = europeanWheelMaterial;
+            materials[1] = europeanWheelMaterial;
         }
         else if (gameType == GameType.AmericanRoulette)
         {
-            materials[0] = americanWheelMaterial;
+            materials[1] = americanWheelMaterial;
         }
 
         wheelRenderer.materials = materials;

@@ -20,7 +20,7 @@ namespace Game.Core
         public int Balance
         {
             get => balance;
-            private set
+            set
             {
                 balance = value;
                 UIManager.Instance?.UpdateBalance(balance);

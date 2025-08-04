@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum GameType
 {
@@ -40,7 +42,7 @@ public class RouletteController : MonoBehaviour
         "29", "12", "8", "19", "31", "18", "6", "21", "33", "16", "4",
         "23", "35", "14", "2"
     };
-
+    
 
     public void StartSpin(string number, System.Action onComplete)
     {

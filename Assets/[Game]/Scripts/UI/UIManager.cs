@@ -58,7 +58,7 @@ namespace Game.UI
 
         public Color GetColorForNumber(string number)
         {
-            if (number == "0")
+            if (number == "0" || number == "00")
                 return Color.green;
 
             // Avrupa ruletinde kırmızı olan sayılar

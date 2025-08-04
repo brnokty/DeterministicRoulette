@@ -12,7 +12,6 @@ namespace Game.Core
             public int totalSpins, totalWins, totalLosses, totalProfit;
             public int chips; // Oyuncu bakiyesi
             public string lastWinningNumber;
-            // Gerekirse aktif bahisler, tercih vs. eklenebilir
         }
 
         public void SaveGame()
@@ -26,7 +25,7 @@ namespace Game.Core
                 totalWins = stats.TotalWins,
                 totalLosses = stats.TotalLosses,
                 totalProfit = stats.TotalProfit,
-                chips = roulette.PlayerChips,
+                chips = GameManager.Instance.Balance,
                 lastWinningNumber = roulette.LastWinningNumber
             };
 
@@ -47,7 +46,7 @@ namespace Game.Core
             // stats.ResetStats();
             stats.SetStats(data.totalSpins, data.totalWins, data.totalLosses, data.totalProfit);
 
-            roulette.PlayerChips = data.chips;
+            GameManager.Instance.Balance = data.chips;
             roulette.LastWinningNumber = data.lastWinningNumber;
         }
 
@@ -73,7 +72,5 @@ namespace Game.Core
             SaveData data = JsonUtility.FromJson<SaveData>(json);
             return data.chips;
         }
-
-        
     }
 }
