@@ -4324,6 +4324,13 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
+  - soundType: 4
+    soundName: Confetti
+    clip: {fileID: 8300000, guid: 6a577c9f595c9ef439b7eb32cf9d07c8, type: 3}
+    loop: 0
+    volume: 2
+    pitch: 0.7
+    audioSource: {fileID: 0}
 --- !u!4 &1595563947
 Transform:
   m_ObjectHideFlags: 0
@@ -4544,7 +4551,7 @@ MonoBehaviour:
   uiManager: {fileID: 337781878}
   PlayerChips: 1000
   LastWinningNumber: 
-  gameType: 1
+  gameType: 0
   minBet: 1
   maxBet: 50000
 --- !u!4 &1817861346

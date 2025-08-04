@@ -1,4 +1,5 @@
 using System;
+using Game.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class RouletteController : MonoBehaviour
     public BallHandler ballHandler;
     [SerializeField] private GameObject europeanBetArea;
     [SerializeField] private GameObject americanBetArea;
+    [SerializeField] private ParticleSystem confettiParticleSystem;
     [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
     public float ruletMinDegree = 1080f;
     public float ruletMaxDegree = 2160f;
@@ -130,6 +132,19 @@ public class RouletteController : MonoBehaviour
         {
             americanBetArea.SetActive(true);
             europeanBetArea.SetActive(false);
+        }
+    }
+
+    public void PlayConfetti()
+    {
+        if (confettiParticleSystem != null)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.SoundType.Confetti);
+            confettiParticleSystem.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Confetti Particle System is not assigned!");
         }
     }
 }

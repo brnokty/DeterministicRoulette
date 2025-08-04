@@ -73,6 +73,7 @@ namespace Game.Roulette
                 SoundManager.Instance.PlaySound(SoundManager.SoundType.Win);
                 GameManager.Instance.AddMoney(winnings);
                 StatisticsManager.Instance.RecordSpin(true, winnings);
+                rouletteController.PlayConfetti();
                 UIManager.Instance.youWonPopUp.Show(winnings);
             }
             else
