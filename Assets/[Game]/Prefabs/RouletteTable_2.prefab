@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 9
+  placedChips: []
 --- !u!1 &141043156004955302
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 56
+  placedChips: []
 --- !u!1 &151006980586240796
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &219873355939173354
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 39
+  placedChips: []
 --- !u!1 &314790143837747479
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 22
+  placedChips: []
 --- !u!1 &345768318975700484
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,11 +711,11 @@ Transform:
   m_GameObject: {fileID: 412595635669555287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0912, y: 0.56700003, z: 0.2995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.122622676, y: 0.07, z: 0.07544887}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1597413491157328617
 MeshFilter:
@@ -903,6 +908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &458858555912598135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 24
+  placedChips: []
 --- !u!1 &686382658022573013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,12 +1194,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686382658022573013}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.037, y: 0.5665, z: 0.552}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.054200012, y: -0.00050002337, z: 0.25250006}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &1698561255856135034
 MeshFilter:
@@ -1278,6 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 147
+  placedChips: []
 --- !u!1 &831882304932741486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 6
+  placedChips: []
 --- !u!1 &1135676121886511262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 58
+  placedChips: []
 --- !u!1 &1138577056251934783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 43
+  placedChips: []
 --- !u!1 &1296049078376661740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 46
+  placedChips: []
 --- !u!1 &1383875172285834412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +1968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &1488225958301614983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,12 +1997,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488225958301614983}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.1686, y: 0.5665, z: 0.5521}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.07740002, y: -0.00050002337, z: 0.25260007}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &3420219165591627815
 MeshFilter:
@@ -2075,6 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 148
+  placedChips: []
 --- !u!1 &1519549681901960629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,6 +2291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &1839791614458865024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 1
+  placedChips: []
 --- !u!1 &2129571081392532280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,12 +2628,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2166931596006375923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0939, y: 0.5665, z: 0.552}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.18510005, y: -0.00050002337, z: 0.25250006}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &8239992601238604412
 MeshFilter:
@@ -2703,6 +2719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 150
+  placedChips: []
 --- !u!1 &2223558867410438936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,6 +2839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 32
+  placedChips: []
 --- !u!1 &2246574972311494493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,9 +2864,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246574972311494493}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -0.5272, y: 0.5665, z: 0.1506}
-  m_LocalScale: {x: 100.000015, y: 100.000015, z: 100}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.43600008, y: -0.00050002337, z: -0.14890003}
+  m_LocalScale: {x: 100.00002, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2526001482413995279}
@@ -2863,7 +2881,7 @@ Transform:
   - {fileID: 5377107170482458023}
   - {fileID: 8820352642874382664}
   - {fileID: 5842080967736749031}
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2278948848129433063
 GameObject:
@@ -2984,6 +3002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 28
+  placedChips: []
 --- !u!1 &2552955947797452844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,6 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 40
+  placedChips: []
 --- !u!1 &2581300996323796223
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 34
+  placedChips: []
 --- !u!1 &2586634970963783070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,6 +3538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 27
+  placedChips: []
 --- !u!1 &2660136094982004494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,9 +3648,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680158580713748844}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -0.5272, y: 0.5665, z: 0.2729}
-  m_LocalScale: {x: 100.000015, y: 100.000015, z: 100}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.43600008, y: -0.00050002337, z: -0.026600003}
+  m_LocalScale: {x: 100.00002, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2652837571483813080}
@@ -3643,7 +3665,7 @@ Transform:
   - {fileID: 7901531911203683809}
   - {fileID: 1646531365301376561}
   - {fileID: 6857249599173079659}
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2794906321354266748
 GameObject:
@@ -3764,6 +3786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 48
+  placedChips: []
 --- !u!1 &2830842243511616367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,9 +3811,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2830842243511616367}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -0.5272, y: 0.5665, z: 0.2134}
-  m_LocalScale: {x: 100.000015, y: 100.000015, z: 100}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.43600008, y: -0.00050002337, z: -0.08609998}
+  m_LocalScale: {x: 100.00002, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9012450597385045041}
@@ -3806,7 +3829,7 @@ Transform:
   - {fileID: 8084523354359946712}
   - {fileID: 8769700347723649466}
   - {fileID: 3361843239901893759}
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2845333245766233556
 GameObject:
@@ -3836,12 +3859,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2845333245766233556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2247, y: 0.5665, z: 0.552}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.3159001, y: -0.00050002337, z: 0.2525}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &451678434090130933
 MeshFilter:
@@ -3927,6 +3950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 151
+  placedChips: []
 --- !u!1 &2875233682488267805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,6 +4070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 44
+  placedChips: []
 --- !u!1 &2876244469377861815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 16
+  placedChips: []
 --- !u!1 &3204178072127446261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,6 +4498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 36
+  placedChips: []
 --- !u!1 &3489420735485522847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,6 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 21
+  placedChips: []
 --- !u!1 &3640290149636231678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,6 +4738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 141
+  placedChips: []
 --- !u!1 &3642689655053652171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,6 +4858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 3
+  placedChips: []
 --- !u!1 &3749444124577398660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 143
+  placedChips: []
 --- !u!1 &3863352571747696611
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,6 +5098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 33
+  placedChips: []
 --- !u!1 &3884823945519279281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,9 +5123,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3884823945519279281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -0.5272, y: 0.5665, z: 0.0906}
-  m_LocalScale: {x: 100.000015, y: 100.000015, z: 100}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.43600008, y: -0.00050002337, z: -0.20890003}
+  m_LocalScale: {x: 100.00002, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5798512095326470111}
@@ -5109,7 +5141,7 @@ Transform:
   - {fileID: 2602789950820144981}
   - {fileID: 3660091527672174624}
   - {fileID: 3993396864650746835}
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3920879242133987609
 GameObject:
@@ -5230,6 +5262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 42
+  placedChips: []
 --- !u!1 &3987452559785450764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5349,6 +5382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 13
+  placedChips: []
 --- !u!1 &4312288983783869510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,6 +5502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 35
+  placedChips: []
 --- !u!1 &4382611503282990147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,6 +5622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 30
+  placedChips: []
 --- !u!1 &4487717967269949419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,6 +5742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 52
+  placedChips: []
 --- !u!1 &4589032401250063517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,6 +5862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 31
+  placedChips: []
 --- !u!1 &4594102875231954601
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,6 +6065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 51
+  placedChips: []
 --- !u!1 &4865080987924206720
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,6 +6185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 41
+  placedChips: []
 --- !u!1 &4889003167913464377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6265,6 +6305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 4
+  placedChips: []
 --- !u!1 &4979726808693908787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6384,6 +6425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 18
+  placedChips: []
 --- !u!1 &5006697248619232866
 GameObject:
   m_ObjectHideFlags: 0
@@ -6412,12 +6454,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5006697248619232866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3328, y: 0.5665, z: 0.2132}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.42400005, y: -0.00050002337, z: -0.086299986}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5641102280056103911
 MeshFilter:
@@ -6503,6 +6545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &5025435393784328983
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,6 +6770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 61
+  placedChips: []
 --- !u!1 &5084195922189733686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,6 +6890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 59
+  placedChips: []
 --- !u!1 &5165223000726873809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6965,6 +7010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &5180777999994423178
 GameObject:
   m_ObjectHideFlags: 0
@@ -7084,6 +7130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 55
+  placedChips: []
 --- !u!1 &5283032930160167506
 GameObject:
   m_ObjectHideFlags: 0
@@ -7378,9 +7425,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5576254776962642550}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -0.52722013, y: 0.5665, z: 0.33573005}
-  m_LocalScale: {x: 100.000015, y: 100.000015, z: 100}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.43602023, y: -0.00050002337, z: 0.036230057}
+  m_LocalScale: {x: 100.00002, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3343876160028624323}
@@ -7396,7 +7443,7 @@ Transform:
   - {fileID: 8209958653962555786}
   - {fileID: 3007334964382324713}
   - {fileID: 7139018219597011099}
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5753987058428523810
 GameObject:
@@ -7426,12 +7473,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5753987058428523810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.4298, y: 0.5665, z: 0.552}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.3386001, y: -0.00050002337, z: 0.25250006}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &4505032781721624357
 MeshFilter:
@@ -7517,6 +7564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 152
+  placedChips: []
 --- !u!1 &5810946006247262041
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,6 +7684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 15
+  placedChips: []
 --- !u!1 &5894192566284424304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,6 +7909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 53
+  placedChips: []
 --- !u!1 &5948113301493712191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7979,6 +8029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 62
+  placedChips: []
 --- !u!1 &5992333009374670309
 GameObject:
   m_ObjectHideFlags: 0
@@ -8098,6 +8149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &6055054007577647324
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,6 +8374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 10
+  placedChips: []
 --- !u!1 &6114080989402191965
 GameObject:
   m_ObjectHideFlags: 0
@@ -8441,6 +8494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 47
+  placedChips: []
 --- !u!1 &6117160676150521587
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,6 +8614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 7
+  placedChips: []
 --- !u!1 &6290530276536490023
 GameObject:
   m_ObjectHideFlags: 0
@@ -8762,6 +8817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 49
+  placedChips: []
 --- !u!1 &6373571450396090425
 GameObject:
   m_ObjectHideFlags: 0
@@ -8881,6 +8937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 45
+  placedChips: []
 --- !u!1 &6388426384906097257
 GameObject:
   m_ObjectHideFlags: 0
@@ -9000,6 +9057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 19
+  placedChips: []
 --- !u!1 &6437915995552741603
 GameObject:
   m_ObjectHideFlags: 0
@@ -9119,6 +9177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 25
+  placedChips: []
 --- !u!1 &6550225839892064244
 GameObject:
   m_ObjectHideFlags: 0
@@ -9238,6 +9297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 12
+  placedChips: []
 --- !u!1 &6652295124309882826
 GameObject:
   m_ObjectHideFlags: 0
@@ -9266,12 +9326,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6652295124309882826}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.29913, y: 0.5665, z: 0.55211}
-  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.10799449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.20793003, y: -0.00050002337, z: 0.25261015}
+  m_LocalScale: {x: 0.07547366, y: 0.001, z: 0.1079945}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &6292871473775975300
 MeshFilter:
@@ -9357,6 +9417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 149
+  placedChips: []
 --- !u!1 &6847400811188853087
 GameObject:
   m_ObjectHideFlags: 0
@@ -9621,6 +9682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 50
+  placedChips: []
 --- !u!1 &7073895049762815527
 GameObject:
   m_ObjectHideFlags: 0
@@ -9649,12 +9711,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7073895049762815527}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.15897, y: 0.5665, z: 0.44905}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.25017002, y: -0.00050002337, z: 0.14955008}
   m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &3432826676718676729
 MeshFilter:
@@ -9740,6 +9802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 144
+  placedChips: []
 --- !u!1 &7158107086610896978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9859,6 +9922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 57
+  placedChips: []
 --- !u!1 &7248078084718500379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9978,6 +10042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 142
+  placedChips: []
 --- !u!1 &7454994930706237548
 GameObject:
   m_ObjectHideFlags: 0
@@ -10097,6 +10162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 54
+  placedChips: []
 --- !u!1 &7583739623986750728
 GameObject:
   m_ObjectHideFlags: 0
@@ -10216,6 +10282,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
+--- !u!1 &7645139303500490015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3246316569280294041}
+  m_Layer: 0
+  m_Name: BetArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3246316569280294041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645139303500490015}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09120002, y: 0.56700003, z: 0.29950005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7651453051486971059}
+  - {fileID: 1103428394899243041}
+  - {fileID: 3026985425148400890}
+  - {fileID: 1210145003340395718}
+  - {fileID: 4517085606916060693}
+  - {fileID: 6285664066082961184}
+  - {fileID: 5200328535226896003}
+  - {fileID: 6919001045619221188}
+  - {fileID: 5738142107237379581}
+  - {fileID: 8948003116966959108}
+  - {fileID: 9194777123964708442}
+  - {fileID: 3540612537392398653}
+  - {fileID: 6015927451321015783}
+  - {fileID: 8523466766895260331}
+  - {fileID: 8158808007208487056}
+  - {fileID: 3175598251227812265}
+  m_Father: {fileID: 3169616310129392019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7873510203211500406
 GameObject:
   m_ObjectHideFlags: 0
@@ -10328,12 +10442,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8242338596655509065}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.1033, y: 0.5665, z: 0.449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.012100004, y: -0.00050002337, z: 0.14950007}
   m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &283566183573146915
 MeshFilter:
@@ -10419,6 +10533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 145
+  placedChips: []
 --- !u!1 &8424823205607968435
 GameObject:
   m_ObjectHideFlags: 0
@@ -10454,22 +10569,7 @@ Transform:
   - {fileID: 8184865491618163984}
   - {fileID: 6292612344154804652}
   - {fileID: 7449726445487218321}
-  - {fileID: 7651453051486971059}
-  - {fileID: 1103428394899243041}
-  - {fileID: 3026985425148400890}
-  - {fileID: 1210145003340395718}
-  - {fileID: 4517085606916060693}
-  - {fileID: 6285664066082961184}
-  - {fileID: 5200328535226896003}
-  - {fileID: 6919001045619221188}
-  - {fileID: 5738142107237379581}
-  - {fileID: 8948003116966959108}
-  - {fileID: 9194777123964708442}
-  - {fileID: 3540612537392398653}
-  - {fileID: 6015927451321015783}
-  - {fileID: 8523466766895260331}
-  - {fileID: 8158808007208487056}
-  - {fileID: 3175598251227812265}
+  - {fileID: 3246316569280294041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &4333188550436965286
@@ -10690,6 +10790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 60
+  placedChips: []
 --- !u!1 &8497924433277493617
 GameObject:
   m_ObjectHideFlags: 0
@@ -10849,6 +10950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &8770084628292493118
 GameObject:
   m_ObjectHideFlags: 0
@@ -10968,6 +11070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &8931715756081547732
 GameObject:
   m_ObjectHideFlags: 0
@@ -11087,6 +11190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 0
+  placedChips: []
 --- !u!1 &9051442186083036777
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,12 +11219,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9051442186083036777}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.3642, y: 0.5665, z: 0.449}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.27300003, y: -0.00050002337, z: 0.14950007}
   m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 3246316569280294041}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2370051491352849045
 MeshFilter:
@@ -11206,3 +11310,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaType: 146
+  placedChips: []

@@ -5,17 +5,17 @@ namespace Game.Roulette
 {
     public class BetManager : MonoBehaviour
     {
-        
         public static BetManager Instance { get; private set; }
+
         public class Bet
         {
             public BetAreaType areaType;
             public int amount;
         }
-        
+
         public List<Bet> CurrentBets { get; private set; } = new List<Bet>();
 
-        
+
         private void Awake()
         {
             if (Instance == null)
@@ -28,7 +28,7 @@ namespace Game.Roulette
                 Destroy(gameObject);
             }
         }
-        
+
         public void PlaceBet(BetAreaType areaType, int amount)
         {
             CurrentBets.Add(new Bet
@@ -49,7 +49,16 @@ namespace Game.Roulette
         public void ClearBets()
         {
             CurrentBets.Clear();
+            ClearAllBetAreas();
         }
+
+
+        public static void ClearAllBetAreas()
+        {
+            foreach (var area in GameObject.FindObjectsOfType<BetArea>())
+                area.ClearAllChips();
+        }
+
 
         public int GetTotalBetAmount()
         {
@@ -68,6 +77,7 @@ namespace Game.Roulette
                 if (payout > 0)
                     totalWinnings += bet.amount * payout;
             }
+
             return totalWinnings;
         }
 

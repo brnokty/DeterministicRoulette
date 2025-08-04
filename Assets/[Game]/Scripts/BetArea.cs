@@ -209,4 +209,14 @@ public class BetArea : MonoBehaviour
     {
         placedChips.Remove(chip);
     }
+    
+    public void ClearAllChips()
+    {
+        foreach (var chip in placedChips)
+        {
+            if (chip != null)
+                Destroy(chip.gameObject);
+        }
+        placedChips.Clear();
+    }
 }

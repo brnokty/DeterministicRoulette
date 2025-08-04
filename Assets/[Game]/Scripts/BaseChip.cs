@@ -13,7 +13,7 @@ public class BaseChip : MonoBehaviour
     void Start()
     {
         if (chipRenderer == null) chipRenderer = GetComponent<Renderer>();
-        originalColor = chipRenderer.material.color;
+        originalColor = chipRenderer.materials[1].color;
         UpdateChipActive(GameManager.Instance.Balance);
     }
 
@@ -30,7 +30,7 @@ public class BaseChip : MonoBehaviour
     public void UpdateChipActive(int playerBalance)
     {
         isActive = playerBalance >= value;
-        chipRenderer.material.color = isActive ? originalColor : Color.gray;
+        chipRenderer.materials[1].color = isActive ? originalColor : Color.gray;
         Collider col = GetComponent<Collider>();
         if (col != null) col.enabled = isActive;
     }
