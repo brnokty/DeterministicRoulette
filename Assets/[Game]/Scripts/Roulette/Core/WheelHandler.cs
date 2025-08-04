@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using Game.Core;
 
 public class WheelHandler : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class WheelHandler : MonoBehaviour
 
     IEnumerator SpinToCoroutine(float deltaDegrees, float duration, Action<float> onEnd)
     {
+        SoundManager.Instance.PlaySound(SoundManager.SoundType.WheelSpin, true);
         float startY = Mathf.Repeat(transform.eulerAngles.y, 360f);
         float targetY = startY + deltaDegrees;
 

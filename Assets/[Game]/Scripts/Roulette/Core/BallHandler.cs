@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using Game.Core;
 using Random = UnityEngine.Random;
 
 
@@ -26,12 +27,15 @@ public class BallHandler : MonoBehaviour
     public void StartRotating()
     {
         StopRotating();
+        SoundManager.Instance.PlaySound(SoundManager.SoundType.WheelSpin, true);
         rotateCoroutine = StartCoroutine(RotateInfinite());
         SetZposition(targetZPosition);
     }
 
     public void StopRotating()
     {
+        SoundManager.Instance.StopSound(SoundManager.SoundType.WheelSpin);
+        SoundManager.Instance.PlaySound(SoundManager.SoundType.BallStop);
         if (rotateCoroutine != null)
         {
             StopCoroutine(rotateCoroutine);
@@ -63,6 +67,7 @@ public class BallHandler : MonoBehaviour
         {
             delta += 360f;
         }
+
         // degree = degree < 0 ? 360 + degree : degree; // Negatif ise pozitif yap
         float finalY = currentY + delta;
         transform.DOLocalRotate(new Vector3(0, finalY, 0), duration, RotateMode.FastBeyond360)

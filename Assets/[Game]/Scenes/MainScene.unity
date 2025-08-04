@@ -3500,11 +3500,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9fb476c68e9c54f89905a9e8980915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinClip: {fileID: 8300000, guid: 120503eb64362b445aa46e66d7a730d8, type: 3}
-  ballDropClip: {fileID: 8300000, guid: 120503eb64362b445aa46e66d7a730d8, type: 3}
-  winClip: {fileID: 8300000, guid: 120503eb64362b445aa46e66d7a730d8, type: 3}
-  loseClip: {fileID: 8300000, guid: 120503eb64362b445aa46e66d7a730d8, type: 3}
-  chipClip: {fileID: 8300000, guid: 120503eb64362b445aa46e66d7a730d8, type: 3}
+  sounds:
+  - soundType: 0
+    soundName: Music
+    clip: {fileID: 8300000, guid: 941a548f13ff6c54fa3d849a69bcac72, type: 3}
+    loop: 1
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundType: 1
+    soundName: Wheel Spin
+    clip: {fileID: 8300000, guid: d53a69f224a42514cb4108b008ec516e, type: 3}
+    loop: 1
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundType: 2
+    soundName: Ball Stop
+    clip: {fileID: 8300000, guid: e7fce640b228c654f9dbf3989b8d1f82, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
 --- !u!4 &1595563947
 Transform:
   m_ObjectHideFlags: 0
