@@ -57,27 +57,57 @@ public class BallHandler : MonoBehaviour
     }
 
 
+    // public void RotateByDegree(float degree, float duration, Action onComplete)
+    // {
+    //     StopRotating();
+    //     float currentY = transform.localEulerAngles.y;
+    //     float targetY = degree;
+    //     float delta = targetY - currentY;
+    //     if (delta <= 0)
+    //     {
+    //         delta += 360f;
+    //     }
+    //
+    //     // degree = degree < 0 ? 360 + degree : degree; // Negatif ise pozitif yap
+    //     float finalY = currentY + delta;
+    //     transform.DOLocalRotate(new Vector3(0, finalY, 0), duration, RotateMode.FastBeyond360)
+    //         .SetEase(Ease.OutExpo)
+    //         .OnComplete(() =>
+    //         {
+    //             currentTotalDegree = finalY; // Son dereceyi güncelle
+    //             onComplete?.Invoke();
+    //         });
+    // }
+    
     public void RotateByDegree(float degree, float duration, Action onComplete)
     {
         StopRotating();
+        StartCoroutine(RotateByDegreeCoroutine(degree, duration, onComplete));
+    }
+
+    private IEnumerator RotateByDegreeCoroutine(float degree, float duration, Action onComplete)
+    {
         float currentY = transform.localEulerAngles.y;
         float targetY = degree;
-        float delta = targetY - currentY;
-        if (delta <= 0)
-        {
-            delta += 360f;
-        }
 
-        // degree = degree < 0 ? 360 + degree : degree; // Negatif ise pozitif yap
-        float finalY = currentY + delta;
-        transform.DOLocalRotate(new Vector3(0, finalY, 0), duration, RotateMode.FastBeyond360)
-            .SetEase(Ease.OutExpo)
-            .OnComplete(() =>
-            {
-                currentTotalDegree = finalY; // Son dereceyi güncelle
-                onComplete?.Invoke();
-            });
+        // Hedef: 1 tam tur + hedef açı kadar döndürmek
+        float finalY = currentY + 360f + Mathf.DeltaAngle(currentY % 360f, targetY % 360f);
+
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = Mathf.Clamp01(timer / duration);
+            float easedT = 1 - Mathf.Pow(2, -10 * t); // Basit EaseOutExpo
+            float lerpedY = Mathf.Lerp(currentY, finalY, easedT);
+            transform.localEulerAngles = new Vector3(0, lerpedY, 0);
+            yield return null;
+        }
+        transform.localEulerAngles = new Vector3(0, finalY, 0);
+        onComplete?.Invoke();
     }
+
+
 
     public void SetZposition(float zPosition)
     {
