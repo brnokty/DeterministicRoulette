@@ -10381,6 +10381,7 @@ MonoBehaviour:
     type: 3}
   value: 5000
   chipRenderer: {fileID: 2148404671222139249}
+  colorMaterialIndex: 1
 --- !u!135 &6849486573725372502
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12677,6 +12678,7 @@ MonoBehaviour:
     type: 3}
   value: 20
   chipRenderer: {fileID: 1288570582135767029}
+  colorMaterialIndex: 1
 --- !u!135 &9131507610701528225
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12734,6 +12736,7 @@ MonoBehaviour:
     type: 3}
   value: 10
   chipRenderer: {fileID: 8984568850676785060}
+  colorMaterialIndex: 2
 --- !u!135 &9131507610952190914
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12791,6 +12794,7 @@ MonoBehaviour:
     type: 3}
   value: 100
   chipRenderer: {fileID: 9148194799928654559}
+  colorMaterialIndex: 2
 --- !u!135 &9131507611242234005
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12848,6 +12852,7 @@ MonoBehaviour:
     type: 3}
   value: 500
   chipRenderer: {fileID: 8807273884035342825}
+  colorMaterialIndex: 2
 --- !u!135 &9131507611433603890
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12905,6 +12910,7 @@ MonoBehaviour:
     type: 3}
   value: 5
   chipRenderer: {fileID: 5716693268109443547}
+  colorMaterialIndex: 1
 --- !u!135 &9131507611973382163
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12962,6 +12968,7 @@ MonoBehaviour:
     type: 3}
   value: 1000
   chipRenderer: {fileID: 1353079195129154477}
+  colorMaterialIndex: 1
 --- !u!135 &9131507612243780662
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13019,6 +13026,7 @@ MonoBehaviour:
     type: 3}
   value: 50
   chipRenderer: {fileID: 1891406533571868367}
+  colorMaterialIndex: 1
 --- !u!135 &9131507612546366678
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13076,6 +13084,7 @@ MonoBehaviour:
     type: 3}
   value: 1
   chipRenderer: {fileID: 7476529936757793248}
+  colorMaterialIndex: 2
 --- !u!135 &9131507612709827201
 SphereCollider:
   m_ObjectHideFlags: 0

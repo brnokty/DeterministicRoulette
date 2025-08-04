@@ -6,6 +6,7 @@ public class BaseChip : MonoBehaviour
     public GameObject chipPrefab;
     public int value;
     public Renderer chipRenderer;
+    public int colorMaterialIndex = 1; // Default to the second material for color
 
     private Color originalColor;
     private bool isActive = true;
@@ -13,7 +14,7 @@ public class BaseChip : MonoBehaviour
     void Start()
     {
         if (chipRenderer == null) chipRenderer = GetComponent<Renderer>();
-        originalColor = chipRenderer.materials[1].color;
+        originalColor = chipRenderer.materials[colorMaterialIndex].color;
         UpdateChipActive(GameManager.Instance.Balance);
     }
 
@@ -30,7 +31,7 @@ public class BaseChip : MonoBehaviour
     public void UpdateChipActive(int playerBalance)
     {
         isActive = playerBalance >= value;
-        chipRenderer.materials[1].color = isActive ? originalColor : Color.gray;
+        chipRenderer.materials[colorMaterialIndex].color = isActive ? originalColor : Color.gray;
         Collider col = GetComponent<Collider>();
         if (col != null) col.enabled = isActive;
     }

@@ -1,3 +1,4 @@
+using Game.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +33,7 @@ namespace Game.UI
         {
             // UI panel setup
             statPanel.UpdateStats();
+            UpdateBalance(GameManager.Instance.Balance);
             spinButton.onClick.AddListener(OnSpinButtonClicked);
         }
 
