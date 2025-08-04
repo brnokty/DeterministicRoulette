@@ -3,19 +3,29 @@ using System.Collections.Generic;
 
 public class BetArea : MonoBehaviour
 {
-    public float snapRange = 0.8f; // Chip bu kadar yakınsa snaplesin
+    [HideInInspector] public float snapRange = 0.0005f;
     private List<Chip> placedChips = new List<Chip>();
+
+    public int GetChipCount()
+    {
+        // Masanın üstündeki kaç chip burada?
+        return placedChips.Count;
+    }
 
     public Vector3 GetSnapPosition()
     {
-        // Kendi merkezine biraz yukarıda stack olacak şekilde
-        return transform.position + Vector3.up * (0.2f + 0.1f * placedChips.Count);
+        // Sadece "chip stack" için kullanılabilir, chip eklenmeden önce stack yükseklik hesaplanacaksa
+        return transform.position + Vector3.up * (0.04f + 0.008f * placedChips.Count);
     }
 
     public void AddChip(Chip chip)
     {
         placedChips.Add(chip);
-        // Chip'in parent'ı bu BetArea olur (istersen)
         chip.transform.parent = transform;
+    }
+
+    public void RemoveChip(Chip chip)
+    {
+        placedChips.Remove(chip);
     }
 }
