@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Losses: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7132f05c86e83478768ee4e87c2d4e, type: 2}
   m_sharedMaterial: {fileID: 8486598485045653187, guid: 1f7132f05c86e83478768ee4e87c2d4e,
@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Wins: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7132f05c86e83478768ee4e87c2d4e, type: 2}
   m_sharedMaterial: {fileID: 8486598485045653187, guid: 1f7132f05c86e83478768ee4e87c2d4e,
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Profit: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7132f05c86e83478768ee4e87c2d4e, type: 2}
   m_sharedMaterial: {fileID: 8486598485045653187, guid: 1f7132f05c86e83478768ee4e87c2d4e,
@@ -4601,7 +4601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Spins: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7132f05c86e83478768ee4e87c2d4e, type: 2}
   m_sharedMaterial: {fileID: 8486598485045653187, guid: 1f7132f05c86e83478768ee4e87c2d4e,
