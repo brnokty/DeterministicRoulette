@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using System.Collections;
-using DG.Tweening;
 using Game.Core;
 using Random = UnityEngine.Random;
 
@@ -9,21 +8,21 @@ using Random = UnityEngine.Random;
 public class BallHandler : MonoBehaviour
 {
     public Transform ball;
-    public float rotationSpeed = 180f; // Sürekli dönerkenki hız (derece/sn)
-    public float slowDownAngle = 90f; // Son kaç derecede yavaşlayacak
+    public float rotationSpeed = 180f; 
+    public float slowDownAngle = 90f; 
 
     private Coroutine rotateCoroutine;
-    private float currentTotalDegree = 0f; // Başladığından beri dönen toplam derece
+    private float currentTotalDegree = 0f; 
 
     private float defaultZPosition;
     private float targetZPosition = 0.2149f;
 
     private void Start()
     {
-        defaultZPosition = ball.localPosition.z; // Başlangıç Z konumunu kaydet
+        defaultZPosition = ball.localPosition.z; 
     }
 
-    // Sonsuz döndür (sen stop veya rotateToTarget demedikçe)
+    
     public void StartRotating()
     {
         StopRotating();
@@ -46,7 +45,6 @@ public class BallHandler : MonoBehaviour
 
     IEnumerator RotateInfinite()
     {
-        // Burada toplam açıyı her frame güncelle!
         while (true)
         {
             float delta = rotationSpeed * Time.deltaTime;
@@ -80,13 +78,13 @@ public class BallHandler : MonoBehaviour
             timer += Time.deltaTime;
             float t = Mathf.Clamp01(timer / duration);
 
-            // Ease-out expo ile yavaşlama
+            
             float easedT = 1 - Mathf.Pow(2, -10 * t);
             float lerpedY = Mathf.Lerp(currentY, finalY, easedT);
             transform.localEulerAngles = new Vector3(0, lerpedY, 0);
 
-            // Sadece yukarı zıplama: abs(sin)
-            float bounceDamping = Mathf.Lerp(bounceHeight, minBounce, t); // Sekme azalır
+            
+            float bounceDamping = Mathf.Lerp(bounceHeight, minBounce, t); 
             float bounce = Mathf.Abs(Mathf.Sin(t * Mathf.PI * bounceFrequency)) * bounceDamping;
             transform.localPosition = startPos + new Vector3(0, bounce, 0);
 
@@ -101,7 +99,6 @@ public class BallHandler : MonoBehaviour
 
     public void SetZposition(float zPosition)
     {
-        // Eğer aynı anda birden fazla animasyon başlamasın diye eski coroutine'i durdur
         if (moveZCoroutine != null)
             StopCoroutine(moveZCoroutine);
 
@@ -111,6 +108,7 @@ public class BallHandler : MonoBehaviour
 
     private Coroutine moveZCoroutine;
 
+    
     private IEnumerator MoveZCoroutine(float zPosition, float duration)
     {
         float timer = 0f;
@@ -121,10 +119,18 @@ public class BallHandler : MonoBehaviour
         {
             timer += Time.deltaTime;
             float t = timer / duration;
-            float smoothT = 1 - Mathf.Pow(1 - t, 2.5f); 
-            ball.localPosition = Vector3.Lerp(startPos, endPos, smoothT);
+            float smoothT = 1 - Mathf.Pow(1 - t, 2.5f);
+            Vector3 lerped = Vector3.Lerp(startPos, endPos, smoothT);
+            
+            if (float.IsNaN(lerped.x) || float.IsNaN(lerped.y) || float.IsNaN(lerped.z))
+            {
+                yield break;
+            }
+
+            ball.localPosition = lerped;
             yield return null;
         }
         ball.localPosition = endPos;
     }
+    
 }

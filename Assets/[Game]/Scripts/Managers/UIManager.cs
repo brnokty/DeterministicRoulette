@@ -1,4 +1,5 @@
 using Game.Core;
+using Game.Roulette;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ namespace Game.UI
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                // DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -43,14 +44,13 @@ namespace Game.UI
         public void OnSpinButtonClicked()
         {
             string selectedNumber = deterministicSelector.GetSelectedNumber();
-            Core.GameManager.Instance.rouletteManager.Spin(selectedNumber);
+            RouletteManager.Instance.Spin(selectedNumber);
         }
 
 
         public void ShowResult(string number)
         {
-            // Kırmızı/Siyah/Yeşil kontrolü için dizinle renk bul
-            Color color = GetColorForNumber(number); // Kendi fonksiyonunu yaz!
+            Color color = GetColorForNumber(number);
             resultText.text = number;
             resultImage.color = color;
             lastWinningListController.AddWinNumber(number, color);
@@ -62,7 +62,6 @@ namespace Game.UI
             if (number == "0" || number == "00")
                 return Color.green;
 
-            // Avrupa ruletinde kırmızı olan sayılar
             string[] redNumbers =
             {
                 "1", "3", "5", "7", "9", "12", "14", "16", "18", "19", "21", "23", "25", "27", "30", "32", "34", "36"

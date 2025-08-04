@@ -8,7 +8,7 @@ namespace Game.Core
         public int TotalSpins { get; private set; }
         public int TotalWins { get; private set; }
         public int TotalLosses { get; private set; }
-        public int TotalProfit { get; private set; } // +kazanç/-kayıp
+        public int TotalProfit { get; private set; } 
 
         public delegate void OnStatsChangedDelegate();
         public event OnStatsChangedDelegate OnStatsChanged;
@@ -19,7 +19,7 @@ namespace Game.Core
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                // DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -47,7 +47,7 @@ namespace Game.Core
             OnStatsChanged?.Invoke();
         }
 
-        // YENİ EKLE: Save/Load için topluca ayar
+        
         public void SetStats(int spins, int wins, int losses, int profit)
         {
             TotalSpins = spins;

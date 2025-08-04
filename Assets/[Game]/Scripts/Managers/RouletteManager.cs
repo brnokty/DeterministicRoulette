@@ -10,6 +10,26 @@ namespace Game.Roulette
 {
     public class RouletteManager : MonoBehaviour
     {
+        #region Singleton
+
+        public static RouletteManager Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                // DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        #endregion
+
         [Header("References")] public RouletteController rouletteController;
         public BetManager betManager;
         public UIManager uiManager;
@@ -19,6 +39,7 @@ namespace Game.Roulette
         [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
         public int minBet = 10;
         public int maxBet = 500;
+
 
         private void Start()
         {
@@ -81,9 +102,6 @@ namespace Game.Roulette
                 SoundManager.Instance.PlaySound(SoundManager.SoundType.Lose);
                 StatisticsManager.Instance.RecordSpin(false, winnings);
             }
-
-            print("winnings = " + winnings + " for number " + winningNumber + "Balance = " +
-                  GameManager.Instance.Balance);
 
             BetManager.Instance.ClearBets();
         }

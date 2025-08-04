@@ -1,3 +1,4 @@
+using Game.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,12 @@ namespace Game.UI
         private void Start()
         {
             UpdateStats();
-            Core.GameManager.Instance.statisticsManager.OnStatsChanged += UpdateStats;
+            StatisticsManager.Instance.OnStatsChanged += UpdateStats;
         }
 
         public void UpdateStats()
         {
-            var stats = Game.Core.GameManager.Instance.statisticsManager;
+            var stats = StatisticsManager.Instance;
             totalSpinsText.text = $"Spins: {stats.TotalSpins}";
             totalWinsText.text = $"Wins: {stats.TotalWins}";
             totalLossesText.text = $"Losses: {stats.TotalLosses}";

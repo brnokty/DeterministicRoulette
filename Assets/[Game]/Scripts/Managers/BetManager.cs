@@ -3,31 +3,40 @@ using UnityEngine;
 
 namespace Game.Roulette
 {
+    public class Bet
+    {
+        public BetAreaType areaType;
+        public int amount;
+    }
+
     public class BetManager : MonoBehaviour
     {
+        #region Singleton
+
         public static BetManager Instance { get; private set; }
-
-        public class Bet
-        {
-            public BetAreaType areaType;
-            public int amount;
-        }
-
-        public List<Bet> CurrentBets { get; private set; } = new List<Bet>();
-
 
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                // DontDestroyOnLoad(gameObject);
             }
             else
             {
                 Destroy(gameObject);
             }
         }
+
+        #endregion
+
+        #region PUBLIC PROPERTIES
+
+        public List<Bet> CurrentBets { get; private set; } = new List<Bet>();
+
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void PlaceBet(BetAreaType areaType, int amount)
         {
@@ -150,17 +159,23 @@ namespace Game.Roulette
 
             // Zero
             if (areaType == BetAreaType.Zero && landedNumber == 0) return 36;
-            
+
             // DoubleZero
             if (areaType == BetAreaType.DoubleZero && landedNumber == 0) return 36;
 
             return 0;
         }
 
+        #endregion
+
+        #region PRIVATE METHODS
+
         private bool IsInColumn(int columnIndex, int number)
         {
             if (number < 1 || number > 36) return false;
             return (number - 1) % 3 == (columnIndex - 1);
         }
+
+        #endregion
     }
 }

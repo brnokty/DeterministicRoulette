@@ -4776,10 +4776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5229537c241af478dbca434527b1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteManager: {fileID: 1817861345}
-  statisticsManager: {fileID: 1251904832}
-  saveManager: {fileID: 396971297}
-  soundManager: {fileID: 1595563946}
   balance: 1000
 --- !u!4 &1956472274
 Transform:

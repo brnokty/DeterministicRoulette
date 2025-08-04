@@ -1,9 +1,11 @@
+using Game.Roulette;
 using UnityEngine;
 
 namespace Game.Core
 {
     public class SaveManager : MonoBehaviour
     {
+        public static SaveManager Instance { get; private set; }
         private const string SAVE_KEY = "RouletteSaveData";
 
         [System.Serializable]
@@ -14,10 +16,23 @@ namespace Game.Core
             public string lastWinningNumber;
         }
 
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                // DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         public void SaveGame()
         {
-            var stats = GameManager.Instance.statisticsManager;
-            var roulette = GameManager.Instance.rouletteManager;
+            var stats = StatisticsManager.Instance;
+            var roulette = RouletteManager.Instance;
 
             SaveData data = new SaveData()
             {
@@ -40,8 +55,8 @@ namespace Game.Core
             string json = PlayerPrefs.GetString(SAVE_KEY);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            var stats = GameManager.Instance.statisticsManager;
-            var roulette = GameManager.Instance.rouletteManager;
+            var stats = StatisticsManager.Instance;
+            var roulette = RouletteManager.Instance;
 
             // stats.ResetStats();
             stats.SetStats(data.totalSpins, data.totalWins, data.totalLosses, data.totalProfit);

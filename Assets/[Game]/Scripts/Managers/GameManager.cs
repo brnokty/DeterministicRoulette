@@ -1,3 +1,4 @@
+using Game.Roulette;
 using Game.UI;
 using UnityEngine;
 
@@ -5,12 +6,25 @@ namespace Game.Core
 {
     public class GameManager : MonoBehaviour
     {
+        #region Singleton
         public static GameManager Instance { get; private set; }
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                // DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
 
-        [Header("References")] public Roulette.RouletteManager rouletteManager;
-        public StatisticsManager statisticsManager;
-        public SaveManager saveManager;
-        public SoundManager soundManager;
+        #endregion
+        [Header("References")]
 
         [Header("Player Data")] [SerializeField]
         private int balance = 1000;
@@ -29,47 +43,30 @@ namespace Game.Core
 
         public int PreBetBalance => preBetBalance;
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            if (!rouletteManager) rouletteManager = FindObjectOfType<Roulette.RouletteManager>();
-            if (!statisticsManager) statisticsManager = FindObjectOfType<StatisticsManager>();
-            if (!saveManager) saveManager = FindObjectOfType<SaveManager>();
-            if (!soundManager) soundManager = FindObjectOfType<SoundManager>();
-        }
+        
 
         private void Start()
         {
-            saveManager?.LoadGame();
-            Balance = saveManager.LoadBalance();
+            SaveManager.Instance?.LoadGame();
+            Balance = SaveManager.Instance.LoadBalance();
         }
 
         public void NewGame()
         {
-            statisticsManager.ResetStats();
-            rouletteManager.ResetTable();
+            StatisticsManager.Instance.ResetStats();
+            RouletteManager.Instance.ResetTable();
             // SetBalance(1000);
         }
 
         public void OnApplicationQuit()
         {
-            saveManager?.SaveGame();
+            SaveManager.Instance?.SaveGame();
         }
 
         public void SetBalance(int amount)
         {
             Balance = amount;
-            saveManager.SaveBalance(balance);
+            SaveManager.Instance.SaveBalance(balance);
             ChipBaseManager.Instance?.UpdateAllChips(balance);
             UIManager.Instance?.UpdateBalance(balance);
         }

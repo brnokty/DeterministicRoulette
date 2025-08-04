@@ -13,7 +13,7 @@ namespace Game.Core
         {
             if (Instance == null)
             {
-                DontDestroyOnLoad(gameObject);
+                // DontDestroyOnLoad(gameObject);
                 Instance = this;
             }
             else

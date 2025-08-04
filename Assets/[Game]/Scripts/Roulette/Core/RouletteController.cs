@@ -44,7 +44,7 @@ public class RouletteController : MonoBehaviour
         "29", "12", "8", "19", "31", "18", "6", "21", "33", "16", "4",
         "23", "35", "14", "2"
     };
-    
+
 
     public void StartSpin(string number, System.Action onComplete)
     {
@@ -56,7 +56,6 @@ public class RouletteController : MonoBehaviour
         {
             var ballduration = Random.Range(minBallSpeed, maxBallSpeed);
             var calculatedAngle = CalculateAngle(number);
-            print("Calculated Angle: " + calculatedAngle);
             ballHandler.RotateByDegree(calculatedAngle, ballduration, onComplete);
         });
     }
@@ -92,7 +91,6 @@ public class RouletteController : MonoBehaviour
 
         var angleToSpin = targetAngle + wheelAngle;
 
-        print("target angle: " + targetAngle + " wheel angle: " + wheelAngle + " angle to spin: " + angleToSpin);
 
         if (angleToSpin < 0)
         {
@@ -108,12 +106,10 @@ public class RouletteController : MonoBehaviour
         {
             if (array[i] == value)
             {
-                print("index found: " + i + " for value: " + value);
                 return i;
             }
         }
 
-        // Eleman bulunamazsa -1 döndürür
         return -1;
     }
 
