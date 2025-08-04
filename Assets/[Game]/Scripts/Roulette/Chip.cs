@@ -1,3 +1,4 @@
+using Game.Core;
 using UnityEngine;
 
 public class Chip : MonoBehaviour
@@ -7,6 +8,12 @@ public class Chip : MonoBehaviour
     private Camera cam;
     private BetArea currentSnapArea = null;
     public static bool anyDragging = false;
+
+    public void Init(int val)
+    {
+        value = val;
+        cam = Camera.main;
+    }
 
     void Start()
     {
@@ -24,11 +31,10 @@ public class Chip : MonoBehaviour
                 if (prevArea != null)
                 {
                     prevArea.RemoveChip(this);
+                    GameManager.Instance.SetBalance(GameManager.Instance.Balance + value); // Para iade!
                 }
-
                 transform.parent = null;
             }
-
             StartDragging();
         }
     }
@@ -44,9 +50,6 @@ public class Chip : MonoBehaviour
         if (isDragging)
         {
             Vector3 mousePos = GetMouseHitPosition();
-
-
-            // EN KRİTİK KISIM: En yakın BetArea mouse'a göre bulunacak!
             BetArea closest = null;
             float minDist = float.MaxValue;
 
@@ -69,7 +72,6 @@ public class Chip : MonoBehaviour
             }
             else
             {
-                // SNAP YOKSA: Chip mouse’un ucunda olur
                 transform.position = new Vector3(mousePos.x, mousePos.y, mousePos.z);
                 currentSnapArea = null;
             }
@@ -88,10 +90,11 @@ public class Chip : MonoBehaviour
         if (currentSnapArea != null)
         {
             currentSnapArea.AddChip(this);
-            // Tekrar tam stack pozisyonuna yerleştir
             int stackCount = currentSnapArea.GetChipCount() - 1;
             Vector3 snapPos = currentSnapArea.transform.position + Vector3.up * (0.004f + 0.008f * stackCount);
             transform.position = snapPos;
+
+            GameManager.Instance.SetBalance(GameManager.Instance.Balance - value); // Para azalt!
         }
         else
         {
@@ -99,18 +102,13 @@ public class Chip : MonoBehaviour
         }
     }
 
-
     public LayerMask hitLayers = Physics.DefaultRaycastLayers;
-
     private Vector3 GetMouseHitPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, hitLayers))
-        {
             return hit.point;
-        }
-
         return Vector3.zero;
     }
 }

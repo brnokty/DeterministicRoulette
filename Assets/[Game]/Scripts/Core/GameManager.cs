@@ -1,10 +1,11 @@
+using Game.UI;
 using UnityEngine;
 
 namespace Game.Core
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance;
+        public static GameManager Instance { get; private set; }
 
         [Header("References")]
         public Roulette.RouletteManager rouletteManager;
@@ -13,7 +14,8 @@ namespace Game.Core
         public SoundManager soundManager;
 
         [Header("Player Data")]
-        [SerializeField] private int balance = 1000; // Başlangıç parası
+        [SerializeField] private int balance = 1000;
+        private int preBetBalance;
 
         public int Balance
         {
@@ -21,10 +23,10 @@ namespace Game.Core
             private set
             {
                 balance = value;
-                // Eğer UI otomatik güncellenecekse burada event/observer veya UI fonksiyonu çağırabilirsin:
-                // OnBalanceChanged?.Invoke(balance);
+                UIManager.Instance?.UpdateBalance(balance);
             }
         }
+        public int PreBetBalance => preBetBalance;
 
         private void Awake()
         {
@@ -54,7 +56,7 @@ namespace Game.Core
         {
             statisticsManager.ResetStats();
             rouletteManager.ResetTable();
-            SetBalance(1000); // Yeni oyunda para sıfırlansın mı?
+            SetBalance(1000);
         }
 
         public void OnApplicationQuit()
@@ -62,50 +64,39 @@ namespace Game.Core
             saveManager?.SaveGame();
         }
 
-        // -------- PARA FONKSİYONLARI --------
+        public void SetBalance(int amount)
+        {
+            Balance = amount;
+            ChipBaseManager.Instance?.UpdateAllChips(balance);
+            UIManager.Instance?.UpdateBalance(balance);
+        }
 
-        /// <summary>
-        /// Para harcatır. Yetmezse false döner.
-        /// </summary>
+        public void AddMoney(int amount)
+        {
+            Balance += amount;
+            ChipBaseManager.Instance?.UpdateAllChips(balance);
+            UIManager.Instance?.UpdateBalance(balance);
+        }
+
         public bool SpendMoney(int amount)
         {
             if (balance >= amount)
             {
                 Balance -= amount;
-                // UI güncelleme veya ses/feedback tetikle
+                ChipBaseManager.Instance?.UpdateAllChips(balance);
                 return true;
             }
             return false;
         }
 
-        /// <summary>
-        /// Para ekler.
-        /// </summary>
-        public void AddMoney(int amount)
+        public void StartBetting()
         {
-            Balance += amount;
-            // UI güncelleme veya ses/feedback tetikle
+            preBetBalance = balance;
         }
 
-        /// <summary>
-        /// Bakiyeyi direkt olarak ayarlar.
-        /// </summary>
-        public void SetBalance(int amount)
+        public void ResetBalanceToPreBet()
         {
-            Balance = amount;
-            // UI güncelleme veya ses/feedback tetikle
-        }
-
-        // ------- SAVE/LOAD için (SaveManager ile entegre) --------
-        public void SavePlayerData()
-        {
-            saveManager?.SaveBalance(balance);
-            // Diğer data ile birlikte...
-        }
-
-        public void LoadPlayerData()
-        {
-            Balance = saveManager != null ? saveManager.LoadBalance() : 1000;
+            SetBalance(preBetBalance);
         }
     }
 }

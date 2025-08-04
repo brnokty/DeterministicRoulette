@@ -32,9 +32,9 @@ namespace Game.Roulette
 
         public void Spin(string deterministicNumber)
         {
-            string result = (deterministicNumber == "")
-            ? deterministicNumber
-            : Random.Range(0, 37).ToString();
+            string result = (deterministicNumber != "")
+                ? deterministicNumber
+                : Random.Range(0, 37).ToString();
             LastWinningNumber = result;
             rouletteController.StartSpin(deterministicNumber, () => OnSpinComplete(result));
         }
@@ -43,46 +43,27 @@ namespace Game.Roulette
         {
             uiManager.ShowResult(winningNumber);
 
-            // Payout ve istatistik güncelle
-            int profit = 0;
-            bool win = false;
-            foreach (var bet in betManager.CurrentBets)
-            {
-                // if (IsBetWin(bet, winningNumber, out int payout))
-                // {
-                //     PlayerChips += payout;
-                //     profit += payout;
-                //     win = true;
-                // }
-            }
 
-            GameManager.Instance.statisticsManager.RecordSpin(win, profit);
+            bool isRed = IsRed(winningNumber); // Yardımcı fonksiyonun olsun
+            bool isEven = int.Parse(winningNumber) != 0 && (int.Parse(winningNumber) % 2 == 0);
 
-            // Bahisleri sıfırla
-            betManager.ClearBets();
+            int winnings = BetManager.Instance.CalculateWinnings(int.Parse(winningNumber), isRed, isEven);
+
+            print("winnings = " + winnings + " for number " + winningNumber+ "Balance = " + GameManager.Instance.Balance);
+            if (winnings > 0)
+                GameManager.Instance.AddMoney(winnings);
+            
+            // Bahisleri sıfırla veya yeni turu başlat
+            BetManager.Instance.ClearBets();
         }
 
-        // private bool IsBetWin(BetManager.Bet bet, string winningNumber, out int payout)
-        // {
-        //     payout = 0;
-        //     // Basit bir örnek payout hesabı (gerçek oranları ekle!)
-        //     if (System.Array.Exists(bet.numbers, n => n == winningNumber))
-        //     {
-        //         switch (bet.betType)
-        //         {
-        //             case BetType.Straight: payout = bet.amount * 36; break;
-        //             case BetType.Split: payout = bet.amount * 17; break;
-        //             case BetType.Street: payout = bet.amount * 11; break;
-        //             case BetType.Corner: payout = bet.amount * 8; break;
-        //             case BetType.SixLine: payout = bet.amount * 5; break;
-        //             // Diğer bet türleri için oranları ekle
-        //         }
-        //
-        //         return true;
-        //     }
-        //
-        //     // Outside bet logic ekle
-        //     return false;
-        // }
+        private bool IsRed(string number)
+        {
+            string[] redNumbers =
+            {
+                "1", "3", "5", "7", "9", "12", "14", "16", "18", "19", "21", "23", "25", "27", "30", "32", "34", "36"
+            };
+            return System.Array.Exists(redNumbers, n => n == number);
+        }
     }
 }

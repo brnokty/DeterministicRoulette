@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,15 +6,15 @@ namespace Game.UI
 {
     public class StatPanel : MonoBehaviour
     {
-        public Text totalSpinsText;
-        public Text totalWinsText;
-        public Text totalLossesText;
-        public Text totalProfitText;
+        public TMP_Text totalSpinsText;
+        public TMP_Text totalWinsText;
+        public TMP_Text totalLossesText;
+        public TMP_Text totalProfitText;
 
         private void Start()
         {
             UpdateStats();
-            Game.Core.GameManager.Instance.statisticsManager.OnStatsChanged += UpdateStats;
+            Core.GameManager.Instance.statisticsManager.OnStatsChanged += UpdateStats;
         }
 
         public void UpdateStats()

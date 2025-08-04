@@ -63,10 +63,14 @@ public class RouletteController : MonoBehaviour
         {
             case GameType.EuropeanRoulette:
                 index = FindIndex(europeanWheelOrder, number);
+                if (index == -1)
+                    index = Random.Range(0, europeanWheelOrder.Length);
                 targetAngle = index * (360f / europeanWheelOrder.Length);
                 break;
             case GameType.AmericanRoulette:
                 index = FindIndex(americanWheelOrder, number);
+                if (index == -1)
+                    index = Random.Range(0, americanWheelOrder.Length);
                 targetAngle = index * (360f / americanWheelOrder.Length);
                 break;
             default:
@@ -103,7 +107,6 @@ public class RouletteController : MonoBehaviour
             }
         }
 
-        print("Abi yok içerde for value: " + value);
         // Eleman bulunamazsa -1 döndürür
         return -1;
     }

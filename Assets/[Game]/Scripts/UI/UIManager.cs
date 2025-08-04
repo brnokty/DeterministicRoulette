@@ -6,12 +6,27 @@ namespace Game.UI
 {
     public class UIManager : MonoBehaviour
     {
+        
+        public static UIManager Instance { get; private set; }
         public DeterministicOutcomeSelector deterministicSelector;
         public StatPanel statPanel;
         public TMP_Text balanceText;
         [SerializeField] private Button spinButton;
         [SerializeField] private Button resetButton;
 
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
 
         private void Start()
         {
@@ -60,7 +75,7 @@ namespace Game.UI
         
         public void UpdateBalance(float newBalance)
         {
-            balanceText.text = $"Balance: {newBalance.ToString("F2")}";
+            balanceText.text = $"Balance: {newBalance.ToString("F2")}$";
         }
 
         public void OnresetButtonClicked()

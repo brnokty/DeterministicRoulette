@@ -1,41 +1,36 @@
-using System;
 using Game.Core;
 using UnityEngine;
 
 public class BaseChip : MonoBehaviour
 {
-    public GameObject chipPrefab; // Masa üstünde oluşacak prefab (aynı model)
+    public GameObject chipPrefab;
     public int value;
+    public Renderer chipRenderer;
 
-    [Header("Chip Visuals")]
-    public Renderer chipRenderer; // Chip’in Renderer’ı (inspector’dan atayabilirsin)
     private Color originalColor;
+    private bool isActive = true;
 
     void Start()
     {
-        if (chipRenderer == null)
-            chipRenderer = GetComponent<Renderer>();
+        if (chipRenderer == null) chipRenderer = GetComponent<Renderer>();
         originalColor = chipRenderer.material.color;
+        UpdateChipActive(GameManager.Instance.Balance);
     }
 
     void OnMouseDown()
     {
-        if (!isActive) return; // Pasifse tıklama!
+        if (!isActive) return;
         if (Chip.anyDragging) return;
 
         GameObject chip = Instantiate(chipPrefab, transform.position, Quaternion.identity);
+        chip.GetComponent<Chip>().Init(value);
         chip.GetComponent<Chip>().StartDragging();
     }
 
-    private bool isActive = true;
-
-    // Para güncellendiğinde bu fonksiyonu çağır
     public void UpdateChipActive(int playerBalance)
     {
         isActive = playerBalance >= value;
-        // Renk ayarı
-        chipRenderer.material.color = isActive ? originalColor : Color.gray; // Veya Color.Lerp(originalColor, Color.gray, 0.6f);
-        // Collider kapama/açma
+        chipRenderer.material.color = isActive ? originalColor : Color.gray;
         Collider col = GetComponent<Collider>();
         if (col != null) col.enabled = isActive;
     }

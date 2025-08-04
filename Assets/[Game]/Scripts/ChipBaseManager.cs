@@ -1,22 +1,19 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
-using Game.Core;
 
 public class ChipBaseManager : MonoBehaviour
 {
+    public static ChipBaseManager Instance { get; private set; }
     public List<BaseChip> baseChips;
 
-    private void Start()
+    private void Awake()
     {
-        UpdateAllChips(GameManager.Instance.Balance);
+        Instance = this;
     }
 
     public void UpdateAllChips(int playerBalance)
     {
         foreach (var chip in baseChips)
-        {
             chip.UpdateChipActive(playerBalance);
-        }
     }
 }

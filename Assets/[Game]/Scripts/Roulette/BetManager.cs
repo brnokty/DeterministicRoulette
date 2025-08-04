@@ -5,16 +5,30 @@ namespace Game.Roulette
 {
     public class BetManager : MonoBehaviour
     {
-        // Basit bahis objesi
+        
+        public static BetManager Instance { get; private set; }
         public class Bet
         {
             public BetAreaType areaType;
             public int amount;
         }
-
+        
         public List<Bet> CurrentBets { get; private set; } = new List<Bet>();
 
-        // Bahis ekleme
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         public void PlaceBet(BetAreaType areaType, int amount)
         {
             CurrentBets.Add(new Bet
@@ -24,25 +38,36 @@ namespace Game.Roulette
             });
         }
 
+        public void RemoveBet(BetAreaType areaType, int amount)
+        {
+            // Eğer chip geri alınırsa
+            var bet = CurrentBets.FindLast(b => b.areaType == areaType && b.amount == amount);
+            if (bet != null)
+                CurrentBets.Remove(bet);
+        }
+
         public void ClearBets()
         {
             CurrentBets.Clear();
         }
 
-        // Kazanç hesaplama
-        public int CalculateWinnings(BetAreaType winningArea, int landedNumber, bool isRed, bool isEven)
+        public int GetTotalBetAmount()
+        {
+            int total = 0;
+            foreach (var bet in CurrentBets)
+                total += bet.amount;
+            return total;
+        }
+
+        public int CalculateWinnings(int landedNumber, bool isRed, bool isEven)
         {
             int totalWinnings = 0;
-
             foreach (var bet in CurrentBets)
             {
                 int payout = GetPayoutRatio(bet.areaType, landedNumber, isRed, isEven);
                 if (payout > 0)
-                {
                     totalWinnings += bet.amount * payout;
-                }
             }
-
             return totalWinnings;
         }
 
