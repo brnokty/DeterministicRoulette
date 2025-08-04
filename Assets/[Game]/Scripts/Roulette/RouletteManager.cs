@@ -48,11 +48,20 @@ namespace Game.Roulette
             bool isEven = int.Parse(winningNumber) != 0 && (int.Parse(winningNumber) % 2 == 0);
 
             int winnings = BetManager.Instance.CalculateWinnings(int.Parse(winningNumber), isRed, isEven);
-
-            print("winnings = " + winnings + " for number " + winningNumber+ "Balance = " + GameManager.Instance.Balance);
             if (winnings > 0)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.SoundType.Win);
                 GameManager.Instance.AddMoney(winnings);
-            
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(SoundManager.SoundType.Lose);
+            }
+
+            print("winnings = " + winnings + " for number " + winningNumber + "Balance = " +
+                  GameManager.Instance.Balance);
+
+
             // Bahisleri sıfırla veya yeni turu başlat
             BetManager.Instance.ClearBets();
         }

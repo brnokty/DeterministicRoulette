@@ -8,12 +8,14 @@ namespace Game.UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance { get; private set; }
-        public DeterministicOutcomeSelector deterministicSelector;
-        public StatPanel statPanel;
-        public TMP_Text balanceText;
+        [SerializeField] private DeterministicOutcomeSelector deterministicSelector;
+        [SerializeField] private StatPanel statPanel;
+        [SerializeField] private TMP_Text balanceText;
         [SerializeField] private Button spinButton;
         [SerializeField] private Button resetButton;
-        public TMP_Text resultText;
+        [SerializeField] private TMP_Text resultText;
+        [SerializeField] private Image resultImage;
+        [SerializeField] private LastWinningListController lastWinningListController;
 
         private void Awake()
         {
@@ -53,15 +55,17 @@ namespace Game.UI
         public void ShowResult(string number)
         {
             // Kırmızı/Siyah/Yeşil kontrolü için dizinle renk bul
-            string color = GetColorForNumber(number); // Kendi fonksiyonunu yaz!
-            resultText.text = $"<color={color}>{number}</color>";
+            Color color = GetColorForNumber(number); // Kendi fonksiyonunu yaz!
+            resultText.text = number;
+            resultImage.color = color;
+            lastWinningListController.AddWinNumber(number, color);
         }
 
 
-        public string GetColorForNumber(string number)
+        public Color GetColorForNumber(string number)
         {
             if (number == "0")
-                return "green";
+                return Color.green;
 
             // Avrupa ruletinde kırmızı olan sayılar
             string[] redNumbers =
@@ -69,9 +73,9 @@ namespace Game.UI
                 "1", "3", "5", "7", "9", "12", "14", "16", "18", "19", "21", "23", "25", "27", "30", "32", "34", "36"
             };
             if (System.Array.IndexOf(redNumbers, number) >= 0)
-                return "red";
+                return Color.red;
             else
-                return "black";
+                return Color.black;
         }
 
         public void UpdateBalance(float newBalance)
