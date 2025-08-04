@@ -4,7 +4,6 @@ public class Chip : MonoBehaviour
 {
     public int value;
     private bool isDragging = false;
-    private Vector3 offset = Vector3.zero;
     private Camera cam;
     private BetArea currentSnapArea = null;
     public static bool anyDragging = false;
@@ -38,16 +37,13 @@ public class Chip : MonoBehaviour
     {
         isDragging = true;
         anyDragging = true;
-        // offset = transform.position - GetMouseWorldPos();
     }
 
     void Update()
     {
         if (isDragging)
         {
-            // Vector3 mousePos = GetMouseWorldPos() + offset;
-            Vector3 mousePos;
-            GetMouseHitPosition(out mousePos);
+            Vector3 mousePos = GetMouseHitPosition();
 
 
             // EN KRİTİK KISIM: En yakın BetArea mouse'a göre bulunacak!
@@ -103,29 +99,18 @@ public class Chip : MonoBehaviour
         }
     }
 
-    Vector3 GetMouseWorldPos()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.up, Vector3.zero);
-        float dist;
-        if (plane.Raycast(ray, out dist))
-            return ray.GetPoint(dist);
-        return Vector3.zero;
-    }
 
     public LayerMask hitLayers = Physics.DefaultRaycastLayers;
 
-    public bool GetMouseHitPosition(out Vector3 hitPoint)
+    private Vector3 GetMouseHitPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, hitLayers))
         {
-            hitPoint = hit.point;
-            return true;
+            return hit.point;
         }
 
-        hitPoint = Vector3.zero;
-        return false;
+        return Vector3.zero;
     }
 }

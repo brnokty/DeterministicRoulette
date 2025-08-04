@@ -118,8 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 9
-  placedChips: []
+  areaType: 9
 --- !u!1 &141043156004955302
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +133,7 @@ GameObject:
   - component: {fileID: 5204402811701546108}
   - component: {fileID: 1911419692995143461}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_26_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,8 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 56
 --- !u!1 &151006980586240796
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,8 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 14
-  placedChips: []
+  areaType: 0
 --- !u!1 &219873355939173354
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +371,7 @@ GameObject:
   - component: {fileID: 8969470542894912157}
   - component: {fileID: 1300648661306693435}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,8 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 39
 --- !u!1 &314790143837747479
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,8 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 22
-  placedChips: []
+  areaType: 22
 --- !u!1 &345768318975700484
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,8 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 2
-  placedChips: []
+  areaType: 0
 --- !u!1 &458858555912598135
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,12 +962,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462073085512438504}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15170494, y: 0.537, z: 0.84688646}
-  m_LocalScale: {x: 1.14459, y: 0.15, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.15170498, y: 0.537, z: 0.8468867}
+  m_LocalScale: {x: 1.14459, y: 0.15, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7171122955431429983
 MeshFilter:
@@ -1164,8 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 24
-  placedChips: []
+  areaType: 24
 --- !u!1 &831882304932741486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,91 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 6
-  placedChips: []
---- !u!1 &850761951629386999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7197758485457583124}
-  - component: {fileID: 8604702218328897301}
-  - component: {fileID: 1010820806569760227}
-  m_Layer: 0
-  m_Name: Frame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7197758485457583124
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850761951629386999}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.10320666, y: 0.5508345, z: -0.055794314}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3169616310129392019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8604702218328897301
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850761951629386999}
-  m_Mesh: {fileID: -6360558719573625917, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
---- !u!23 &1010820806569760227
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850761951629386999}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 4222158141284680105, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  areaType: 6
 --- !u!1 &1135676121886511262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,7 +1292,7 @@ GameObject:
   - component: {fileID: 6181435461876631606}
   - component: {fileID: 1772477817394769905}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_29_30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,8 +1396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 58
 --- !u!1 &1138577056251934783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1411,7 @@ GameObject:
   - component: {fileID: 7045315504475769740}
   - component: {fileID: 2115727948638022107}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_7_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1607,8 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 43
 --- !u!1 &1296049078376661740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1530,7 @@ GameObject:
   - component: {fileID: 1564345788356572323}
   - component: {fileID: 6631014482135325026}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_11_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1727,8 +1634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 46
 --- !u!1 &1383875172285834412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,12 +1661,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383875172285834412}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.36689365, y: 0.2457481, z: -0.5417912}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -0.36689368, y: 0.2457481, z: -0.5417913}
+  m_LocalScale: {x: 100, y: 99.999985, z: 99.99998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1245040792826601857
 MeshFilter:
@@ -1930,8 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 26
-  placedChips: []
+  areaType: 0
 --- !u!1 &1519549681901960629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,12 +1863,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519549681901960629}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.3691515, y: 0.24574842, z: 0.6077481}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.36915156, y: 0.24574842, z: 0.60774815}
+  m_LocalScale: {x: 100, y: 99.999985, z: 99.99998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1304046021423144529
 MeshFilter:
@@ -2133,8 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 17
-  placedChips: []
+  areaType: 0
 --- !u!1 &1839791614458865024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,8 +2240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 1
-  placedChips: []
+  areaType: 1
 --- !u!1 &2129571081392532280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,12 +2268,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129571081392532280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47059, y: 0.537, z: 0.026999941}
-  m_LocalScale: {x: 0.1, y: 0.15, z: 1.739773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4705901, y: 0.537, z: 0.02699995}
+  m_LocalScale: {x: 0.10000001, y: 0.15, z: 1.7397732}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5370549885434754472
 MeshFilter:
@@ -2561,8 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 32
-  placedChips: []
+  areaType: 32
 --- !u!1 &2246574972311494493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4517085606916060693
 Transform:
   m_ObjectHideFlags: 0
@@ -2724,113 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 28
-  placedChips: []
---- !u!1 &2366140886788732996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6135702115263250595}
-  - component: {fileID: 5972611719608626038}
-  - component: {fileID: 2233664543350881653}
-  - component: {fileID: 1162502870990390170}
-  m_Layer: 0
-  m_Name: Ball
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6135702115263250595
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2366140886788732996}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2144, y: 0.5653, z: -0.4353}
-  m_LocalScale: {x: 0.014999999, y: 0.015, z: 0.014999999}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 3169616310129392019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5972611719608626038
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2366140886788732996}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2233664543350881653
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2366140886788732996}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 2b940f3a532f2b34d98f9db1d31cf498, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1162502870990390170
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2366140886788732996}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.50000024
-  m_Center: {x: 0, y: 0, z: 0}
+  areaType: 28
 --- !u!1 &2552955947797452844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,7 +2641,7 @@ GameObject:
   - component: {fileID: 5243615725547753557}
   - component: {fileID: 3975537605617040674}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_2_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2949,8 +2745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 40
 --- !u!1 &2581300996323796223
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,8 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 34
-  placedChips: []
+  areaType: 34
 --- !u!1 &2586634970963783070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,8 +3159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 27
-  placedChips: []
+  areaType: 27
 --- !u!1 &2660136094982004494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3026985425148400890
 Transform:
   m_ObjectHideFlags: 0
@@ -3509,7 +3302,7 @@ GameObject:
   - component: {fileID: 5029513062123006345}
   - component: {fileID: 3250199820113292795}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_14_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3613,8 +3406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 48
 --- !u!1 &2830842243511616367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,7 +3465,7 @@ GameObject:
   - component: {fileID: 7077199858347896701}
   - component: {fileID: 105701849889499493}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_8_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3777,8 +3569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 44
 --- !u!1 &2876244469377861815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,8 +3688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 16
-  placedChips: []
+  areaType: 16
 --- !u!1 &3204178072127446261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,12 +3715,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3204178072127446261}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.336369, y: 0.24574833, z: 0.62618697}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -0.33636907, y: 0.24574833, z: 0.6261871}
+  m_LocalScale: {x: 100, y: 99.999985, z: 99.99998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6854170240001474470
 MeshFilter:
@@ -4009,12 +3799,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3383522432924437704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15170488, y: 0.537, z: -0.79288656}
-  m_LocalScale: {x: 1.14459, y: 0.15, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.15170492, y: 0.537, z: -0.7928868}
+  m_LocalScale: {x: 1.14459, y: 0.15, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6600822528911614505
 MeshFilter:
@@ -4205,8 +3995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 36
-  placedChips: []
+  areaType: 36
 --- !u!1 &3489420735485522847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,8 +4114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 21
-  placedChips: []
+  areaType: 21
 --- !u!1 &3640290149636231678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,8 +4233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 2to1_1
-  placedChips: []
+  areaType: 141
 --- !u!1 &3642689655053652171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,8 +4352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 3
-  placedChips: []
+  areaType: 3
 --- !u!1 &3749444124577398660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,8 +4471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 2to1_3
-  placedChips: []
+  areaType: 143
 --- !u!1 &3863352571747696611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,8 +4590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 33
-  placedChips: []
+  areaType: 33
 --- !u!1 &3884823945519279281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,7 +4649,7 @@ GameObject:
   - component: {fileID: 9085042170369481999}
   - component: {fileID: 5939522660497822146}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_5_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,8 +4753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 42
 --- !u!1 &3987452559785450764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,8 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 13
-  placedChips: []
+  areaType: 13
 --- !u!1 &4312288983783869510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5209,8 +4991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 35
-  placedChips: []
+  areaType: 35
 --- !u!1 &4382611503282990147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,8 +5110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 30
-  placedChips: []
+  areaType: 30
 --- !u!1 &4487717967269949419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,7 +5125,7 @@ GameObject:
   - component: {fileID: 3498310673356078340}
   - component: {fileID: 1847557703230098351}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_20_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5449,8 +5229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 52
 --- !u!1 &4589032401250063517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,8 +5348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 31
-  placedChips: []
+  areaType: 31
 --- !u!1 &4594102875231954601
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,12 +5375,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4594102875231954601}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.33862668, y: 0.24574842, z: -0.56022966}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.33862674, y: 0.24574842, z: -0.5602298}
+  m_LocalScale: {x: 100, y: 99.999985, z: 99.99998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3834200164450910429
 MeshFilter:
@@ -5668,7 +5446,7 @@ GameObject:
   - component: {fileID: 5499609786466369450}
   - component: {fileID: 3709888458350078974}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_19_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5772,8 +5550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 51
 --- !u!1 &4865080987924206720
 GameObject:
   m_ObjectHideFlags: 0
@@ -5788,7 +5565,7 @@ GameObject:
   - component: {fileID: 2968238294815891228}
   - component: {fileID: 6185852546376236361}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_4_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5892,8 +5669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 41
 --- !u!1 &4889003167913464377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6012,8 +5788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 4
-  placedChips: []
+  areaType: 4
 --- !u!1 &4979726808693908787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,8 +5907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 18
-  placedChips: []
+  areaType: 18
 --- !u!1 &5025435393784328983
 GameObject:
   m_ObjectHideFlags: 0
@@ -6253,7 +6027,7 @@ GameObject:
   - component: {fileID: 1735650091094861106}
   - component: {fileID: 7000485004199367896}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_34_35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6357,8 +6131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 61
 --- !u!1 &5084195922189733686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6373,7 +6146,7 @@ GameObject:
   - component: {fileID: 1077340950849775856}
   - component: {fileID: 5122203451539237032}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_31_32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6477,8 +6250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 59
 --- !u!1 &5165223000726873809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6597,8 +6369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 23
-  placedChips: []
+  areaType: 0
 --- !u!1 &5180777999994423178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6613,7 +6384,7 @@ GameObject:
   - component: {fileID: 8373158724189125763}
   - component: {fileID: 6684655311996734030}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_25_26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6717,8 +6488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 55
 --- !u!1 &5283032930160167506
 GameObject:
   m_ObjectHideFlags: 0
@@ -7151,8 +6921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 15
-  placedChips: []
+  areaType: 15
 --- !u!1 &5894192566284424304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7180,12 +6949,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5894192566284424304}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1517, y: 0.512, z: 0.027}
-  m_LocalScale: {x: 1.1445899, y: 0.1, z: 1.5397729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.15170003, y: 0.512, z: 0.02700001}
+  m_LocalScale: {x: 1.1445899, y: 0.1, z: 1.539773}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1066666816803440748
 MeshFilter:
@@ -7272,7 +7041,7 @@ GameObject:
   - component: {fileID: 8783143643930791981}
   - component: {fileID: 1984178905926711355}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_22_23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7376,8 +7145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 53
 --- !u!1 &5948113301493712191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7392,7 +7160,7 @@ GameObject:
   - component: {fileID: 8759425525305769230}
   - component: {fileID: 4776807845722805230}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_35_36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7496,95 +7264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
---- !u!1 &5949847909066228026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1148136469420906632}
-  - component: {fileID: 8036811205156968047}
-  - component: {fileID: 2691511444397765149}
-  m_Layer: 0
-  m_Name: Table
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1148136469420906632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5949847909066228026}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.042542893, y: 0.48261592, z: -0.06578529}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3169616310129392019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8036811205156968047
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5949847909066228026}
-  m_Mesh: {fileID: -6692290496178104961, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
---- !u!23 &2691511444397765149
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5949847909066228026}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 5650526492999649590, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
-  - {fileID: -3941583355024626588, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
-  - {fileID: 5775865398287329665, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
-  - {fileID: 2100000, guid: 1599b0b5b2b29fb4cb7e34407353bd47, type: 2}
-  - {fileID: 4352284914225708712, guid: 50246f35ec4840c4b95e5e3672792188, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  areaType: 62
 --- !u!1 &5992333009374670309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7703,8 +7383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 20
-  placedChips: []
+  areaType: 0
 --- !u!1 &6055054007577647324
 GameObject:
   m_ObjectHideFlags: 0
@@ -7732,12 +7411,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6055054007577647324}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77399987, y: 0.537, z: 0.027}
-  m_LocalScale: {x: 0.1, y: 0.15, z: 1.739773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7740001, y: 0.537, z: 0.02700001}
+  m_LocalScale: {x: 0.10000001, y: 0.15, z: 1.7397732}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3169616310129392019}
+  m_Father: {fileID: 665367626053404630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4272668586255863996
 MeshFilter:
@@ -7928,8 +7607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 10
-  placedChips: []
+  areaType: 10
 --- !u!1 &6114080989402191965
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,7 +7622,7 @@ GameObject:
   - component: {fileID: 7386162912483097500}
   - component: {fileID: 4836812941357094136}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_13_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8048,8 +7726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 47
 --- !u!1 &6117160676150521587
 GameObject:
   m_ObjectHideFlags: 0
@@ -8168,8 +7845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 7
-  placedChips: []
+  areaType: 7
 --- !u!1 &6290530276536490023
 GameObject:
   m_ObjectHideFlags: 0
@@ -8267,7 +7943,7 @@ GameObject:
   - component: {fileID: 4923357221369331053}
   - component: {fileID: 8529210650297040245}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_16_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8371,8 +8047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 49
 --- !u!1 &6373571450396090425
 GameObject:
   m_ObjectHideFlags: 0
@@ -8387,7 +8062,7 @@ GameObject:
   - component: {fileID: 3490507291312007791}
   - component: {fileID: 5071055592580438749}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_10_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8491,8 +8166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 45
 --- !u!1 &6388426384906097257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8611,8 +8285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 19
-  placedChips: []
+  areaType: 19
 --- !u!1 &6437915995552741603
 GameObject:
   m_ObjectHideFlags: 0
@@ -8731,8 +8404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 25
-  placedChips: []
+  areaType: 25
 --- !u!1 &6550225839892064244
 GameObject:
   m_ObjectHideFlags: 0
@@ -8851,8 +8523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 12
-  placedChips: []
+  areaType: 12
 --- !u!1 &6847400811188853087
 GameObject:
   m_ObjectHideFlags: 0
@@ -9012,7 +8683,7 @@ GameObject:
   - component: {fileID: 5152820568812909170}
   - component: {fileID: 5193026646705197418}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_17_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9116,8 +8787,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 50
+--- !u!1 &7073895049762815527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5200328535226896003}
+  - component: {fileID: 3432826676718676729}
+  - component: {fileID: 2580117108249283323}
+  - component: {fileID: 3838365877888508894}
+  - component: {fileID: 4417525920338607531}
+  m_Layer: 0
+  m_Name: BetArea_Dozen_1st
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5200328535226896003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073895049762815527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.15897, y: 0.5665, z: 0.44905}
+  m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3169616310129392019}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &3432826676718676729
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073895049762815527}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2580117108249283323
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073895049762815527}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3838365877888508894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073895049762815527}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4417525920338607531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073895049762815527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaType: 144
 --- !u!1 &7158107086610896978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9132,7 +8921,7 @@ GameObject:
   - component: {fileID: 969480650536271430}
   - component: {fileID: 6373947749846283831}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_28_29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9236,8 +9025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 57
 --- !u!1 &7248078084718500379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9356,8 +9144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 2to1_2
-  placedChips: []
+  areaType: 142
 --- !u!1 &7454994930706237548
 GameObject:
   m_ObjectHideFlags: 0
@@ -9372,7 +9159,7 @@ GameObject:
   - component: {fileID: 6619116375355047573}
   - component: {fileID: 4159436393398568253}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_23_24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9476,8 +9263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 54
 --- !u!1 &7583739623986750728
 GameObject:
   m_ObjectHideFlags: 0
@@ -9596,8 +9382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 5
-  placedChips: []
+  areaType: 0
 --- !u!1 &7873510203211500406
 GameObject:
   m_ObjectHideFlags: 0
@@ -9682,6 +9467,125 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8242338596655509065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6919001045619221188}
+  - component: {fileID: 283566183573146915}
+  - component: {fileID: 4875839036128582134}
+  - component: {fileID: 6491156763650338587}
+  - component: {fileID: 5103981745728831390}
+  m_Layer: 0
+  m_Name: BetArea_Dozen_2nd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6919001045619221188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242338596655509065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.1033, y: 0.5665, z: 0.449}
+  m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3169616310129392019}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &283566183573146915
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242338596655509065}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4875839036128582134
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242338596655509065}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6491156763650338587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242338596655509065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5103981745728831390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242338596655509065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaType: 145
 --- !u!1 &8424823205607968435
 GameObject:
   m_ObjectHideFlags: 0
@@ -9712,28 +9616,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7197758485457583124}
+  - {fileID: 665367626053404630}
   - {fileID: 7955158038932875697}
   - {fileID: 8184865491618163984}
   - {fileID: 6292612344154804652}
   - {fileID: 7449726445487218321}
-  - {fileID: 1148136469420906632}
+  - {fileID: 7651453051486971059}
   - {fileID: 1103428394899243041}
   - {fileID: 3026985425148400890}
   - {fileID: 1210145003340395718}
   - {fileID: 4517085606916060693}
   - {fileID: 6285664066082961184}
-  - {fileID: 7651453051486971059}
-  - {fileID: 2212846044344936657}
-  - {fileID: 7972222809774355554}
-  - {fileID: 9222551887189250069}
-  - {fileID: 6160505016401286005}
-  - {fileID: 6135702115263250595}
-  - {fileID: 563641774886906758}
-  - {fileID: 3867505477772032305}
-  - {fileID: 7060515126022698836}
-  - {fileID: 6875550917787112412}
-  - {fileID: 8656270086205088195}
+  - {fileID: 5200328535226896003}
+  - {fileID: 6919001045619221188}
+  - {fileID: 5738142107237379581}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &4333188550436965286
@@ -9849,7 +9745,7 @@ GameObject:
   - component: {fileID: 8973321968418083016}
   - component: {fileID: 7668731488867680882}
   m_Layer: 0
-  m_Name: BetArea
+  m_Name: BetArea_32_33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9953,8 +9849,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 
-  placedChips: []
+  areaType: 60
+--- !u!1 &8497924433277493617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665367626053404630}
+  m_Layer: 0
+  m_Name: Table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665367626053404630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497924433277493617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 563641774886906758}
+  - {fileID: 3867505477772032305}
+  - {fileID: 7060515126022698836}
+  - {fileID: 6875550917787112412}
+  - {fileID: 8656270086205088195}
+  - {fileID: 2212846044344936657}
+  - {fileID: 7972222809774355554}
+  - {fileID: 9222551887189250069}
+  - {fileID: 6160505016401286005}
+  m_Father: {fileID: 3169616310129392019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8753061756331015293
 GameObject:
   m_ObjectHideFlags: 0
@@ -10073,8 +10008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 8
-  placedChips: []
+  areaType: 0
 --- !u!1 &8770084628292493118
 GameObject:
   m_ObjectHideFlags: 0
@@ -10193,8 +10127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 29
-  placedChips: []
+  areaType: 0
 --- !u!1 &8931715756081547732
 GameObject:
   m_ObjectHideFlags: 0
@@ -10313,5 +10246,123 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaID: 11
-  placedChips: []
+  areaType: 0
+--- !u!1 &9051442186083036777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5738142107237379581}
+  - component: {fileID: 2370051491352849045}
+  - component: {fileID: 8779762367091676697}
+  - component: {fileID: 1034056225027361780}
+  - component: {fileID: 3801790003379934210}
+  m_Layer: 0
+  m_Name: BetArea_Dozen_3rd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5738142107237379581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051442186083036777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.3642, y: 0.5665, z: 0.449}
+  m_LocalScale: {x: 0.068261184, y: 0.001, z: 0.124935776}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3169616310129392019}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &2370051491352849045
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051442186083036777}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8779762367091676697
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051442186083036777}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1034056225027361780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051442186083036777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3801790003379934210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051442186083036777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaType: 146

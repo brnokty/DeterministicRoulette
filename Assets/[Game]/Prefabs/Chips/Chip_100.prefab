@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: value
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8347380221736432091, guid: 0f2f035cd21f9514da6df8e226b1f997,
+        type: 3}
+      propertyPath: hitLayers.m_Bits
+      value: 51
+      objectReference: {fileID: 0}
     - target: {fileID: 9043908623209133333, guid: 0f2f035cd21f9514da6df8e226b1f997,
         type: 3}
       propertyPath: m_IsActive
