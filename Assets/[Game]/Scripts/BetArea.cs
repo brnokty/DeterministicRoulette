@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Game.Roulette;
 
+
 public enum BetAreaType
 {
     // Tekli sayılar

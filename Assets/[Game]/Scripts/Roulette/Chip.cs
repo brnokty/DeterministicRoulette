@@ -1,5 +1,6 @@
 using Game.Core;
 using UnityEngine;
+using System.Linq;
 
 public class Chip : MonoBehaviour
 {
@@ -55,10 +56,11 @@ public class Chip : MonoBehaviour
             BetArea closest = null;
             float minDist = float.MaxValue;
 
-            foreach (var ba in FindObjectsOfType<BetArea>())
+            var activeBetAreas = FindObjectsOfType<BetArea>().Where(x => x.gameObject.activeInHierarchy).ToList();
+            foreach (var ba in activeBetAreas)
             {
-                if (ba.gameObject.activeInHierarchy) // %100 sadece aktif olanlar
-                {
+                // if (ba.gameObject.activeInHierarchy) // %100 sadece aktif olanlar
+                // {
                     float dist = Vector3.Distance(mousePos, ba.transform.position);
                     if (dist < 0.03f && dist < minDist)
                     {
@@ -67,7 +69,7 @@ public class Chip : MonoBehaviour
                         if (closest != currentSnapArea)
                             SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
                     }
-                }
+                // }
             }
 
             if (closest != null)

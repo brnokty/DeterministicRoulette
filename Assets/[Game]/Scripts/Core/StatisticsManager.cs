@@ -4,6 +4,7 @@ namespace Game.Core
 {
     public class StatisticsManager : MonoBehaviour
     {
+        public static StatisticsManager Instance { get; private set; }
         public int TotalSpins { get; private set; }
         public int TotalWins { get; private set; }
         public int TotalLosses { get; private set; }
@@ -12,6 +13,21 @@ namespace Game.Core
         public delegate void OnStatsChangedDelegate();
         public event OnStatsChangedDelegate OnStatsChanged;
 
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+        
         public void RecordSpin(bool win, int profit)
         {
             TotalSpins++;

@@ -7,14 +7,14 @@ namespace Game.Core
     {
         public static GameManager Instance { get; private set; }
 
-        [Header("References")]
-        public Roulette.RouletteManager rouletteManager;
+        [Header("References")] public Roulette.RouletteManager rouletteManager;
         public StatisticsManager statisticsManager;
         public SaveManager saveManager;
         public SoundManager soundManager;
 
-        [Header("Player Data")]
-        [SerializeField] private int balance = 1000;
+        [Header("Player Data")] [SerializeField]
+        private int balance = 1000;
+
         private int preBetBalance;
 
         public int Balance
@@ -26,6 +26,7 @@ namespace Game.Core
                 UIManager.Instance?.UpdateBalance(balance);
             }
         }
+
         public int PreBetBalance => preBetBalance;
 
         private void Awake()
@@ -50,13 +51,14 @@ namespace Game.Core
         private void Start()
         {
             saveManager?.LoadGame();
+            Balance = saveManager.LoadBalance();
         }
 
         public void NewGame()
         {
             statisticsManager.ResetStats();
             rouletteManager.ResetTable();
-            SetBalance(1000);
+            // SetBalance(1000);
         }
 
         public void OnApplicationQuit()
@@ -67,6 +69,7 @@ namespace Game.Core
         public void SetBalance(int amount)
         {
             Balance = amount;
+            saveManager.SaveBalance(balance);
             ChipBaseManager.Instance?.UpdateAllChips(balance);
             UIManager.Instance?.UpdateBalance(balance);
         }
@@ -86,6 +89,7 @@ namespace Game.Core
                 ChipBaseManager.Instance?.UpdateAllChips(balance);
                 return true;
             }
+
             return false;
         }
 
