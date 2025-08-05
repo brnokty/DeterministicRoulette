@@ -82,9 +82,8 @@ namespace Game.Core
         public void SetBalance(int amount)
         {
             Balance = amount;
-            SaveManager.Instance.SaveBalance(balance);
-            ChipBaseManager.Instance?.UpdateAllChips(balance);
-            UIManager.Instance?.UpdateBalance(balance);
+            SaveManager.Instance.SaveBalance(Balance);
+            ChipBaseManager.Instance?.UpdateAllChips(Balance);
         }
 
         public void AddMoney(int amount)

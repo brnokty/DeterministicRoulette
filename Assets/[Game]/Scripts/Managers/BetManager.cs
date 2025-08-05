@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Core;
 using UnityEngine;
 
 namespace Game.Roulette
@@ -61,11 +62,25 @@ namespace Game.Roulette
             ClearAllBetAreas();
         }
 
+        public void ResetCurrentBet()
+        {
+            ResetAllBetAreas();
+            CurrentBets.Clear();
+            // ChipBaseManager.Instance.UpdateAllChips(GameManager.Instance.Balance);
+            
+        }
+
 
         public static void ClearAllBetAreas()
         {
             foreach (var area in GameObject.FindObjectsOfType<BetArea>())
                 area.ClearAllChips();
+        }
+
+        public static void ResetAllBetAreas()
+        {
+            foreach (var area in GameObject.FindObjectsOfType<BetArea>())
+                area.ResetArea();
         }
 
 

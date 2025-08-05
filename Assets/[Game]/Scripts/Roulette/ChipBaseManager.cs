@@ -28,7 +28,7 @@ public class ChipBaseManager : MonoBehaviour
 
     #endregion
 
-    #region UNITY METHODS
+    #region PUBLIC METHODS
 
     public void UpdateAllChips(int playerBalance)
     {

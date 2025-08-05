@@ -50,6 +50,7 @@ namespace Game.UI
             statPanel.UpdateStats();
             UpdateBalance(GameManager.Instance.Balance);
             spinButton.onClick.AddListener(OnSpinButtonClicked);
+            resetButton.onClick.AddListener(OnResetButtonClicked);
         }
 
         #endregion
@@ -92,16 +93,13 @@ namespace Game.UI
             balanceText.text = $"Balance: {newBalance.ToString("F2")}$";
         }
 
-        public void OnresetButtonClicked()
+        public void OnResetButtonClicked()
         {
-            // GameManager.Instance.ResetGame();
-            // deterministicSelector.ResetSelection();
-            statPanel.UpdateStats();
-            UpdateBalance(GameManager.Instance.Balance);
+            RouletteManager.Instance.ResetTable();
+            // UpdateBalance(GameManager.Instance.Balance);
             resultText.text = "...";
-            resultImage.color = Color.clear;
-            deterministicSelector.inputField.text = "...";
-            // lastWinningListController.ClearList();
+            // resultImage.color = Color.clear;
+            deterministicSelector.inputField.text = "";
             youWonPopUp.Disappear();
         }
 

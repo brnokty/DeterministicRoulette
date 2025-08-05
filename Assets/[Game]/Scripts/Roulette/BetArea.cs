@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Game.Core;
 using Game.Roulette;
 
 
@@ -193,7 +194,7 @@ public class BetArea : MonoBehaviour
 
     #region PUBLIC PROPERTIES
 
-    [HideInInspector] public List<Chip> placedChips = new List<Chip>();
+     public List<Chip> placedChips = new List<Chip>();
 
     #endregion
 
@@ -233,6 +234,32 @@ public class BetArea : MonoBehaviour
         }
 
         placedChips.Clear();
+    }
+
+
+    public void ResetArea()
+    {
+        GameManager.Instance.SetBalance(GameManager.Instance.Balance + GetTotalBetAmount());
+        foreach (var chip in placedChips)
+        {
+            if (chip != null)
+                Destroy(chip.gameObject);
+        }
+
+        placedChips.Clear();
+    }
+
+    public int GetTotalBetAmount()
+    {
+        // Bu alanda toplam ne kadar bahis var?
+        int total = 0;
+        foreach (var chip in placedChips)
+        {
+            total += chip.value;
+        }
+
+        print("total: " + total);
+        return total;
     }
 
     #endregion

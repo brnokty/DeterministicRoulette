@@ -59,7 +59,8 @@ namespace Game.Roulette
 
         public void ResetTable()
         {
-            BetManager.Instance.ClearBets();
+            BetManager.Instance.ResetCurrentBet();
+            PlayerChips = GameManager.Instance.Balance;
         }
 
         public void Spin(string deterministicNumber)
