@@ -127,6 +127,7 @@ Scriptlerimide 3 ana başlıkta topladım.
 <img width="211" height="250" alt="Screenshot 2025-08-05 055033" src="https://github.com/user-attachments/assets/444213d1-b277-476b-9a67-1db9a1b8e1d6" />
 
 Hierarchy'den RouletteManager'imizi seçiyoruz.
+
 <img width="515" height="394" alt="Screenshot 2025-08-05 055151" src="https://github.com/user-attachments/assets/159c5939-f0dc-4f84-89b2-58ac527a70cc" />
 
 Inspector'den GameType ı değiştirerek başlattığımızda oyun otomatik olarak GameType a göre başlatıyor.
