@@ -5,18 +5,29 @@ using System.Linq;
 
 public class Chip : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public int value;
+
+    #endregion
+
+    #region PUBLIC PROPERTIES
+
+    public static bool anyDragging = false;
+    public LayerMask hitLayers = Physics.DefaultRaycastLayers;
+
+    #endregion
+    
+    #region PRIVATE PROPERTIES
+
     private bool isDragging = false;
     private Camera cam;
     private BetArea currentSnapArea = null;
-    public static bool anyDragging = false;
     private List<BetArea> activeBetAreas = new List<BetArea>();
 
-    public void Init(int val)
-    {
-        value = val;
-        cam = Camera.main;
-    }
+    #endregion
+
+    #region UNITY METHODS
 
     void Start()
     {
@@ -45,11 +56,6 @@ public class Chip : MonoBehaviour
         }
     }
 
-    public void StartDragging()
-    {
-        isDragging = true;
-        anyDragging = true;
-    }
 
     void Update()
     {
@@ -114,7 +120,25 @@ public class Chip : MonoBehaviour
         }
     }
 
-    public LayerMask hitLayers = Physics.DefaultRaycastLayers;
+    #endregion
+
+    #region PUBLIC METHODS
+
+    public void Init(int val)
+    {
+        value = val;
+        cam = Camera.main;
+    }
+
+    public void StartDragging()
+    {
+        isDragging = true;
+        anyDragging = true;
+    }
+
+    #endregion
+    
+    #region PRIVATE METHODS
 
     private Vector3 GetMouseHitPosition()
     {
@@ -124,4 +148,6 @@ public class Chip : MonoBehaviour
             return hit.point;
         return Vector3.zero;
     }
+
+    #endregion
 }

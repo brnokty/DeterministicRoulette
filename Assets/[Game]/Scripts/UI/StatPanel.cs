@@ -7,16 +7,26 @@ namespace Game.UI
 {
     public class StatPanel : MonoBehaviour
     {
+        #region INSPECTOR PROPERTIES
+
         public TMP_Text totalSpinsText;
         public TMP_Text totalWinsText;
         public TMP_Text totalLossesText;
         public TMP_Text totalProfitText;
+
+        #endregion
+
+        #region UNITY METHODS
 
         private void Start()
         {
             UpdateStats();
             StatisticsManager.Instance.OnStatsChanged += UpdateStats;
         }
+
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void UpdateStats()
         {
@@ -26,5 +36,7 @@ namespace Game.UI
             totalLossesText.text = $"Losses: {stats.TotalLosses}";
             totalProfitText.text = $"Profit: {stats.TotalProfit}";
         }
+
+        #endregion
     }
 }

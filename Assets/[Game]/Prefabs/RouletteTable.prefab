@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 26
   placedChips: []
 --- !u!1 &141043156004955302
 GameObject:
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 14
   placedChips: []
 --- !u!1 &219873355939173354
 GameObject:
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 14
   placedChips: []
 --- !u!1 &305536766812791649
 GameObject:
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 2
   placedChips: []
 --- !u!1 &444205030105743100
 GameObject:
@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 11
   placedChips: []
 --- !u!1 &530062844332879161
 GameObject:
@@ -4901,7 +4901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 20
   placedChips: []
 --- !u!1 &1170173792431670120
 GameObject:
@@ -5831,7 +5831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 26
   placedChips: []
 --- !u!1 &1441355436785356034
 GameObject:
@@ -6634,7 +6634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 8
   placedChips: []
 --- !u!1 &1775844952368931027
 GameObject:
@@ -6754,7 +6754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 17
   placedChips: []
 --- !u!1 &1834727470608741330
 GameObject:
@@ -15987,7 +15987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 23
   placedChips: []
 --- !u!1 &5175461015272714766
 GameObject:
@@ -18102,7 +18102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 17
   placedChips: []
 --- !u!1 &5894192566284424304
 GameObject:
@@ -18841,7 +18841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 20
   placedChips: []
 --- !u!1 &6025339553776024822
 GameObject:
@@ -19906,7 +19906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 5
   placedChips: []
 --- !u!1 &6192925478199058824
 GameObject:
@@ -21189,7 +21189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 2
   placedChips: []
 --- !u!1 &6525944431515320447
 GameObject:
@@ -24568,7 +24568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 5
   placedChips: []
 --- !u!1 &7613248320633136410
 GameObject:
@@ -25270,7 +25270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 23
   placedChips: []
 --- !u!1 &7870491814557378989
 GameObject:
@@ -26770,7 +26770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 29
   placedChips: []
 --- !u!1 &8517333899080990759
 GameObject:
@@ -27688,7 +27688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 8
   placedChips: []
 --- !u!1 &8770084628292493118
 GameObject:
@@ -27808,7 +27808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 29
   placedChips: []
 --- !u!1 &8876040592021936104
 GameObject:
@@ -28408,7 +28408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb64d738206f4cb7a3a654eccd2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaType: 0
+  areaType: 11
   placedChips: []
 --- !u!1 &9023402545617218217
 GameObject:

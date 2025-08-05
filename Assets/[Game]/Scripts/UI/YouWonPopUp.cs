@@ -6,8 +6,14 @@ using UnityEngine.UI;
 
 public class YouWonPopUp : Panel
 {
+    #region INSPECTOR PROPERTIES
+
     [SerializeField] private TMP_Text youWonText;
     [SerializeField] private Button okButton;
+
+    #endregion
+    
+    #region UNITY METHODS
 
     protected override void Start()
     {
@@ -16,14 +22,24 @@ public class YouWonPopUp : Panel
         Disappear();
     }
 
+    #endregion
+
+    #region PUBLIC METHODS
+
     public void Show(int profit)
     {
         youWonText.text = $"You won ${profit}";
         Appear();
     }
 
+    #endregion
+    
+    #region PRIVATE METHODS
+
     private void OnOkButtonClicked()
     {
         Disappear();
     }
+
+    #endregion
 }
