@@ -177,6 +177,7 @@ public enum BetAreaType
     High,
 
     Zero,
+
     DoubleZero // Amerikan rulet için, Avrupa ruletinde yok
     // Amerikan için DoubleZero da ekleyebilirim!
 }
@@ -184,8 +185,19 @@ public enum BetAreaType
 
 public class BetArea : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public BetAreaType areaType;
-    public List<Chip> placedChips = new List<Chip>();
+
+    #endregion
+
+    #region PUBLIC PROPERTIES
+
+    [HideInInspector] public List<Chip> placedChips = new List<Chip>();
+
+    #endregion
+
+    #region PUBLIC METHODS
 
     public int GetChipCount()
     {
@@ -211,7 +223,7 @@ public class BetArea : MonoBehaviour
     {
         placedChips.Remove(chip);
     }
-    
+
     public void ClearAllChips()
     {
         foreach (var chip in placedChips)
@@ -219,6 +231,9 @@ public class BetArea : MonoBehaviour
             if (chip != null)
                 Destroy(chip.gameObject);
         }
+
         placedChips.Clear();
     }
+
+    #endregion
 }

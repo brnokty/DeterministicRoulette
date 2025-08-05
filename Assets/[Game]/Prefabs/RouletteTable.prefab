@@ -16537,7 +16537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 7596483126673392738}
   rotationSpeed: 180
-  slowDownAngle: 90
 --- !u!1 &5334742018488853884
 GameObject:
   m_ObjectHideFlags: 0
@@ -26413,8 +26412,8 @@ MonoBehaviour:
   ruletMaxDegree: 2160
   ruletMinDuration: 2
   ruletMaxDuration: 4
-  minBallSpeed: 7
-  maxBallSpeed: 12
+  minBallSpeed: 6
+  maxBallSpeed: 10
   angleOffset: -1.9
   europeanWheelOrder:
   - 0

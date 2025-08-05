@@ -7,8 +7,9 @@ namespace Game.Core
     public class GameManager : MonoBehaviour
     {
         #region Singleton
+
         public static GameManager Instance { get; private set; }
-        
+
         private void Awake()
         {
             if (Instance == null)
@@ -24,12 +25,15 @@ namespace Game.Core
         }
 
         #endregion
-        [Header("References")]
+
+        #region INSPECTOR PROPERTIES
 
         [Header("Player Data")] [SerializeField]
         private int balance = 1000;
 
-        private int preBetBalance;
+        #endregion
+
+        #region PUBLIC PROPERTIES
 
         public int Balance
         {
@@ -43,13 +47,25 @@ namespace Game.Core
 
         public int PreBetBalance => preBetBalance;
 
-        
+        #endregion
+
+        #region PRIVATE PROPERTIES
+
+        private int preBetBalance;
+
+        #endregion
+
+        #region UNITY METHODS
 
         private void Start()
         {
             SaveManager.Instance?.LoadGame();
             Balance = SaveManager.Instance.LoadBalance();
         }
+
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void NewGame()
         {
@@ -99,5 +115,7 @@ namespace Game.Core
         {
             SetBalance(preBetBalance);
         }
+
+        #endregion
     }
 }

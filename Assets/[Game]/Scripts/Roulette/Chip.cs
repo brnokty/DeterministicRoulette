@@ -70,7 +70,7 @@ public class Chip : MonoBehaviour
                     closest = ba;
                     minDist = dist;
                     if (closest != currentSnapArea)
-                        SoundManager.Instance.PlaySound(SoundManager.SoundType.ChipMovement);
+                        SoundManager.Instance.PlaySound(SoundType.ChipMovement);
                 }
                 // }
             }

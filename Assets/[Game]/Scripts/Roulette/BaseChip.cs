@@ -3,13 +3,23 @@ using UnityEngine;
 
 public class BaseChip : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public GameObject chipPrefab;
     public int value;
     public Renderer chipRenderer;
-    public int colorMaterialIndex = 1; // Default to the second material for color
+    public int colorMaterialIndex = 1;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
 
     private Color originalColor;
     private bool isActive = true;
+
+    #endregion
+
+    #region UNITY METHODS
 
     void Start()
     {
@@ -28,6 +38,10 @@ public class BaseChip : MonoBehaviour
         chip.GetComponent<Chip>().StartDragging();
     }
 
+    #endregion
+
+    #region PUBLIC METHODS
+
     public void UpdateChipActive(int playerBalance)
     {
         isActive = playerBalance >= value;
@@ -35,4 +49,6 @@ public class BaseChip : MonoBehaviour
         Collider col = GetComponent<Collider>();
         if (col != null) col.enabled = isActive;
     }
+
+    #endregion
 }

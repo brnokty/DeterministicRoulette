@@ -4547,13 +4547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rouletteController: {fileID: 1255906916}
-  betManager: {fileID: 950839507}
-  uiManager: {fileID: 337781878}
+  gameType: 0
   PlayerChips: 1000
   LastWinningNumber: 
-  gameType: 0
-  minBet: 1
-  maxBet: 50000
 --- !u!4 &1817861346
 Transform:
   m_ObjectHideFlags: 0
@@ -12301,16 +12297,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4333188550436965286, guid: 884494204352c444ab0688240744d3e4,
-        type: 3}
-      propertyPath: maxBallSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4333188550436965286, guid: 884494204352c444ab0688240744d3e4,
-        type: 3}
-      propertyPath: minBallSpeed
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8424823205607968435, guid: 884494204352c444ab0688240744d3e4,
         type: 3}

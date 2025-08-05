@@ -5,11 +5,22 @@ using Game.Core;
 
 public class WheelHandler : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public AnimationCurve easeCurve;
-    private Coroutine spinCoroutine;
     [SerializeField] private Renderer wheelRenderer;
     [SerializeField] private Material europeanWheelMaterial;
     [SerializeField] private Material americanWheelMaterial;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
+    private Coroutine spinCoroutine;
+
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void SpinTo(float deltaDegrees, float duration, Action<float> onEnd)
     {
@@ -17,9 +28,31 @@ public class WheelHandler : MonoBehaviour
         spinCoroutine = StartCoroutine(SpinToCoroutine(deltaDegrees, duration, onEnd));
     }
 
-    IEnumerator SpinToCoroutine(float deltaDegrees, float duration, Action<float> onEnd)
+
+    public void SetWheelOrder(GameType gameType)
     {
-        SoundManager.Instance.PlaySound(SoundManager.SoundType.WheelSpin, true);
+        if (wheelRenderer == null) return;
+
+        Material[] materials = wheelRenderer.materials;
+        if (gameType == GameType.EuropeanRoulette)
+        {
+            materials[1] = europeanWheelMaterial;
+        }
+        else if (gameType == GameType.AmericanRoulette)
+        {
+            materials[1] = americanWheelMaterial;
+        }
+
+        wheelRenderer.materials = materials;
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
+    private IEnumerator SpinToCoroutine(float deltaDegrees, float duration, Action<float> onEnd)
+    {
+        SoundManager.Instance.PlaySound(SoundType.WheelSpin, true);
         float startY = Mathf.Repeat(transform.eulerAngles.y, 360f);
         float targetY = startY + deltaDegrees;
 
@@ -41,20 +74,5 @@ public class WheelHandler : MonoBehaviour
         onEnd?.Invoke(normalizedY);
     }
 
-    public void SetWheelOrder(GameType gameType)
-    {
-        if (wheelRenderer == null) return;
-
-        Material[] materials = wheelRenderer.materials;
-        if (gameType == GameType.EuropeanRoulette)
-        {
-            materials[1] = europeanWheelMaterial;
-        }
-        else if (gameType == GameType.AmericanRoulette)
-        {
-            materials[1] = americanWheelMaterial;
-        }
-
-        wheelRenderer.materials = materials;
-    }
+    #endregion
 }

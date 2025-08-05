@@ -3,6 +3,34 @@ using UnityEngine;
 
 namespace Game.Core
 {
+    public enum SoundType
+    {
+        Music,
+        WheelSpin,
+        BallStop,
+        Ambiance,
+        Confetti,
+        Win,
+        Lose,
+        ChipMovement,
+        ButtonClick,
+        ButtonClick2,
+        PlayClick,
+        ButtonHover
+    }
+
+    [System.Serializable]
+    public class Sound
+    {
+        public SoundType soundType;
+        public string soundName;
+        public AudioClip clip;
+        public bool loop;
+        public float volume = 1.0f;
+        public float pitch = 1.0f;
+        [HideInInspector] public AudioSource audioSource;
+    }
+
     public class SoundManager : MonoBehaviour
     {
         #region Singleton
@@ -13,7 +41,6 @@ namespace Game.Core
         {
             if (Instance == null)
             {
-                // DontDestroyOnLoad(gameObject);
                 Instance = this;
             }
             else
@@ -26,51 +53,13 @@ namespace Game.Core
 
         #endregion
 
-        public enum SoundType
-        {
-            Music,
-            WheelSpin,
-            BallStop,
-            Ambiance,
-            Confetti,
-            Win,
-            Lose,
-            ChipMovement,
-            ButtonClick,
-            ButtonClick2,
-            PlayClick,
-            ButtonHover
-        }
+        #region INSPECTOR PROPERTIES
 
-        [System.Serializable]
-        public class Sound
-        {
-            public SoundType soundType;
-            public string soundName;
-            public AudioClip clip;
-            public bool loop;
-            public float volume = 1.0f;
-            public float pitch = 1.0f;
-            [HideInInspector] public AudioSource audioSource;
-        }
+        [Header("Sounds")] [SerializeField] private List<Sound> sounds = new List<Sound>();
 
-        [Header("Sounds")] public List<Sound> sounds = new List<Sound>();
+        #endregion
 
-        private void Initialize()
-        {
-            // AudioSource'ları oluştur
-            foreach (var sound in sounds)
-            {
-                sound.audioSource = gameObject.AddComponent<AudioSource>();
-                sound.audioSource.clip = sound.clip;
-                sound.audioSource.loop = sound.loop;
-                sound.audioSource.volume = sound.volume;
-                sound.audioSource.pitch = sound.pitch;
-            }
-
-            PlaySound(SoundType.Music, true);
-            PlaySound(SoundType.Ambiance, true);
-        }
+        #region PUBLIC METHODS
 
         public void PlaySound(SoundType soundType, bool loop = false)
         {
@@ -132,5 +121,27 @@ namespace Game.Core
                 Debug.LogError("Sound not found: " + soundType);
             }
         }
+
+        #endregion
+
+        #region PRIVATE METHODS
+
+        private void Initialize()
+        {
+            // AudioSource'ları oluştur
+            foreach (var sound in sounds)
+            {
+                sound.audioSource = gameObject.AddComponent<AudioSource>();
+                sound.audioSource.clip = sound.clip;
+                sound.audioSource.loop = sound.loop;
+                sound.audioSource.volume = sound.volume;
+                sound.audioSource.pitch = sound.pitch;
+            }
+
+            PlaySound(SoundType.Music, true);
+            PlaySound(SoundType.Ambiance, true);
+        }
+
+        #endregion
     }
 }

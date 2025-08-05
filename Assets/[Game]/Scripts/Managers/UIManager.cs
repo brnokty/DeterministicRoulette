@@ -8,16 +8,9 @@ namespace Game.UI
 {
     public class UIManager : MonoBehaviour
     {
+        #region Singleton
+
         public static UIManager Instance { get; private set; }
-        [SerializeField] private DeterministicOutcomeSelector deterministicSelector;
-        [SerializeField] private StatPanel statPanel;
-        [SerializeField] private TMP_Text balanceText;
-        [SerializeField] private Button spinButton;
-        [SerializeField] private Button resetButton;
-        [SerializeField] private TMP_Text resultText;
-        [SerializeField] private Image resultImage;
-        [SerializeField] private LastWinningListController lastWinningListController;
-        public YouWonPopUp youWonPopUp;
 
         private void Awake()
         {
@@ -33,6 +26,24 @@ namespace Game.UI
             }
         }
 
+        #endregion
+
+        #region INSPECTOR PROPERTIES
+
+        [SerializeField] private DeterministicOutcomeSelector deterministicSelector;
+        [SerializeField] private StatPanel statPanel;
+        [SerializeField] private TMP_Text balanceText;
+        [SerializeField] private Button spinButton;
+        [SerializeField] private Button resetButton;
+        [SerializeField] private TMP_Text resultText;
+        [SerializeField] private Image resultImage;
+        [SerializeField] private LastWinningListController lastWinningListController;
+        public YouWonPopUp youWonPopUp;
+
+        #endregion
+
+        #region UNITY METHODS
+
         private void Start()
         {
             // UI panel setup
@@ -40,6 +51,10 @@ namespace Game.UI
             UpdateBalance(GameManager.Instance.Balance);
             spinButton.onClick.AddListener(OnSpinButtonClicked);
         }
+
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void OnSpinButtonClicked()
         {
@@ -89,5 +104,7 @@ namespace Game.UI
             // lastWinningListController.ClearList();
             youWonPopUp.Disappear();
         }
+
+        #endregion
     }
 }

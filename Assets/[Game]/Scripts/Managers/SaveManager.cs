@@ -3,18 +3,19 @@ using UnityEngine;
 
 namespace Game.Core
 {
+    [System.Serializable]
+    public class SaveData
+    {
+        public int totalSpins, totalWins, totalLosses, totalProfit;
+        public int chips;
+        public string lastWinningNumber;
+    }
+
     public class SaveManager : MonoBehaviour
     {
-        public static SaveManager Instance { get; private set; }
-        private const string SAVE_KEY = "RouletteSaveData";
+        #region Singleton
 
-        [System.Serializable]
-        public class SaveData
-        {
-            public int totalSpins, totalWins, totalLosses, totalProfit;
-            public int chips; // Oyuncu bakiyesi
-            public string lastWinningNumber;
-        }
+        public static SaveManager Instance { get; private set; }
 
         private void Awake()
         {
@@ -28,6 +29,16 @@ namespace Game.Core
                 Destroy(gameObject);
             }
         }
+
+        #endregion
+
+        #region PRIVATE PROPERTIES
+
+        private const string SAVE_KEY = "RouletteSaveData";
+
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void SaveGame()
         {
@@ -87,5 +98,7 @@ namespace Game.Core
             SaveData data = JsonUtility.FromJson<SaveData>(json);
             return data.chips;
         }
+
+        #endregion
     }
 }

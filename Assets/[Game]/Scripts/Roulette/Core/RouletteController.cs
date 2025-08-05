@@ -13,6 +13,8 @@ public enum GameType
 
 public class RouletteController : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     [Header("References")] public WheelHandler wheelHandler;
     public BallHandler ballHandler;
     [SerializeField] private GameObject europeanBetArea;
@@ -45,6 +47,9 @@ public class RouletteController : MonoBehaviour
         "23", "35", "14", "2"
     };
 
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void StartSpin(string number, System.Action onComplete)
     {
@@ -135,7 +140,7 @@ public class RouletteController : MonoBehaviour
     {
         if (confettiParticleSystem != null)
         {
-            SoundManager.Instance.PlaySound(SoundManager.SoundType.Confetti);
+            SoundManager.Instance.PlaySound(SoundType.Confetti);
             confettiParticleSystem.Play();
         }
         else
@@ -143,4 +148,6 @@ public class RouletteController : MonoBehaviour
             Debug.LogWarning("Confetti Particle System is not assigned!");
         }
     }
+
+    #endregion
 }

@@ -30,16 +30,22 @@ namespace Game.Roulette
 
         #endregion
 
+        #region INSPECTOR PROPERTIES
+
         [Header("References")] public RouletteController rouletteController;
-        public BetManager betManager;
-        public UIManager uiManager;
+
+        [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
+
+        #endregion
+
+        #region PUBLIC PROPERTIES
+
         [HideInInspector] public int PlayerChips = 950;
         [HideInInspector] public string LastWinningNumber;
 
-        [Header("Settings")] public GameType gameType = GameType.EuropeanRoulette;
-        public int minBet = 10;
-        public int maxBet = 500;
+        #endregion
 
+        #region UNITY METHODS
 
         private void Start()
         {
@@ -47,17 +53,13 @@ namespace Game.Roulette
             rouletteController.SetGameType(gameType);
         }
 
-        public void PlaceBet(BetType betType, string[] numbers, int amount)
-        {
-            if (amount < minBet || amount > maxBet || amount > PlayerChips)
-                return;
-            // betManager.PlaceBet(betType, numbers, amount);
-            PlayerChips -= amount;
-        }
+        #endregion
+
+        #region PUBLIC METHODS
 
         public void ResetTable()
         {
-            betManager.ClearBets();
+            BetManager.Instance.ClearBets();
         }
 
         public void Spin(string deterministicNumber)
@@ -80,9 +82,13 @@ namespace Game.Roulette
             rouletteController.StartSpin(result, () => OnSpinComplete(result));
         }
 
+        #endregion
+
+        #region PRIVATE METHODS
+
         private void OnSpinComplete(string winningNumber)
         {
-            uiManager.ShowResult(winningNumber);
+            UIManager.Instance.ShowResult(winningNumber);
 
 
             bool isRed = IsRed(winningNumber); // Yardımcı fonksiyonun olsun
@@ -91,7 +97,7 @@ namespace Game.Roulette
             int winnings = BetManager.Instance.CalculateWinnings(int.Parse(winningNumber), isRed, isEven);
             if (winnings > 0)
             {
-                SoundManager.Instance.PlaySound(SoundManager.SoundType.Win);
+                SoundManager.Instance.PlaySound(SoundType.Win);
                 GameManager.Instance.AddMoney(winnings);
                 StatisticsManager.Instance.RecordSpin(true, winnings);
                 rouletteController.PlayConfetti();
@@ -99,7 +105,7 @@ namespace Game.Roulette
             }
             else
             {
-                SoundManager.Instance.PlaySound(SoundManager.SoundType.Lose);
+                SoundManager.Instance.PlaySound(SoundType.Lose);
                 StatisticsManager.Instance.RecordSpin(false, winnings);
             }
 
@@ -114,5 +120,7 @@ namespace Game.Roulette
             };
             return System.Array.Exists(redNumbers, n => n == number);
         }
+
+        #endregion
     }
 }
