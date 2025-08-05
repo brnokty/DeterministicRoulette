@@ -118,6 +118,19 @@ public class BallHandler : MonoBehaviour
             yield return null;
         }
 
+        float time = 0;
+        while (time < 0.5f)
+        {
+            float t = time / 0.5f;
+            // Pozisyonu Lerp
+            transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, t);
+            // Rotasyonu Slerp
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, finalY, 0), t);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
         // transform.localEulerAngles = new Vector3(0, finalY, 0);
         // transform.localPosition = startPos;
         onComplete?.Invoke();
